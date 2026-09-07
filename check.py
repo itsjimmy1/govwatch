@@ -49,11 +49,21 @@ def main():
         want(r["source"].startswith("https://"), f"no source URL on {r['name']} ({r['year']})")
         want(len(r["note"]) > 10, f"missing note on {r['name']}")
         want(r["pm"] and r["party"], f"missing government on {r['name']}")
-        want(r["kind"] in ("tax", "rate", "state"), f"bad kind on {r['name']}")
+        want(r["kind"] in ("tax", "rate", "state", "reform"), f"bad kind on {r['name']}")
     counted = [r for r in e if r["kind"] == "tax"]
     standing = sum(1 if r["action"] == "introduced" else -1 for r in counted)
     want(0 < standing < 60, f"running tax count ends at {standing}, which cannot be right")
     want(len(counted) >= 30, f"only {len(counted)} countable tax entries")
+    intro = {r["name"] for r in counted if r["action"] == "introduced"}
+    ended = {r["name"] for r in counted if r["action"] == "abolished"}
+    for name in sorted(intro - ended):
+        r = next(x for x in counted if x["name"] == name)
+        want(r.get("still_levied") is True or
+             (r.get("still_levied") is False and r.get("pending")),
+             f"{name!r} is introduced with no abolition entry, so the site implies it is "
+             f"still levied. Set still_levied true, or set it false with a pending note "
+             f"saying what is unsourced, or add an abolition entry.")
+
     names = {(r["name"], r["action"], r["year"]) for r in e}
     want(len(names) == len(e), "duplicate entries in the tax timeline")
 

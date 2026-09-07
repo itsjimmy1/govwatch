@@ -22,7 +22,7 @@
   <h1>Australian government, by the numbers</h1>
   <p>What Parliament passes, what it taxes, and how each member votes. Every figure on
      this site links to the public record it came from and shows the date it was read.
-     We publish the numbers and leave the arguing to you.</p>
+     Federal only, for now.</p>
 </div></div>
 
 
@@ -31,6 +31,10 @@
   <p class="sub">Commonwealth only. State and local taxation is not in these figures, so the
      total tax take across all levels of government is higher than the share shown here.</p>
   <div class="tiles" id="fiscal-tiles"></div>
+  <p class="src">Receipts: <a href="https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv">Budget Paper No. 1, Statement 5, Table 2</a>,
+     read <span data-fetched="receipts"></span>.
+     Debt: <a href="https://www.aofm.gov.au/data-hub">Australian Office of Financial Management</a>,
+     read <span data-fetched="debt"></span>.</p>
 </div></section>
 
 <section><div class="wrap">
@@ -55,6 +59,8 @@
   <h2>Commonwealth law</h2>
   <p class="sub">Live from the Federal Register of Legislation, the government's own register of Acts and instruments.</p>
   <div class="tiles" id="law-tiles"></div>
+  <p class="src">Source: <a href="https://api.prod.legislation.gov.au/v1/titles">Federal Register of Legislation OData API</a>
+     · read <span data-fetched="legislation"></span></p>
 </div></section>
 
 <section><div class="wrap">
@@ -68,17 +74,19 @@
 
 <section><div class="wrap">
   <h2>Federal taxes added and abolished</h2>
-  <p class="sub">Running count of distinct Commonwealth taxes in existence, from the timeline of
-     introductions and abolitions. Each entry is sourced on the <a href="taxes.html">tax timeline</a>.</p>
+  <p class="sub">Running count from the timeline of introductions and abolitions. Some early
+     taxes stopped being levied without a repeal entry in this list. Those are excluded from
+     the count of taxes levied today and named on the
+     <a href="taxes.html">tax timeline</a>, where every entry is sourced.</p>
   <div class="tiles" id="tax-tiles" style="margin-bottom:18px"></div>
   <div class="chart" id="tax-chart"></div>
   <p class="src">Source: GovWatch tax timeline, each entry individually sourced ·
-     <a href="taxes.html">see the table</a></p>
+     <a href="taxes.html">see the table</a> · compiled <span data-compiled="taxes"></span></p>
 </div></section>
 
 <section><div class="wrap">
   <h2>What we do not have yet</h2>
-  <p class="sub">Stated plainly, because a dashboard that hides its gaps is spin.</p>
+  <p class="sub">The gaps in the data above.</p>
   <div class="note-box" id="gaps"></div>
 </div></section>
 
@@ -94,6 +102,7 @@ const [leg, taxes, debt, rec] = await Promise.all(
 
 for (const [name, d] of [['receipts', rec], ['debt', debt]])
   for (const e of document.querySelectorAll(`[data-fetched="${name}"]`)) e.textContent = d.fetched;
+for (const e of document.querySelectorAll('[data-compiled="taxes"]')) e.textContent = taxes.compiled;
 
 const actual = rec.by_fy.filter(r => !r.estimate);
 const first = actual[0], last = actual[actual.length - 1];
@@ -141,23 +150,26 @@ let n = 0;
 const run = evs.map(e => ({ x: e.year, y: (n += e.action === 'introduced' ? 1 : -1) }));
 const added = evs.filter(e => e.action === 'introduced').length;
 const gone = evs.filter(e => e.action === 'abolished').length;
+// A tax with no abolition entry but still_levied false is not collected today; its
+// repeal date is simply unsourced. Counting it as standing would be a false claim.
+const unsourced = evs.filter(e => e.still_levied === false).length;
+const standing = added - gone - unsourced;
 
 document.getElementById('tax-tiles').innerHTML = [
   tile('Taxes introduced', fmt(added), 'Distinct federal taxes created since 1901'),
   tile('Taxes abolished', fmt(gone), 'Repealed or handed to the states'),
-  tile('Standing today', fmt(added - gone), 'Introduced minus abolished'),
+  tile('Levied today', fmt(standing), 'Of those introduced, still collected'),
   tile('Sourced entries', fmt(taxes.entries.length), 'Including rate changes, each with a source'),
 ].join('');
 
 document.getElementById('tax-chart').append(
-  stepline(run, { h: 260, label: 'Distinct federal taxes in existence' }));
+  stepline(run, { h: 260, label: 'Federal taxes introduced, less those abolished' }));
 
 document.getElementById('gaps').innerHTML =
   '<ul style="margin:0;padding-left:20px">' + taxes.gaps.map(g => `<li>${g}</li>`).join('') + '</ul>';
 </script>
 <footer><div class="wrap">
-  <p>GovWatch publishes numbers from public records and links every one to its source.
-     No commentary, no agenda. Corrections welcome:
+  <p>Every figure here links to the public record it came from. Corrections welcome:
      <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
   <p>Built on data from the Federal Register of Legislation, the Australian Office of
      Financial Management, the Commonwealth Budget papers and the Parliament of Australia.</p>

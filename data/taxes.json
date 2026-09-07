@@ -9,16 +9,19 @@
    "party": "Protectionist",
    "pm": "Edmund Barton",
    "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "still_levied": true,
    "year": 1901
   },
   {
    "action": "introduced",
    "kind": "tax",
    "name": "Bank Notes Tax",
-   "note": "A ten per cent annual tax on private bank note issues effectively ended private note issue in Australia.",
+   "note": "The Bank Notes Tax Act 1910 imposed a ten per cent annual tax on notes issued by private banks.",
    "party": "Labor",
+   "pending": "Private bank note issue ended long ago; repealing Act not yet sourced.",
    "pm": "Andrew Fisher",
    "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-one-the-1910s",
+   "still_levied": false,
    "year": 1910
   },
   {
@@ -49,6 +52,7 @@
    "party": "Labor",
    "pm": "Andrew Fisher",
    "source": "https://www.legislation.gov.au/Details/C1915A00034",
+   "still_levied": true,
    "year": 1915
   },
   {
@@ -67,8 +71,10 @@
    "name": "War-time Profits Tax",
    "note": "The War-time Profits Tax Assessment Act 1917 taxed business profits above a pre-war standard rate of return.",
    "party": "Nationalist",
+   "pending": "Ceased after the First World War; repealing Act not yet sourced.",
    "pm": "Billy Hughes",
    "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-one-the-1910s",
+   "still_levied": false,
    "year": 1917
   },
   {
@@ -117,8 +123,10 @@
    "name": "Uniform Income Tax",
    "note": "Wartime legislation gave the Commonwealth sole occupancy of the income tax field, with grants paid to states that withdrew.",
    "party": "Labor",
+   "pending": "The 1942 arrangements changed who collected income tax rather than adding a tax; counted separately here pending confirmation.",
    "pm": "John Curtin",
    "source": "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/income-tax-war-time-arrangements-act",
+   "still_levied": false,
    "year": 1942
   },
   {
@@ -167,8 +175,10 @@
    "name": "Crude Oil Production Levy",
    "note": "The 1975-76 Budget imposed a levy of two dollars per barrel on Australian-produced crude oil.",
    "party": "Labor",
+   "pending": "Wound back with fuel excise changes; end date not yet sourced.",
    "pm": "Gough Whitlam",
    "source": "https://www.pbo.gov.au/about-budgets/budget-insights/budget-explainers/fuel-taxation-australia",
+   "still_levied": false,
    "year": 1975
   },
   {
@@ -209,6 +219,7 @@
    "party": "Labor",
    "pm": "Bob Hawke",
    "source": "https://classic.austlii.edu.au/au/legis/cth/num_act/mla1984131/",
+   "still_levied": true,
    "year": 1984
   },
   {
@@ -219,6 +230,7 @@
    "party": "Labor",
    "pm": "Bob Hawke",
    "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "still_levied": true,
    "year": 1985
   },
   {
@@ -229,6 +241,7 @@
    "party": "Labor",
    "pm": "Bob Hawke",
    "source": "https://www.legislation.gov.au/Series/C2004A03281",
+   "still_levied": true,
    "year": 1986
   },
   {
@@ -243,9 +256,9 @@
   },
   {
    "action": "introduced",
-   "kind": "tax",
+   "kind": "reform",
    "name": "Dividend Imputation",
-   "note": "Imputation credits replaced classical company taxation, removing double taxation of Australian company profits distributed to resident shareholders.",
+   "note": "Imputation credits replaced classical company taxation, so tax paid by a company counts against the tax owed by its resident shareholders.",
    "party": "Labor",
    "pm": "Bob Hawke",
    "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
@@ -259,6 +272,7 @@
    "party": "Labor",
    "pm": "Bob Hawke",
    "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "still_levied": true,
    "year": 1987
   },
   {
@@ -269,6 +283,7 @@
    "party": "Labor",
    "pm": "Paul Keating",
    "source": "https://www.legislation.gov.au/C2004A04402/latest/text",
+   "still_levied": true,
    "year": 1992
   },
   {
@@ -309,6 +324,7 @@
    "party": "Labor",
    "pm": "Paul Keating",
    "source": "https://www.abf.gov.au/entering-and-leaving-australia/crossing-the-border/passenger-movement/passenger-movement-charge-(pmc)",
+   "still_levied": true,
    "year": 1995
   },
   {
@@ -319,6 +335,7 @@
    "party": "Liberal/National Coalition",
    "pm": "John Howard",
    "source": "https://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/cth/digest/tlalamlsb2008531/tlalamlsb2008531.html",
+   "still_levied": true,
    "year": 1997
   },
   {
@@ -339,6 +356,7 @@
    "party": "Liberal/National Coalition",
    "pm": "John Howard",
    "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "still_levied": true,
    "year": 2000
   },
   {
@@ -349,6 +367,7 @@
    "party": "Liberal/National Coalition",
    "pm": "John Howard",
    "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "still_levied": true,
    "year": 2000
   },
   {
@@ -369,6 +388,7 @@
    "party": "Liberal/National Coalition",
    "pm": "John Howard",
    "source": "https://www.legislation.gov.au/Details/C2017C00327",
+   "still_levied": true,
    "year": 2000
   },
   {
@@ -509,6 +529,7 @@
    "party": "Liberal/National Coalition",
    "pm": "Malcolm Turnbull",
    "source": "https://www.legislation.gov.au/Details/C2017A00021",
+   "still_levied": true,
    "year": 2017
   },
   {
@@ -519,6 +540,7 @@
    "party": "Liberal/National Coalition",
    "pm": "Malcolm Turnbull",
    "source": "https://www.legislation.gov.au/C2017A00063/asmade",
+   "still_levied": true,
    "year": 2017
   },
   {
@@ -533,17 +555,17 @@
   }
  ],
  "gaps": [
-  "No division or voting data yet. Both public Hansard mirrors need an API key.",
-  "No debt, receipts or spending figures yet. Those sit in Budget spreadsheets rather than an API, and are the next thing to land.",
-  "Federal only. No state parliaments, no local councils.",
-  "The tax timeline is compiled by hand, so it can be incomplete. Every entry links to its source so you can check it, and corrections are public."
+  "No division or voting data. Both public Hansard mirrors need an API key.",
+  "Federal only. No state parliaments, no local councils, so the total tax take across all levels of government is higher than anything shown here.",
+  "No spending figures. Payments as a share of GDP are published only inside a Budget spreadsheet, which needs a parser we have not written.",
+  "The tax timeline is compiled by hand and stops at 2017. It can be incomplete. Every entry links to its source, and corrections are public.",
+  "Rate, threshold and bracket changes are not tracked except for the Medicare levy. The tax burden moves without a tax being added or removed."
  ],
  "method": [
   "Each entry is a distinct Commonwealth tax being created or ended, sourced to a Treasury, Parliamentary Library, ATO or legislation.gov.au record.",
-  "Rate changes are listed but marked, and do not move the running count. Putting the Medicare levy up is not a new tax.",
-  "Two state taxes abolished under the GST agreement are listed for completeness and marked, because the Commonwealth did not levy them.",
+  "Medicare levy rate rises are listed and marked. They do not move the running count, because raising a rate does not add a tax. No other rate changes are tracked.",
+  "Two state taxes abolished under the GST agreement are listed and marked, because the Commonwealth did not levy them.",
   "A tax handed to the states is recorded as abolished federally. The tax did not disappear; the level of government collecting it changed.",
-  "The party shown is the party in office at the time, under the name then current.",
-  "This does not track thresholds, brackets or bracket creep, which move the tax burden without adding or removing a tax."
+  "The party shown is the party in office at the time, under the name then current."
  ]
 }

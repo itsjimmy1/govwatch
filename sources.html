@@ -48,6 +48,22 @@
         <td class="yr" data-compiled="taxes">—</td>
       </tr>
       <tr>
+        <td><strong>Tax receipts as a share of GDP</strong>
+            <div class="note">Commonwealth receipts, 1978-79 onward, including Budget estimates.</div></td>
+        <td><a href="https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv" rel="noopener">Budget Paper No. 1, Statement 5, Table 2</a>
+            <div class="note">CSV published by Treasury, no key required</div></td>
+        <td>Daily, automated</td>
+        <td class="yr" data-fetched="receipts">—</td>
+      </tr>
+      <tr>
+        <td><strong>Government securities on issue</strong>
+            <div class="note">Gross debt, face value at 30 June.</div></td>
+        <td><a href="https://www.aofm.gov.au/data-hub" rel="noopener">Australian Office of Financial Management</a>
+            <div class="note">CSV, citing the Final Budget Outcome, Table B.5</div></td>
+        <td>Daily, automated</td>
+        <td class="yr" data-fetched="debt">—</td>
+      </tr>
+      <tr>
         <td><strong>Division results</strong>
             <div class="note">How members voted.</div></td>
         <td><a href="https://www.openaustralia.org.au/" rel="noopener">OpenAustralia</a> and
@@ -65,13 +81,13 @@
   <ol>
     <li><strong>Every number carries a source and a date.</strong> If we cannot link it to a
         public record, we do not publish it.</li>
-    <li><strong>Gaps are stated, not hidden.</strong> A dashboard that quietly omits what it
-        lacks is spin by another name. Missing data appears as missing.</li>
+    <li><strong>Gaps are listed.</strong> Missing data appears as missing, on the
+        dashboard and here.</li>
     <li><strong>Counting is not judging.</strong> We report that a tax was introduced or that
         a member voted no. We do not report whether that was wise.</li>
-    <li><strong>Where the numbers are contested, we show the contest.</strong> Economists
-        disagree about what a tax burden does to growth. We link the competing analyses
-        rather than picking one and calling it fact.</li>
+    <li><strong>Where the numbers are contested, both readings get linked.</strong>
+        Economists disagree about what a tax burden does to growth. That disagreement is
+        itself a fact and gets shown as one.</li>
     <li><strong>Corrections are public.</strong> Raise an
         <a href="https://github.com/itsjimmy1/govwatch/issues" rel="noopener">issue</a> and the
         change and its reason stay in the record.</li>
@@ -83,8 +99,12 @@
     <li>"Acts made per year" counts Acts made, including those since repealed. It measures
         parliamentary output, not the current size of the statute book. "Acts in force" is
         the second measure.</li>
-    <li>The tax timeline covers distinct named taxes. It does not track rate changes,
-        threshold changes or bracket creep, which move the tax burden without adding a tax.</li>
+    <li>The tax timeline covers distinct named taxes and stops at 2017. Medicare levy rate
+        rises are listed but marked, and do not move the count. No other rate, threshold or
+        bracket change is tracked, though all of them move the tax burden.</li>
+    <li>Commonwealth receipts exclude state and local taxation, so the share of GDP shown
+        understates the total tax take across all levels of government.</li>
+    <li>Debt on issue is gross, at face value. It is not net debt and excludes state borrowing.</li>
     <li>A tax handed from the Commonwealth to the states is recorded as abolished federally.
         The tax did not disappear; the level of government collecting it changed.</li>
     <li>Party labels are the party in office at the time and use the name then current.</li>
@@ -96,16 +116,15 @@
      Run <code>python3 fetch.py</code> and compare the output to what this site shows.</p>
 </div></div></section>
 <script type="module">
-const [leg, taxes] = await Promise.all([
-  fetch('data/legislation.json', { cache: 'no-cache' }).then(r => r.json()),
-  fetch('data/taxes.json', { cache: 'no-cache' }).then(r => r.json()),
-]);
-for (const e of document.querySelectorAll('[data-fetched="legislation"]')) e.textContent = leg.fetched;
+const names = ['legislation', 'taxes', 'receipts', 'debt'];
+const [leg, taxes, rec, debt] = await Promise.all(
+  names.map(n => fetch(`data/${n}.json`, { cache: 'no-cache' }).then(r => r.json())));
+for (const [n, d] of [['legislation', leg], ['receipts', rec], ['debt', debt]])
+  for (const e of document.querySelectorAll(`[data-fetched="${n}"]`)) e.textContent = d.fetched;
 for (const e of document.querySelectorAll('[data-compiled="taxes"]')) e.textContent = taxes.compiled;
 </script>
 <footer><div class="wrap">
-  <p>GovWatch publishes numbers from public records and links every one to its source.
-     No commentary, no agenda. Corrections welcome:
+  <p>Every figure here links to the public record it came from. Corrections welcome:
      <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
   <p>Built on data from the Federal Register of Legislation, the Australian Office of
      Financial Management, the Commonwealth Budget papers and the Parliament of Australia.</p>
