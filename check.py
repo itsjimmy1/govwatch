@@ -154,8 +154,14 @@ def main():
             want(not (code in filled and word in blob),
                  f"a caveat still says {code} data is missing, but every {code} cell "
                  f"now has a source")
-        want("the six" not in blob and "six jurisdictions" not in blob,
-             "a caveat still counts six jurisdictions; there are eight")
+        # The failure this catches is a caveat describing the comparison itself as
+        # covering six jurisdictions. "The other six" is a different, correct claim.
+        n = len(st["jurisdictions"])
+        for phrase in ("comparing the six", "across the six", "the six compares",
+                       "for six jurisdictions", "six of the eight are"):
+            want(phrase not in blob,
+                 f"a caveat describes the comparison as covering six jurisdictions; "
+                 f"there are {n}")
         codes = {x["code"] for x in st["jurisdictions"]}
         want(codes == {"NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"},
              f"expected all eight jurisdictions, got {sorted(codes)}")

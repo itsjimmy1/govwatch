@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Patterns by party and decade — GovWatch</title>
 <meta name="description" content="Which Australian governments added federal taxes, which removed them, and how much law each one made.">
-<link rel="stylesheet" href="style.css?v=7be24ace">
+<link rel="stylesheet" href="style.css?v=091ab7f8">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -83,7 +83,7 @@
 </div></section>
 
 <script type="module">
-import { grouped, groupedH, legend, bars, fmt, isNarrow } from './chart.js?v=43883da9';
+import { grouped, groupedH, legend, bars, fmt, isNarrow } from './chart.js?v=2682a559';
 const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
 const INTRO = '#8a5600', ABOL = '#6b7484';
 
@@ -196,19 +196,30 @@ if (!govs) {
       return { x: d, label: `${d}s`, y: e.acts, fill: PARTY_COLOUR[top],
                title: `${d}s: ${fmt(e.acts)} Acts, mostly under ${top}`, fam: top };
     });
-    document.getElementById('acts-gov-chart').append(
-      bars(decRows, { h: 300, xEvery: 1, integer: true }));
+    document.getElementById('acts-gov-chart').append(groupedH(
+      decRows.map(r => r.label),
+      [{ name: 'Acts made', colour: 'var(--accent)',
+         values: decRows.map(r => r.y),
+         colours: decRows.map(r => r.fill),
+         titles: decRows.map(r => r.title) }],
+      { integer: true }));
+    document.getElementById('acts-gov-legend').append(legend(
+      [...new Set(decRows.map(r => r.fam))].map(f => ({ name: f, colour: PARTY_COLOUR[f] }))));
     document.getElementById('acts-gov-chart').insertAdjacentHTML('afterend',
       '<p class="src">Grouped by decade because a bar per year is under two pixels wide ' +
-      'on a phone. Open this page on a wider screen for the year-by-year chart. Each ' +
-      'decade takes the colour of whichever side held office for more of it.</p>');
+      'on a phone, and because a tap cannot reach a tooltip. Open this page on a wider ' +
+      'screen for the chart year by year. Each decade takes the colour of whichever ' +
+      `side held office for more of it. The current decade includes ${fmt(thisYearActs)} ` +
+      `Acts from an incomplete ${thisYear}.</p>`);
   } else {
     document.getElementById('acts-gov-chart').append(
       bars(rows, { h: 320, xEvery: 10, integer: true }));
   }
-  const lseries = [...new Set(rows.map(r => r.fam))]
-    .map(f => ({ name: f, colour: PARTY_COLOUR[f] }));
-  document.getElementById('acts-gov-legend').append(legend(lseries));
+  if (!narrow) {
+    const lseries = [...new Set(rows.map(r => r.fam))]
+      .map(f => ({ name: f, colour: PARTY_COLOUR[f] }));
+    document.getElementById('acts-gov-legend').append(legend(lseries));
+  }
 
   const tile = (k, v, n) =>
     `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;

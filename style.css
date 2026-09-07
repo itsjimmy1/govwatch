@@ -99,9 +99,13 @@ footer a { color:var(--faint); }
     color: var(--faint); font-size: 12px; text-transform: uppercase;
     letter-spacing: .05em; display: inline-block; min-width: 84px;
   }
-  table.stack td[data-label] { display:flex; gap:8px; align-items:baseline;
-    justify-content:space-between; padding:3px 0; }
+  table.stack td[data-label] { display:flex; gap:8px 12px; align-items:baseline;
+    justify-content:space-between; flex-wrap:wrap; padding:3px 0; }
+  table.stack td[data-label]::before { flex:none; }
   table.stack td[data-label] .bar { display:none; }
+  /* The note wraps under the label and value rather than squeezing them. */
+  table.stack td[data-label] .note { flex-basis:100%; margin-top:2px; }
+  table.stack td[data-label] > a { padding-right:2px; }
   table.stack td.yr { width:auto; color:var(--accent); font-weight:650; font-size:13px; }
   .hero h1 { font-size:27px; }
   .tile .v { font-size:28px; }

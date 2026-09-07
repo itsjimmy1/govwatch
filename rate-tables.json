@@ -1,0 +1,1080 @@
+[
+  {
+    "i": 1,
+    "hdr": [
+      "Jurisdiction",
+      "Payroll tax rate",
+      "Source"
+    ],
+    "rows": [
+      [
+        {
+          "txt": "NSW — New South Wales",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "5.45%",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "NSW source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NSW source"
+        }
+      ],
+      [
+        {
+          "txt": "VIC — Victoria",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "4.85%\n          \n          Mental health and COVID-19 debt levies add 1% above $10m national payroll and 2% above $100m. Regional employers 1.2125%.",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "VIC source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "VIC source"
+        }
+      ],
+      [
+        {
+          "txt": "QLD — Queensland",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "4.75%\n          \n          Mental health levy adds 0.25% above $10m national payroll and 0.5% more above $100m. Rate rises to 4.95% above $6.5m Australian wages.",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "QLD source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "QLD source"
+        }
+      ],
+      [
+        {
+          "txt": "WA — Western Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "5.5%\n          \n          No levy. The deduction tapers away between $1m and $7.5m of wages.",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "WA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "WA source"
+        }
+      ],
+      [
+        {
+          "txt": "SA — South Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "4.95%\n          \n          Sourced from payrolltax.gov.au, the harmonised site the jurisdictions publish jointly, because RevenueSA refuses automated requests. Every other South Australian row here comes from RevenueSA itself. Phases in between $1.5m and $1.7m of wages.",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "SA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "SA source"
+        }
+      ],
+      [
+        {
+          "txt": "TAS — Tasmania",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "4%\n          \n          A second band of 6.1% applies above $2,000,000, so the headline rate covers a narrow range.",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "TAS source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "TAS source"
+        }
+      ],
+      [
+        {
+          "txt": "ACT — Australian Capital Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "6.75%\n          \n          Tiered above the base rate: 6.85% above $20m national wages, 7.35% above $50m, 7.85% above $100m, 8.75% above $150m.",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "ACT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "ACT source"
+        }
+      ],
+      [
+        {
+          "txt": "NT — Northern Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "5.5%\n          \n          The threshold rose from $1.5m to $2.5m in 2025-26. A 6.5% rate applies to employers with Australia-wide wages of $100 million or more from 1 July 2026.",
+          "dl": "Payroll tax rate",
+          "before": "\"Payroll tax rate \""
+        },
+        {
+          "txt": "NT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NT source"
+        }
+      ]
+    ]
+  },
+  {
+    "i": 2,
+    "hdr": [
+      "Jurisdiction",
+      "Payroll tax threshold",
+      "Source"
+    ],
+    "rows": [
+      [
+        {
+          "txt": "NSW — New South Wales",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,200,000",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "NSW source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NSW source"
+        }
+      ],
+      [
+        {
+          "txt": "VIC — Victoria",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,000,000\n          \n          Mental health and COVID-19 debt levies add 1% above $10m national payroll and 2% above $100m. Regional employers 1.2125%.",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "VIC source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "VIC source"
+        }
+      ],
+      [
+        {
+          "txt": "QLD — Queensland",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,300,000\n          \n          Mental health levy adds 0.25% above $10m national payroll and 0.5% more above $100m. Rate rises to 4.95% above $6.5m Australian wages.",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "QLD source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "QLD source"
+        }
+      ],
+      [
+        {
+          "txt": "WA — Western Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,000,000\n          \n          No levy. The deduction tapers away between $1m and $7.5m of wages.",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "WA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "WA source"
+        }
+      ],
+      [
+        {
+          "txt": "SA — South Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,500,000\n          \n          Sourced from payrolltax.gov.au, the harmonised site the jurisdictions publish jointly, because RevenueSA refuses automated requests. Every other South Australian row here comes from RevenueSA itself. Phases in between $1.5m and $1.7m of wages.",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "SA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "SA source"
+        }
+      ],
+      [
+        {
+          "txt": "TAS — Tasmania",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,250,000\n          \n          A second band of 6.1% applies above $2,000,000, so the headline rate covers a narrow range.",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "TAS source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "TAS source"
+        }
+      ],
+      [
+        {
+          "txt": "ACT — Australian Capital Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,750,000\n          \n          Tiered above the base rate: 6.85% above $20m national wages, 7.35% above $50m, 7.85% above $100m, 8.75% above $150m.",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "ACT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "ACT source"
+        }
+      ],
+      [
+        {
+          "txt": "NT — Northern Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$2,500,000\n          \n          The threshold rose from $1.5m to $2.5m in 2025-26. A 6.5% rate applies to employers with Australia-wide wages of $100 million or more from 1 July 2026.",
+          "dl": "Payroll tax threshold",
+          "before": "\"Payroll tax threshold \""
+        },
+        {
+          "txt": "NT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NT source"
+        }
+      ]
+    ]
+  },
+  {
+    "i": 3,
+    "hdr": [
+      "Jurisdiction",
+      "Land tax threshold",
+      "Source"
+    ],
+    "rows": [
+      [
+        {
+          "txt": "NSW — New South Wales",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,075,000\n          \n          Premium rate applies above $6,571,000. Thresholds frozen from 2025.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "NSW source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NSW source"
+        }
+      ],
+      [
+        {
+          "txt": "VIC — Victoria",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$50,000\n          \n          Top rate applies above $3,000,000.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "VIC source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "VIC source"
+        }
+      ],
+      [
+        {
+          "txt": "QLD — Queensland",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$600,000\n          \n          Resident individual threshold. Companies and trustees use $350,000.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "QLD source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "QLD source"
+        }
+      ],
+      [
+        {
+          "txt": "WA — Western Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$300,000\n          \n          Perth metropolitan land pays a further 0.14% Metropolitan Region Improvement Tax above $300,000, which is not in this rate.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "WA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "WA source"
+        }
+      ],
+      [
+        {
+          "txt": "SA — South Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$936,000\n          \n          Top rate applies above $3,504,000. Trusts use a $25,000 threshold.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "SA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "SA source"
+        }
+      ],
+      [
+        {
+          "txt": "TAS — Tasmania",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$125,000\n          \n          Top rate applies above $500,000.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "TAS source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "TAS source"
+        }
+      ],
+      [
+        {
+          "txt": "ACT — Australian Capital Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$0\n          \n          No tax-free threshold. A fixed charge of $1,778 applies before any marginal rate, so a zero here is not comparable to a threshold elsewhere.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "ACT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "ACT source"
+        }
+      ],
+      [
+        {
+          "txt": "NT — Northern Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "no such tax\n          \n          The Northern Territory levies no land tax. Its Revenue Office's list of the Acts it administers contains no land tax Act.",
+          "dl": "Land tax threshold",
+          "before": "\"Land tax threshold \""
+        },
+        {
+          "txt": "NT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NT source"
+        }
+      ]
+    ]
+  },
+  {
+    "i": 4,
+    "hdr": [
+      "Jurisdiction",
+      "Land tax top rate",
+      "Source"
+    ],
+    "rows": [
+      [
+        {
+          "txt": "NSW — New South Wales",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "2%\n          \n          Premium rate applies above $6,571,000. Thresholds frozen from 2025.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "NSW source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NSW source"
+        }
+      ],
+      [
+        {
+          "txt": "VIC — Victoria",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "2.65%\n          \n          Top rate applies above $3,000,000.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "VIC source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "VIC source"
+        }
+      ],
+      [
+        {
+          "txt": "QLD — Queensland",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "2.25%\n          \n          Resident individual threshold. Companies and trustees use $350,000.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "QLD source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "QLD source"
+        }
+      ],
+      [
+        {
+          "txt": "WA — Western Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "2.67%\n          \n          Perth metropolitan land pays a further 0.14% Metropolitan Region Improvement Tax above $300,000, which is not in this rate.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "WA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "WA source"
+        }
+      ],
+      [
+        {
+          "txt": "SA — South Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "2.4%\n          \n          Top rate applies above $3,504,000. Trusts use a $25,000 threshold.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "SA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "SA source"
+        }
+      ],
+      [
+        {
+          "txt": "TAS — Tasmania",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "1.5%\n          \n          Top rate applies above $500,000.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "TAS source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "TAS source"
+        }
+      ],
+      [
+        {
+          "txt": "ACT — Australian Capital Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "1.26%\n          \n          No tax-free threshold. A fixed charge of $1,778 applies before any marginal rate, so a zero here is not comparable to a threshold elsewhere.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "ACT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "ACT source"
+        }
+      ],
+      [
+        {
+          "txt": "NT — Northern Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "no such tax\n          \n          The Northern Territory levies no land tax. Its Revenue Office's list of the Acts it administers contains no land tax Act.",
+          "dl": "Land tax top rate",
+          "before": "\"Land tax top rate \""
+        },
+        {
+          "txt": "NT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NT source"
+        }
+      ]
+    ]
+  },
+  {
+    "i": 5,
+    "hdr": [
+      "Jurisdiction",
+      "Transfer duty on a $750,000 home",
+      "Source"
+    ],
+    "rows": [
+      [
+        {
+          "txt": "NSW — New South Wales",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$27,937\n          \n          No owner-occupier concession, so the same duty an investor pays.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "NSW source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NSW source"
+        }
+      ],
+      [
+        {
+          "txt": "VIC — Victoria",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$40,070\n          \n          The concessional owner-occupier scale stops at $550,000, so general rates apply.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "VIC source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "VIC source"
+        }
+      ],
+      [
+        {
+          "txt": "QLD — Queensland",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$17,800\n          \n          Includes the owner-occupier home concession. Without it the scale gives $26,775.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "QLD source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "QLD source"
+        }
+      ],
+      [
+        {
+          "txt": "WA — Western Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$29,741\n          \n          General rate, which has equalled the residential rate since July 2022.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "WA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "WA source"
+        }
+      ],
+      [
+        {
+          "txt": "SA — South Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$35,080\n          \n          No owner-occupier concession in the scale. Confirmed against RevenueSA's own calculator.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "SA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "SA source"
+        }
+      ],
+      [
+        {
+          "txt": "TAS — Tasmania",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$28,935\n          \n          No general owner-occupier concession.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "TAS source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "TAS source"
+        }
+      ],
+      [
+        {
+          "txt": "ACT — Australian Capital Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$19,208\n          \n          Eligible owner-occupier scale. A non-owner-occupier pays $22,200. Conveyance duty is in a 20-year phase-out funded by higher general rates.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "ACT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "ACT source"
+        }
+      ],
+      [
+        {
+          "txt": "NT — Northern Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$37,125\n          \n          A flat 4.95% applies between $525,000 and $3,000,000. Read from the Territory's own conveyance calculator, because the scale is not published as text.",
+          "dl": "Transfer duty on a $750,000 home",
+          "before": "\"Transfer duty on a $750,000 home \""
+        },
+        {
+          "txt": "NT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NT source"
+        }
+      ]
+    ]
+  },
+  {
+    "i": 6,
+    "hdr": [
+      "Jurisdiction",
+      "Duty on a $40,000 car",
+      "Source"
+    ],
+    "rows": [
+      [
+        {
+          "txt": "NSW — New South Wales",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,200\n          \n          $3 per $100 up to $44,999.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "NSW source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NSW source"
+        }
+      ],
+      [
+        {
+          "txt": "VIC — Victoria",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,680\n          \n          $8.40 per $200 for passenger cars up to $80,809.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "VIC source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "VIC source"
+        }
+      ],
+      [
+        {
+          "txt": "QLD — Queensland",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,200\n          \n          1-4 cylinder. Hybrid and electric $800, 5-6 cylinder $1,400, 7+ cylinder $1,600.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "QLD source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "QLD source"
+        }
+      ],
+      [
+        {
+          "txt": "WA — Western Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$2,000\n          \n          A sliding rate between $25,000 and $50,000 reaches 5% at $40,000.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "WA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "WA source"
+        }
+      ],
+      [
+        {
+          "txt": "SA — South Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,540\n          \n          Non-commercial vehicle: $60 plus $4 per $100 above $3,000.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "SA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "SA source"
+        }
+      ],
+      [
+        {
+          "txt": "TAS — Tasmania",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,600\n          \n          The $35,000 to $40,000 band charges $11 per $100 over $35,000.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "TAS source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "TAS source"
+        }
+      ],
+      [
+        {
+          "txt": "ACT — Australian Capital Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,200\n          \n          Priced by emissions, not value alone. At $40,000 the range runs $1,000 to $1,812; this is the mid category.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "ACT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "ACT source"
+        }
+      ],
+      [
+        {
+          "txt": "NT — Northern Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "$1,200\n          \n          $3 per $100 of dutiable value, with no commercial split.",
+          "dl": "Duty on a $40,000 car",
+          "before": "\"Duty on a $40,000 car \""
+        },
+        {
+          "txt": "NT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NT source"
+        }
+      ]
+    ]
+  },
+  {
+    "i": 7,
+    "hdr": [
+      "Jurisdiction",
+      "General insurance duty",
+      "Source"
+    ],
+    "rows": [
+      [
+        {
+          "txt": "NSW — New South Wales",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "9%\n          \n          Type A general insurance. Motor vehicle and disability income are 5%.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "NSW source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NSW source"
+        }
+      ],
+      [
+        {
+          "txt": "VIC — Victoria",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "10%\n          \n          Non-business general insurance. Business insurance is 7% in 2026-27, falling to abolition in 2033.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "VIC source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "VIC source"
+        }
+      ],
+      [
+        {
+          "txt": "QLD — Queensland",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "9%\n          \n          Class 1 and Class 2 general insurance, including GST.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "QLD source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "QLD source"
+        }
+      ],
+      [
+        {
+          "txt": "WA — Western Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "10%\n          \n          Of the premium including GST.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "WA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "WA source"
+        }
+      ],
+      [
+        {
+          "txt": "SA — South Australia",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "11%\n          \n          General insurance. Life insurance is 1.5%.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "SA source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "SA source"
+        }
+      ],
+      [
+        {
+          "txt": "TAS — Tasmania",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "10%\n          \n          Of the premium including commission, GST and levies.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "TAS source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "TAS source"
+        }
+      ],
+      [
+        {
+          "txt": "ACT — Australian Capital Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "0%\n          \n          Abolished on 1 July 2016. The only jurisdiction with no insurance duty.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "ACT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "ACT source"
+        }
+      ],
+      [
+        {
+          "txt": "NT — Northern Territory",
+          "dl": null,
+          "before": "none"
+        },
+        {
+          "txt": "10%\n          \n          Of the premium. Life policies issued after 1 July 2015 are exempt.",
+          "dl": "General insurance duty",
+          "before": "\"General insurance duty \""
+        },
+        {
+          "txt": "NT source",
+          "dl": "Source",
+          "before": "\"Source \"",
+          "link": "NT source"
+        }
+      ]
+    ]
+  }
+]

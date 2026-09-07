@@ -194,7 +194,14 @@ export function grouped(cats, series, { w = chartWidth(), h = 300, ticks = 4, un
  *  Used on narrow screens, where long category names cannot sit side by side. */
 export function groupedH(cats, series, { w = chartWidth(), ticks = 4, unit = '',
                                          integer = false } = {}) {
-  const L = 150, R = 16, top = 8, rowH = 30 + series.length * 4, gap = 14;
+  // Category names sit in a left gutter, so they must be wrapped to fit it. Anchoring
+  // a 34-character party name at the gutter edge ran it off the left of the viewBox.
+  const CH = 8.4, GUTTER = 150, MAXCH = Math.floor((GUTTER - 12) / CH);
+  const wrapped = cats.map(c => wrapWords(String(c), MAXCH));
+  const lines = Math.max(...wrapped.map(l => l.length));
+  const rowH = Math.max(26, lines * 19) + series.length * 4;
+  // The value sits past the end of the bar, so the right margin has to hold it.
+  const L = GUTTER, R = 52, top = 8, gap = 14;
   const h = top + cats.length * (rowH + gap) + 26;
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
   if (isNarrow()) svg.setAttribute('data-narrow', '');
@@ -202,28 +209,43 @@ export function groupedH(cats, series, { w = chartWidth(), ticks = 4, unit = '',
   ({ max, ticks: t } = niceAxis(Math.max(...series.flatMap(s => s.values)), ticks, integer));
   const iw = w - L - R;
 
+  let lastRight = -Infinity;
   for (let i = 0; i <= t; i++) {
     const v = (max / t) * i, x = L + (v / max) * iw;
     svg.append(el('line', { class: 'grid', x1: x, x2: x, y1: top, y2: h - 26 }));
-    const lb = el('text', { class: 'axis', x, y: h - 8, 'text-anchor': 'middle' });
-    lb.textContent = fmt(Number(v.toFixed(2)));
+    const text = fmt(Number(v.toFixed(2)));
+    const anchor = i === t ? 'end' : (i === 0 ? 'start' : 'middle');
+    const half = (text.length * CH) / 2;
+    const left = anchor === 'end' ? x - text.length * CH
+               : anchor === 'start' ? x : x - half;
+    // Skip a tick label rather than let it print on top of its neighbour.
+    if (left < lastRight + 4) continue;
+    lastRight = left + text.length * CH;
+    const lb = el('text', { class: 'axis', x, y: h - 8, 'text-anchor': anchor });
+    lb.textContent = text;
     svg.append(lb);
   }
   cats.forEach((c, ci) => {
     const y0 = top + ci * (rowH + gap);
     const bh = rowH / series.length;
-    const name = el('text', { class: 'axis', x: L - 10, y: y0 + rowH / 2 + 5,
-                              'text-anchor': 'end' });
-    name.textContent = String(c);
-    svg.append(name);
+    const ls = wrapped[ci];
+    ls.forEach((ln, li) => {
+      const t2 = el('text', {
+        class: 'axis', x: L - 10, 'text-anchor': 'end',
+        y: (y0 + rowH / 2 - (ls.length - 1) * 9 + li * 18 + 5).toFixed(1),
+      });
+      t2.textContent = ln;
+      svg.append(t2);
+    });
     series.forEach((s, si) => {
       const v = s.values[ci];
       const bw = (v / max) * iw;
       const r = el('rect', { x: L, y: (y0 + si * bh).toFixed(1),
                              width: Math.max(bw, v > 0 ? 1 : 0).toFixed(1),
-                             height: (bh - 3).toFixed(1), fill: s.colour, rx: 2 });
+                             height: (bh - 3).toFixed(1),
+                             fill: s.colours?.[ci] ?? s.colour, rx: 2 });
       const ttl = el('title');
-      ttl.textContent = `${c} — ${s.name}: ${fmt(v)}${unit}`;
+      ttl.textContent = s.titles?.[ci] ?? `${c} — ${s.name}: ${fmt(v)}${unit}`;
       r.append(ttl);
       svg.append(r);
       const lab = el('text', { class: 'axis', x: (L + bw + 6).toFixed(1),
@@ -233,6 +255,19 @@ export function groupedH(cats, series, { w = chartWidth(), ticks = 4, unit = '',
     });
   });
   return svg;
+}
+
+/** Break a label into lines of at most `max` characters, never splitting a word. */
+function wrapWords(text, max) {
+  const out = [];
+  let line = '';
+  for (const word of text.split(' ')) {
+    if (!line) line = word;
+    else if ((line + ' ' + word).length <= max) line += ' ' + word;
+    else { out.push(line); line = word; }
+  }
+  if (line) out.push(line);
+  return out;
 }
 
 /** A legend the caller places under a chart. */
