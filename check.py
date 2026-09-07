@@ -35,6 +35,11 @@ def main():
         want(r["source"].startswith("https://"), f"no source URL on {r['name']} ({r['year']})")
         want(len(r["note"]) > 10, f"missing note on {r['name']}")
         want(r["pm"] and r["party"], f"missing government on {r['name']}")
+        want(r["kind"] in ("tax", "rate", "state"), f"bad kind on {r['name']}")
+    counted = [r for r in e if r["kind"] == "tax"]
+    standing = sum(1 if r["action"] == "introduced" else -1 for r in counted)
+    want(0 < standing < 60, f"running tax count ends at {standing}, which cannot be right")
+    want(len(counted) >= 30, f"only {len(counted)} countable tax entries")
     names = {(r["name"], r["action"], r["year"]) for r in e}
     want(len(names) == len(e), "duplicate entries in the tax timeline")
 

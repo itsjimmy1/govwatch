@@ -78,22 +78,23 @@ document.getElementById('acts-chart').append(
   bars(leg.by_year.map(r => ({ x: r.year, y: r.acts, title: `${r.year}: ${r.acts} Acts` })),
        { h: 300, xEvery: 10 }));
 
-// Running count of taxes in existence.
-const evs = [...taxes.entries].sort((a, b) => a.year - b.year);
+// Running count of distinct federal taxes standing. Rate changes and state
+// taxes are in the table but must not move this count.
+const evs = taxes.entries.filter(e => e.kind === 'tax').sort((a, b) => a.year - b.year);
 let n = 0;
 const run = evs.map(e => ({ x: e.year, y: (n += e.action === 'introduced' ? 1 : -1) }));
 const added = evs.filter(e => e.action === 'introduced').length;
 const gone = evs.filter(e => e.action === 'abolished').length;
 
 document.getElementById('tax-tiles').innerHTML = [
-  tile('Taxes introduced', fmt(added), 'Distinct federal taxes since 1901'),
+  tile('Taxes introduced', fmt(added), 'Distinct federal taxes created since 1901'),
   tile('Taxes abolished', fmt(gone), 'Repealed or handed to the states'),
-  tile('Net standing', fmt(added - gone), 'Introduced minus abolished'),
-  tile('Entries sourced', fmt(evs.length), 'Every one links to a public record'),
+  tile('Standing today', fmt(added - gone), 'Introduced minus abolished'),
+  tile('Sourced entries', fmt(taxes.entries.length), 'Including rate changes, each with a source'),
 ].join('');
 
 document.getElementById('tax-chart').append(
-  stepline(run, { h: 260, label: 'Federal taxes in existence' }));
+  stepline(run, { h: 260, label: 'Distinct federal taxes in existence' }));
 
 document.getElementById('gaps').innerHTML =
   '<ul style="margin:0;padding-left:20px">' + taxes.gaps.map(g => `<li>${g}</li>`).join('') + '</ul>';

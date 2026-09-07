@@ -1,0 +1,549 @@
+{
+ "compiled": "2026-09-08",
+ "entries": [
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Customs and Excise Duties",
+   "note": "Section 90 gave the Commonwealth exclusive power over customs and excise; a uniform federal tariff was legislated in the Customs Tariff Act 1902.",
+   "party": "Protectionist",
+   "pm": "Edmund Barton",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1901
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Bank Notes Tax",
+   "note": "A ten per cent annual tax on private bank note issues effectively ended private note issue in Australia.",
+   "party": "Labor",
+   "pm": "Andrew Fisher",
+   "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-one-the-1910s",
+   "year": 1910
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Federal Land Tax",
+   "note": "The Land Tax Act 1910 imposed a progressive tax on the unimproved capital value of land above an exemption threshold.",
+   "party": "Labor",
+   "pm": "Andrew Fisher",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1910
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Federal Estate Duty",
+   "note": "The Estate Duty Assessment Act 1914 imposed Commonwealth duty on deceased estates to fund the First World War.",
+   "party": "Labor",
+   "pm": "Andrew Fisher",
+   "source": "https://www.legislation.gov.au/Details/C1914A00022",
+   "year": 1914
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Federal Income Tax",
+   "note": "The Income Tax Assessment Act 1915 created a Commonwealth income tax operating alongside existing state income taxes.",
+   "party": "Labor",
+   "pm": "Andrew Fisher",
+   "source": "https://www.legislation.gov.au/Details/C1915A00034",
+   "year": 1915
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Entertainments Tax",
+   "note": "The Entertainments Tax Assessment Act 1916 taxed payments for admission to cinemas, theatres and sporting events.",
+   "party": "Labor",
+   "pm": "Billy Hughes",
+   "source": "https://www.legislation.gov.au/Details/C1916A00036",
+   "year": 1916
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "War-time Profits Tax",
+   "note": "The War-time Profits Tax Assessment Act 1917 taxed business profits above a pre-war standard rate of return.",
+   "party": "Nationalist",
+   "pm": "Billy Hughes",
+   "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-one-the-1910s",
+   "year": 1917
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Wholesale Sales Tax",
+   "note": "A single-stage tax on the wholesale value of goods was introduced to replace Depression-reduced customs revenue.",
+   "party": "Labor",
+   "pm": "James Scullin",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1930
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "War-time Company Tax",
+   "note": "The War-time (Company) Tax Act 1940 taxed company profits exceeding five per cent of capital employed.",
+   "party": "United Australia Party",
+   "pm": "Robert Menzies",
+   "source": "https://www.legislation.gov.au/Details/C1940A00091",
+   "year": 1940
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Gift Duty",
+   "note": "The Gift Duty Act 1941, assented 29 October 1941, taxed inter vivos gifts to protect the estate duty base.",
+   "party": "Labor",
+   "pm": "John Curtin",
+   "source": "https://www.legislation.gov.au/Details/C1941A00053",
+   "year": 1941
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Payroll Tax",
+   "note": "A Commonwealth payroll tax of 2.5 per cent commenced 1 July 1941 to finance child endowment payments.",
+   "party": "United Australia Party",
+   "pm": "Robert Menzies",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1941
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Uniform Income Tax",
+   "note": "Wartime legislation gave the Commonwealth sole occupancy of the income tax field, with grants paid to states that withdrew.",
+   "party": "Labor",
+   "pm": "John Curtin",
+   "source": "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/income-tax-war-time-arrangements-act",
+   "year": 1942
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "War-time Company Tax",
+   "note": "The wartime company tax and war-time profits arrangements were discontinued after the Second World War ended.",
+   "party": "Labor",
+   "pm": "Ben Chifley",
+   "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-four-the-1940s",
+   "year": 1946
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Federal Land Tax",
+   "note": "The Land Tax Abolition Act 1952 ended Commonwealth land tax, leaving the field to the states.",
+   "party": "Liberal/Country Coalition",
+   "pm": "Robert Menzies",
+   "source": "https://www.legislation.gov.au/Details/C1952A00081",
+   "year": 1952
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Entertainments Tax",
+   "note": "The Entertainments Tax Abolition Act 1953 repealed the Commonwealth entertainments tax from 1 October 1953.",
+   "party": "Liberal/Country Coalition",
+   "pm": "Robert Menzies",
+   "source": "https://www.legislation.gov.au/Details/C1953A00039",
+   "year": 1953
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Payroll Tax",
+   "note": "The Pay-roll Tax (Termination of Commonwealth Tax) Act 1971 transferred payroll tax to the states from 1 September 1971.",
+   "party": "Liberal/Country Coalition",
+   "pm": "William McMahon",
+   "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22hansard80/hansardr80/1971-09-16/0045%22;src1=sm1",
+   "year": 1971
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Crude Oil Production Levy",
+   "note": "The 1975-76 Budget imposed a levy of two dollars per barrel on Australian-produced crude oil.",
+   "party": "Labor",
+   "pm": "Gough Whitlam",
+   "source": "https://www.pbo.gov.au/about-budgets/budget-insights/budget-explainers/fuel-taxation-australia",
+   "year": 1975
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Departure Tax",
+   "note": "A ten dollar departure tax commenced in October 1978 to recover passenger processing costs at air and sea ports.",
+   "party": "Liberal/National Country Coalition",
+   "pm": "Malcolm Fraser",
+   "source": "https://www.abf.gov.au/entering-and-leaving-australia/crossing-the-border/passenger-movement/passenger-movement-charge-(pmc)",
+   "year": 1978
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Federal Estate Duty",
+   "note": "Commonwealth estate duty ceased to apply to deaths occurring on or after 1 July 1979.",
+   "party": "Liberal/National Country Coalition",
+   "pm": "Malcolm Fraser",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1979
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Gift Duty",
+   "note": "Commonwealth gift duty was abolished at the same time as estate duty, from 1 July 1979.",
+   "party": "Liberal/National Country Coalition",
+   "pm": "Malcolm Fraser",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1979
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Medicare Levy",
+   "note": "The Medicare Levy Act 1984 imposed a levy of one per cent of taxable income from February 1984.",
+   "party": "Labor",
+   "pm": "Bob Hawke",
+   "source": "https://classic.austlii.edu.au/au/legis/cth/num_act/mla1984131/",
+   "year": 1984
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Capital Gains Tax",
+   "note": "Real capital gains on assets acquired after 19 September 1985 became assessable income.",
+   "party": "Labor",
+   "pm": "Bob Hawke",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1985
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Fringe Benefits Tax",
+   "note": "The Fringe Benefits Tax Act 1986 taxed employers on the value of non-cash benefits provided to employees.",
+   "party": "Labor",
+   "pm": "Bob Hawke",
+   "source": "https://www.legislation.gov.au/Series/C2004A03281",
+   "year": 1986
+  },
+  {
+   "action": "introduced",
+   "kind": "rate",
+   "name": "Medicare Levy rate increase to 1.25 per cent",
+   "note": "The levy rose from 1 per cent to 1.25 per cent in December 1986 to offset rising medical costs.",
+   "party": "Labor",
+   "pm": "Bob Hawke",
+   "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22library/prspub/2422887%22;src1=sm1",
+   "year": 1986
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Dividend Imputation",
+   "note": "Imputation credits replaced classical company taxation, removing double taxation of Australian company profits distributed to resident shareholders.",
+   "party": "Labor",
+   "pm": "Bob Hawke",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1987
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Petroleum Resource Rent Tax",
+   "note": "A profits-based tax on offshore petroleum projects other than the North West Shelf, at 40 per cent of taxable profit.",
+   "party": "Labor",
+   "pm": "Bob Hawke",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 1987
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Superannuation Guarantee Levy",
+   "note": "The Superannuation Guarantee (Administration) Act 1992 required employers to make minimum superannuation contributions or pay a charge.",
+   "party": "Labor",
+   "pm": "Paul Keating",
+   "source": "https://www.legislation.gov.au/C2004A04402/latest/text",
+   "year": 1992
+  },
+  {
+   "action": "introduced",
+   "kind": "rate",
+   "name": "Medicare Levy rate increase to 1.4 per cent",
+   "note": "The levy rose to 1.4 per cent of taxable income from July 1993 to fund additional health outlays.",
+   "party": "Labor",
+   "pm": "Paul Keating",
+   "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22library/prspub/2422887%22;src1=sm1",
+   "year": 1993
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Departure Tax",
+   "note": "The 1978 departure tax was replaced by the passenger movement charge from July 1995.",
+   "party": "Labor",
+   "pm": "Paul Keating",
+   "source": "https://www.abf.gov.au/entering-and-leaving-australia/crossing-the-border/passenger-movement/passenger-movement-charge-(pmc)",
+   "year": 1995
+  },
+  {
+   "action": "introduced",
+   "kind": "rate",
+   "name": "Medicare Levy rate increase to 1.5 per cent",
+   "note": "The levy rose to 1.5 per cent from July 1995 and remained at that rate until 2014.",
+   "party": "Labor",
+   "pm": "Paul Keating",
+   "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22library/prspub/2422887%22;src1=sm1",
+   "year": 1995
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Passenger Movement Charge",
+   "note": "The charge replaced the departure tax in July 1995, initially set at 27 dollars per departing passenger.",
+   "party": "Labor",
+   "pm": "Paul Keating",
+   "source": "https://www.abf.gov.au/entering-and-leaving-australia/crossing-the-border/passenger-movement/passenger-movement-charge-(pmc)",
+   "year": 1995
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Medicare Levy Surcharge",
+   "note": "From 1 July 1997 higher-income earners without private hospital cover paid an additional one per cent surcharge.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.austlii.edu.au/cgi-bin/viewdoc/au/legis/cth/digest/tlalamlsb2008531/tlalamlsb2008531.html",
+   "year": 1997
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Superannuation Contributions Surcharge",
+   "note": "A surcharge on employer superannuation contributions for higher-income earners applied to contributions made after 20 August 1996.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.ato.gov.au/tax-and-super-professionals/for-superannuation-professionals/apra-regulated-funds/managing-member-benefits/taxation-of-member-super-benefits/superannuation-contributions-surcharge-information/super-contributions-surcharge",
+   "year": 1997
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Goods and Services Tax",
+   "note": "A 10 per cent broad-based consumption tax commenced 1 July 2000 under A New Tax System (Goods and Services Tax) Act 1999.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 2000
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Luxury Car Tax",
+   "note": "A 25 per cent tax applied to the GST-inclusive value of cars above a set threshold from 1 July 2000.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 2000
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Wholesale Sales Tax",
+   "note": "The wholesale sales tax was repealed from 1 July 2000 when the GST commenced.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
+   "year": 2000
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Wine Equalisation Tax",
+   "note": "A 29 per cent tax on the wholesale value of wine commenced with the GST on 1 July 2000.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.legislation.gov.au/Details/C2017C00327",
+   "year": 2000
+  },
+  {
+   "action": "abolished",
+   "kind": "state",
+   "name": "Financial Institutions Duty",
+   "note": "States abolished the duty from 1 July 2001 under the Intergovernmental Agreement accompanying the GST.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.aph.gov.au/~/media/wopapub/senate/committee/gst/report/e08_pdf.ashx",
+   "year": 2001
+  },
+  {
+   "action": "abolished",
+   "kind": "rate",
+   "name": "Fuel excise indexation",
+   "note": "Half-yearly indexation of petrol and diesel excise to the consumer price index was ended in March 2001.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.pbo.gov.au/about-budgets/budget-insights/budget-explainers/fuel-taxation-australia",
+   "year": 2001
+  },
+  {
+   "action": "abolished",
+   "kind": "state",
+   "name": "Bank Account Debits Tax",
+   "note": "The state debits tax was removed by 1 July 2005 under the GST intergovernmental agreement.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.aph.gov.au/~/media/wopapub/senate/committee/gst/report/e08_pdf.ashx",
+   "year": 2005
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Superannuation Contributions Surcharge",
+   "note": "The surcharge did not apply to superannuation contributions made on or after 1 July 2005.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.ato.gov.au/tax-and-super-professionals/for-superannuation-professionals/apra-regulated-funds/managing-member-benefits/taxation-of-member-super-benefits/superannuation-contributions-surcharge-information/super-contributions-surcharge",
+   "year": 2005
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Temporary Flood and Cyclone Reconstruction Levy",
+   "note": "A one-year income tax levy of 0.5 and 1.0 per cent applied above 50,000 and 100,000 dollars in 2011-12.",
+   "party": "Labor",
+   "pm": "Julia Gillard",
+   "source": "https://www.legislation.gov.au/Details/C2011A00015",
+   "year": 2011
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Carbon Pricing Mechanism",
+   "note": "The Clean Energy Act 2011 imposed a fixed carbon price of 23 dollars per tonne on liable emitters from 1 July 2012.",
+   "party": "Labor",
+   "pm": "Julia Gillard",
+   "source": "https://www.legislation.gov.au/Details/C2013C00372",
+   "year": 2012
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Minerals Resource Rent Tax",
+   "note": "From 1 July 2012 a 30 per cent tax applied to above-normal profits from iron ore and coal extraction.",
+   "party": "Labor",
+   "pm": "Julia Gillard",
+   "source": "https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r5327",
+   "year": 2012
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Temporary Flood and Cyclone Reconstruction Levy",
+   "note": "The levy was legislated for the 2011-12 income year only and ceased on 30 June 2012.",
+   "party": "Labor",
+   "pm": "Julia Gillard",
+   "source": "https://www.legislation.gov.au/Details/C2011A00015",
+   "year": 2012
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Carbon Pricing Mechanism",
+   "note": "The Clean Energy Legislation (Carbon Tax Repeal) Act 2014 repealed carbon pricing with effect from 1 July 2014.",
+   "party": "Liberal/National Coalition",
+   "pm": "Tony Abbott",
+   "source": "https://www.legislation.gov.au/Details/C2016C00166",
+   "year": 2014
+  },
+  {
+   "action": "introduced",
+   "kind": "rate",
+   "name": "Fuel excise indexation",
+   "note": "Half-yearly indexation of fuel excise to the consumer price index was reinstated from November 2014.",
+   "party": "Liberal/National Coalition",
+   "pm": "Tony Abbott",
+   "source": "https://www.pbo.gov.au/about-budgets/budget-insights/budget-explainers/fuel-taxation-australia",
+   "year": 2014
+  },
+  {
+   "action": "introduced",
+   "kind": "rate",
+   "name": "Medicare Levy rate increase to 2 per cent",
+   "note": "The levy rose from 1.5 to 2 per cent from 1 July 2014 to help fund the National Disability Insurance Scheme.",
+   "party": "Liberal/National Coalition",
+   "pm": "Tony Abbott",
+   "source": "https://parlinfo.aph.gov.au/parlInfo/search/display/display.w3p;query=Id:%22library/prspub/2422887%22;src1=sm1",
+   "year": 2014
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Minerals Resource Rent Tax",
+   "note": "The Minerals Resource Rent Tax Repeal and Other Measures Act 2014 removed the tax from 30 September 2014.",
+   "party": "Liberal/National Coalition",
+   "pm": "Tony Abbott",
+   "source": "https://www.legislation.gov.au/Details/C2017C00211",
+   "year": 2014
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Temporary Budget Repair Levy",
+   "note": "A two per cent levy applied to individual taxable income above 180,000 dollars for the 2014-15 to 2016-17 years.",
+   "party": "Liberal/National Coalition",
+   "pm": "Tony Abbott",
+   "source": "https://www.legislation.gov.au/Details/C2014A00045",
+   "year": 2014
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Diverted Profits Tax",
+   "note": "A 40 per cent tax on profits diverted offshore by significant global entities applied to income years starting on or after 1 July 2017.",
+   "party": "Liberal/National Coalition",
+   "pm": "Malcolm Turnbull",
+   "source": "https://www.legislation.gov.au/Details/C2017A00021",
+   "year": 2017
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Major Bank Levy",
+   "note": "A levy of 0.015 per cent per quarter applied to liabilities of authorised deposit-taking institutions above a threshold from 1 July 2017.",
+   "party": "Liberal/National Coalition",
+   "pm": "Malcolm Turnbull",
+   "source": "https://www.legislation.gov.au/C2017A00063/asmade",
+   "year": 2017
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Temporary Budget Repair Levy",
+   "note": "The levy was legislated for three years and ceased to apply after 30 June 2017.",
+   "party": "Liberal/National Coalition",
+   "pm": "Malcolm Turnbull",
+   "source": "https://www.legislation.gov.au/Details/C2014A00045",
+   "year": 2017
+  }
+ ],
+ "gaps": [
+  "No division or voting data yet. Both public Hansard mirrors need an API key.",
+  "No debt, receipts or spending figures yet. Those sit in Budget spreadsheets rather than an API, and are the next thing to land.",
+  "Federal only. No state parliaments, no local councils.",
+  "The tax timeline is compiled by hand, so it can be incomplete. Every entry links to its source so you can check it, and corrections are public."
+ ],
+ "method": [
+  "Each entry is a distinct Commonwealth tax being created or ended, sourced to a Treasury, Parliamentary Library, ATO or legislation.gov.au record.",
+  "Rate changes are listed but marked, and do not move the running count. Putting the Medicare levy up is not a new tax.",
+  "Two state taxes abolished under the GST agreement are listed for completeness and marked, because the Commonwealth did not levy them.",
+  "A tax handed to the states is recorded as abolished federally. The tax did not disappear; the level of government collecting it changed.",
+  "The party shown is the party in office at the time, under the name then current.",
+  "This does not track thresholds, brackets or bracket creep, which move the tax burden without adding or removing a tax."
+ ]
+}

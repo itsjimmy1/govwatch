@@ -56,7 +56,7 @@ function render() {
     <tr>
       <td class="yr">${e.year}</td>
       <td><strong>${e.name}</strong><div class="note">${e.note}</div></td>
-      <td><span class="pill ${e.action}">${e.action}</span></td>
+      <td><span class="pill ${e.action}">${e.action}</span>${e.kind !== 'tax' ? `<div class="note">${e.kind === 'rate' ? 'rate change, not counted' : 'state tax, not counted'}</div>` : ''}</td>
       <td>${e.pm}<div class="note" style="color:var(--${partyClass(e.party)})">${e.party}</div>
           <div class="note"><a href="${e.source}" rel="noopener">source</a></div></td>
     </tr>`).join('');
@@ -76,12 +76,13 @@ document.getElementById('filters').addEventListener('click', ev => {
 
 const tile = (k, v, n) =>
   `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
-const added = all.filter(e => e.action === 'introduced').length;
-const gone = all.filter(e => e.action === 'abolished').length;
+const counted = all.filter(e => e.kind === 'tax');
+const added = counted.filter(e => e.action === 'introduced').length;
+const gone = counted.filter(e => e.action === 'abolished').length;
 document.getElementById('tiles').innerHTML = [
-  tile('Introduced', fmt(added), 'Federal taxes created since 1901'),
+  tile('Introduced', fmt(added), 'Distinct federal taxes created since 1901'),
   tile('Abolished', fmt(gone), 'Repealed or transferred to the states'),
-  tile('Net', (added - gone > 0 ? '+' : '') + fmt(added - gone), 'Introduced minus abolished'),
+  tile('Standing', fmt(added - gone), 'Introduced minus abolished'),
   tile('Span', `${all[0].year}–${all[all.length - 1].year}`, 'Earliest to latest entry'),
 ].join('');
 
