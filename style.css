@@ -66,6 +66,7 @@ td.yr { font-variant-numeric:tabular-nums; color:var(--dim); width:1%; white-spa
 .pill { display:inline-block; padding:2px 9px; border-radius:99px; font-size:12px; white-space:nowrap; }
 .pill.introduced { background:color-mix(in srgb,var(--up) 18%,transparent); color:var(--up); }
 .pill.abolished { background:color-mix(in srgb,var(--down) 18%,transparent); color:var(--down); }
+.pill.changed { background:color-mix(in srgb,var(--other) 22%,transparent); color:var(--dim); }
 td .note { color:var(--dim); font-size:13.5px; margin-top:3px; }
 
 .prose { max-width:74ch; }

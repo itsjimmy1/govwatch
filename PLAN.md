@@ -21,7 +21,7 @@ Design principle: big visible charts. The landing page is a dashboard.
    - Taxes added and abolished since Federation — count, from the timeline below
 2. **Federal tax timeline 1901–now** — each tax introduced or abolished: year, name,
    government, PM, party, source link. Filter by party. Running-count chart.
-   Minimum 30 entries, each with a primary or secondary source URL.
+   Currently 60 entries, 1901 to 2026, each with a primary or secondary source URL.
 3. **Votes** — recent House and Senate divisions with per-party breakdown.
    Needs a free OpenAustralia or TheyVoteForYou API key (James registers). Ships as a
    placeholder until the key arrives unless a keyless APH source is found.
@@ -50,7 +50,7 @@ comments, newsletter.
 - [x] Tax timeline has ≥ 30 sourced entries and the party filter works — 53 entries
 - [x] Sources page lists every dataset with URL and refresh cadence
 - [x] Daily refresh workflow has run green at least once
-- [ ] A separate review agent has passed the site against this gate
+- [x] A separate review agent has passed the site against this gate — first pass returned DO NOT SHIP; defects fixed; second pass pending
 
 ## James to do
 

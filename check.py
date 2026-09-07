@@ -44,7 +44,7 @@ def main():
     e = tax["entries"]
     want(len(e) >= 30, f"tax timeline has only {len(e)} entries, gate needs 30")
     for r in e:
-        want(r["action"] in ("introduced", "abolished"), f"bad action on {r['name']}")
+        want(r["action"] in ("introduced", "abolished", "changed"), f"bad action on {r['name']}")
         want(1901 <= r["year"] <= date.today().year, f"bad year on {r['name']}: {r['year']}")
         want(r["source"].startswith("https://"), f"no source URL on {r['name']} ({r['year']})")
         want(len(r["note"]) > 10, f"missing note on {r['name']}")
@@ -54,6 +54,8 @@ def main():
     standing = sum(1 if r["action"] == "introduced" else -1 for r in counted)
     want(0 < standing < 60, f"running tax count ends at {standing}, which cannot be right")
     want(len(counted) >= 30, f"only {len(counted)} countable tax entries")
+    want(all(r["action"] != "changed" for r in counted),
+         "a 'changed' entry is tagged kind 'tax', so it would move the count")
     intro = {r["name"] for r in counted if r["action"] == "introduced"}
     ended = {r["name"] for r in counted if r["action"] == "abolished"}
     for name in sorted(intro - ended):

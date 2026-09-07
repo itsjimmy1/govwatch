@@ -18,10 +18,8 @@
    "name": "Bank Notes Tax",
    "note": "The Bank Notes Tax Act 1910 imposed a ten per cent annual tax on notes issued by private banks.",
    "party": "Labor",
-   "pending": "Private bank note issue ended long ago; repealing Act not yet sourced.",
    "pm": "Andrew Fisher",
    "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-one-the-1910s",
-   "still_levied": false,
    "year": 1910
   },
   {
@@ -71,10 +69,8 @@
    "name": "War-time Profits Tax",
    "note": "The War-time Profits Tax Assessment Act 1917 taxed business profits above a pre-war standard rate of return.",
    "party": "Nationalist",
-   "pending": "Ceased after the First World War; repealing Act not yet sourced.",
    "pm": "Billy Hughes",
    "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-one-the-1910s",
-   "still_levied": false,
    "year": 1917
   },
   {
@@ -86,6 +82,16 @@
    "pm": "James Scullin",
    "source": "https://treasury.gov.au/publication/economic-roundup-winter-2006/a-brief-history-of-australias-tax-system",
    "year": 1930
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Entertainments Tax",
+   "note": "Section 20 of the Financial Relief Act 1933 repealed the entertainments tax from 27 October 1933, leaving the field to the States.",
+   "party": "United Australia Party",
+   "pm": "Joseph Lyons",
+   "source": "https://www.legislation.gov.au/C1916A00036/latest/details",
+   "year": 1933
   },
   {
    "action": "introduced",
@@ -120,14 +126,32 @@
   {
    "action": "introduced",
    "kind": "tax",
-   "name": "Uniform Income Tax",
-   "note": "Wartime legislation gave the Commonwealth sole occupancy of the income tax field, with grants paid to states that withdrew.",
+   "name": "Entertainments Tax",
+   "note": "The Commonwealth resumed the entertainments tax field in October 1942 as a war revenue measure, at increased rates.",
    "party": "Labor",
-   "pending": "The 1942 arrangements changed who collected income tax rather than adding a tax; counted separately here pending confirmation.",
+   "pm": "John Curtin",
+   "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-four-the-1940s",
+   "year": 1942
+  },
+  {
+   "action": "changed",
+   "kind": "reform",
+   "name": "Income tax: Commonwealth takes exclusive occupancy",
+   "note": "Wartime Acts set Commonwealth rates so high the States ceased levying income tax, with grants paid in compensation. Upheld in the First Uniform Tax Case.",
+   "party": "Labor",
    "pm": "John Curtin",
    "source": "https://peo.gov.au/understand-our-parliament/history-of-parliament/history-milestones/australian-parliament-history-timeline/events/income-tax-war-time-arrangements-act",
-   "still_levied": false,
    "year": 1942
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "Bank Notes Tax",
+   "note": "Repealed by the First Schedule to the Commonwealth Bank Act 1945, with private note issue prohibited by penalty instead.",
+   "party": "Labor",
+   "pm": "Ben Chifley",
+   "source": "https://www.legislation.gov.au/C1910A00014/latest/details",
+   "year": 1945
   },
   {
    "action": "abolished",
@@ -138,6 +162,16 @@
    "pm": "Ben Chifley",
    "source": "https://www.ato.gov.au/about-ato/who-we-are/working-for-all-australians-1910-2010/chapter-four-the-1940s",
    "year": 1946
+  },
+  {
+   "action": "abolished",
+   "kind": "tax",
+   "name": "War-time Profits Tax",
+   "note": "Collection ceased in 1919. The Act was repealed on 31 December 1950 by the Third Schedule to the Statute Law Revision Act 1950.",
+   "party": "Liberal/Country Coalition",
+   "pm": "Robert Menzies",
+   "source": "https://www.legislation.gov.au/C1917A00033/latest/details",
+   "year": 1950
   },
   {
    "action": "abolished",
@@ -175,10 +209,9 @@
    "name": "Crude Oil Production Levy",
    "note": "The 1975-76 Budget imposed a levy of two dollars per barrel on Australian-produced crude oil.",
    "party": "Labor",
-   "pending": "Wound back with fuel excise changes; end date not yet sourced.",
    "pm": "Gough Whitlam",
    "source": "https://www.pbo.gov.au/about-budgets/budget-insights/budget-explainers/fuel-taxation-australia",
-   "still_levied": false,
+   "still_levied": true,
    "year": 1975
   },
   {
@@ -255,7 +288,7 @@
    "year": 1986
   },
   {
-   "action": "introduced",
+   "action": "changed",
    "kind": "reform",
    "name": "Dividend Imputation",
    "note": "Imputation credits replaced classical company taxation, so tax paid by a company counts against the tax owed by its resident shareholders.",
@@ -390,6 +423,16 @@
    "source": "https://www.legislation.gov.au/Details/C2017C00327",
    "still_levied": true,
    "year": 2000
+  },
+  {
+   "action": "changed",
+   "kind": "reform",
+   "name": "Crude oil excise rescoped",
+   "note": "The Excise Tariff Amendment (Crude Oil) Act 2001 redefined old and new oil under the Excise Tariff Act 1921. The levy was not repealed.",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "source": "https://www.legislation.gov.au/C1921A00026/latest/versions",
+   "year": 2001
   },
   {
    "action": "abolished",
@@ -552,20 +595,43 @@
    "pm": "Malcolm Turnbull",
    "source": "https://www.legislation.gov.au/Details/C2014A00045",
    "year": 2017
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Global and Domestic Minimum Tax",
+   "note": "The Taxation (Multinational\u2014Global and Domestic Minimum Tax) Act 2024 set a 15 per cent minimum rate for large multinational groups.",
+   "party": "Labor",
+   "pm": "Anthony Albanese",
+   "source": "https://www.legislation.gov.au/C2024A00132/asmade",
+   "still_levied": true,
+   "year": 2024
+  },
+  {
+   "action": "introduced",
+   "kind": "tax",
+   "name": "Division 296 tax on large superannuation balances",
+   "note": "The Superannuation (Building a Stronger and Fairer Super System) Imposition Act 2026 applies an additional tax from 2026-27.",
+   "party": "Labor",
+   "pm": "Anthony Albanese",
+   "source": "https://www.legislation.gov.au/C2026A00009/asmade",
+   "still_levied": true,
+   "year": 2026
   }
  ],
  "gaps": [
   "No division or voting data. Both public Hansard mirrors need an API key.",
   "Federal only. No state parliaments, no local councils, so the total tax take across all levels of government is higher than anything shown here.",
   "No spending figures. Payments as a share of GDP are published only inside a Budget spreadsheet, which needs a parser we have not written.",
-  "The tax timeline is compiled by hand and stops at 2017. It can be incomplete. Every entry links to its source, and corrections are public.",
-  "Rate, threshold and bracket changes are not tracked except for the Medicare levy. The tax burden moves without a tax being added or removed."
+  "Rate, threshold and bracket changes are not tracked except for the Medicare levy. The tax burden moves without a tax being added or removed.",
+  "The tax timeline is compiled by hand and can be incomplete. Every entry links to its source, and corrections are public."
  ],
  "method": [
   "Each entry is a distinct Commonwealth tax being created or ended, sourced to a Treasury, Parliamentary Library, ATO or legislation.gov.au record.",
   "Medicare levy rate rises are listed and marked. They do not move the running count, because raising a rate does not add a tax. No other rate changes are tracked.",
   "Two state taxes abolished under the GST agreement are listed and marked, because the Commonwealth did not levy them.",
+  "The party shown is the party in office at the time, under the name then current.",
   "A tax handed to the states is recorded as abolished federally. The tax did not disappear; the level of government collecting it changed.",
-  "The party shown is the party in office at the time, under the name then current."
+  "Entries marked as changed are neither an addition nor a removal, so they do not move the count. Taking over an existing tax is not creating one."
  ]
 }

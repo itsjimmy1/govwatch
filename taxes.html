@@ -22,9 +22,9 @@
   <h1>Federal taxes since Federation</h1>
   <p>Every Commonwealth tax introduced or abolished since Federation, the government that
      did it, and a link to the public record. Filter by the party in office at the time.</p>
-  <p style="color:var(--faint);font-size:14px;margin-top:12px">The latest entry is 2017. No
-     Commonwealth tax has been created or abolished since, as far as this list records. If
-     one has been missed, <a href="https://github.com/itsjimmy1/govwatch/issues">say so</a>.</p>
+  <p style="color:var(--faint);font-size:14px;margin-top:12px">Entries marked as a change to
+     an existing tax, a rate change or a state tax are listed but not counted. If a tax has
+     been missed, <a href="https://github.com/itsjimmy1/govwatch/issues">say so</a>.</p>
 </div></div>
 
 <section><div class="wrap">
@@ -60,7 +60,7 @@ function render() {
       <td class="yr">${e.year}</td>
       <td><strong>${e.name}</strong><div class="note">${e.note}</div></td>
       <td><span class="pill ${e.action}">${e.action}</span>
-          ${e.pending ? `<div class="note">no longer levied; ${e.pending}</div>` : ''}${e.kind !== 'tax' ? `<div class="note">${e.kind === 'rate' ? 'rate change, not counted' : 'state tax, not counted'}</div>` : ''}</td>
+          ${e.pending ? `<div class="note">no longer levied; ${e.pending}</div>` : ''}${e.kind !== 'tax' ? `<div class="note">${{rate:'rate change',state:'state tax',reform:'change to an existing tax'}[e.kind]}, not counted</div>` : ''}</td>
       <td>${e.pm}<div class="note" style="color:var(--${partyClass(e.party)})">${e.party}</div>
           <div class="note"><a href="${e.source}" rel="noopener">source</a></div></td>
     </tr>`).join('');
@@ -82,13 +82,14 @@ const tile = (k, v, n) =>
   `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
 const counted = all.filter(e => e.kind === 'tax');
 const unsourced = counted.filter(e => e.still_levied === false);
+const changes = all.length - counted.length;
 const added = counted.filter(e => e.action === 'introduced').length;
 const gone = counted.filter(e => e.action === 'abolished').length;
 document.getElementById('tiles').innerHTML = [
   tile('Introduced', fmt(added), 'Distinct federal taxes created since 1901'),
   tile('Abolished', fmt(gone), 'Repealed or transferred to the states'),
   tile('Levied today', fmt(added - gone - unsourced.length), 'Still collected by the Commonwealth'),
-  tile('Span', `${all[0].year}–${all[all.length - 1].year}`, 'Earliest to latest entry recorded'),
+  tile('Listed, not counted', fmt(changes), 'Rate changes, state taxes and changes to existing taxes'),
 ].join('');
 
 document.getElementById('method').innerHTML =

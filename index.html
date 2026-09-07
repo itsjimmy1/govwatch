@@ -75,9 +75,9 @@
 <section><div class="wrap">
   <h2>Federal taxes added and abolished</h2>
   <p class="sub">Running count from the timeline of introductions and abolitions. Some early
-     taxes stopped being levied without a repeal entry in this list. Those are excluded from
-     the count of taxes levied today and named on the
-     <a href="taxes.html">tax timeline</a>, where every entry is sourced.</p>
+     Rate changes, state taxes and changes to how an existing tax works are listed but do
+     not move the count, because none of them adds or removes a tax. Every entry is sourced
+     on the <a href="taxes.html">tax timeline</a>.</p>
   <div class="tiles" id="tax-tiles" style="margin-bottom:18px"></div>
   <div class="chart" id="tax-chart"></div>
   <p class="src">Source: GovWatch tax timeline, each entry individually sourced ·
@@ -159,7 +159,7 @@ document.getElementById('tax-tiles').innerHTML = [
   tile('Taxes introduced', fmt(added), 'Distinct federal taxes created since 1901'),
   tile('Taxes abolished', fmt(gone), 'Repealed or handed to the states'),
   tile('Levied today', fmt(standing), 'Of those introduced, still collected'),
-  tile('Sourced entries', fmt(taxes.entries.length), 'Including rate changes, each with a source'),
+  tile('Sourced entries', fmt(taxes.entries.length), 'Every one links to a public record'),
 ].join('');
 
 document.getElementById('tax-chart').append(
