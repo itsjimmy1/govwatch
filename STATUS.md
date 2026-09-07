@@ -2,6 +2,9 @@
 
 Loop log. Newest at top. One line per increment: date, what shipped, what's next.
 
+- 2026-09-08 — Second review passed all seven earlier defects but blocked on a new one:
+  red "introduced" and green "abolished" pills encoded a good/bad judgement the site
+  promises not to make. Pills neutralised, plus seven smaller fixes. Third review running.
 - 2026-09-08 — Review found the headline tax count false. Corrected: 17 federal taxes are
   levied today, not 19. Bank Notes Tax ended 1945, War-time Profits Tax 1950, entertainments
   tax ran twice (1916-33, 1942-53), the crude oil levy was never abolished, and 1942 was the
