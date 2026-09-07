@@ -2,6 +2,11 @@
 
 Loop log. Newest at top. One line per increment: date, what shipped, what's next.
 
+- 2026-09-08 — All eight jurisdictions now sourced. SA and NT block automated requests at
+  the edge regardless of user agent, so a real browser read them. Found an error of mine on
+  the way: NT has a 6.5% payroll rate above $100m Australia-wide wages from 1 July 2026 that
+  the page omitted. Also fixed the states page shipping its headline section as an empty box;
+  check.py now fails on an unfilled chart mount. Final review running.
 - 2026-09-08 — Added Patterns and States. Patterns cuts the tax timeline by party, lineage
   and decade and colours Acts per year by government, using a new sourced list of all 39
   ministries. States carries ABS tax per person for all eight jurisdictions plus rate tables

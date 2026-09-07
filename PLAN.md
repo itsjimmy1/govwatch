@@ -64,7 +64,7 @@ state parliaments and their legislation.
 - [x] Patterns page live with party, lineage, decade and Acts-by-government charts
 - [x] States page live with ABS tax per person for all eight jurisdictions
 - [x] State rate tables for six of eight, every published cell sourced
-- [ ] South Australia and Northern Territory rates, blocked on their 403s
+- [x] South Australia and Northern Territory rates — read in a real browser; all 40 cells sourced
 - [ ] A separate review agent has passed both pages
 
 ## James to do
