@@ -190,6 +190,51 @@ export function grouped(cats, series, { w = chartWidth(), h = 300, ticks = 4, un
   return svg;
 }
 
+/** Grouped bars laid out horizontally: one row per category, one bar per series.
+ *  Used on narrow screens, where long category names cannot sit side by side. */
+export function groupedH(cats, series, { w = chartWidth(), ticks = 4, unit = '',
+                                         integer = false } = {}) {
+  const L = 150, R = 16, top = 8, rowH = 30 + series.length * 4, gap = 14;
+  const h = top + cats.length * (rowH + gap) + 26;
+  const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
+  if (isNarrow()) svg.setAttribute('data-narrow', '');
+  let max, t = ticks;
+  ({ max, ticks: t } = niceAxis(Math.max(...series.flatMap(s => s.values)), ticks, integer));
+  const iw = w - L - R;
+
+  for (let i = 0; i <= t; i++) {
+    const v = (max / t) * i, x = L + (v / max) * iw;
+    svg.append(el('line', { class: 'grid', x1: x, x2: x, y1: top, y2: h - 26 }));
+    const lb = el('text', { class: 'axis', x, y: h - 8, 'text-anchor': 'middle' });
+    lb.textContent = fmt(Number(v.toFixed(2)));
+    svg.append(lb);
+  }
+  cats.forEach((c, ci) => {
+    const y0 = top + ci * (rowH + gap);
+    const bh = rowH / series.length;
+    const name = el('text', { class: 'axis', x: L - 10, y: y0 + rowH / 2 + 5,
+                              'text-anchor': 'end' });
+    name.textContent = String(c);
+    svg.append(name);
+    series.forEach((s, si) => {
+      const v = s.values[ci];
+      const bw = (v / max) * iw;
+      const r = el('rect', { x: L, y: (y0 + si * bh).toFixed(1),
+                             width: Math.max(bw, v > 0 ? 1 : 0).toFixed(1),
+                             height: (bh - 3).toFixed(1), fill: s.colour, rx: 2 });
+      const ttl = el('title');
+      ttl.textContent = `${c} — ${s.name}: ${fmt(v)}${unit}`;
+      r.append(ttl);
+      svg.append(r);
+      const lab = el('text', { class: 'axis', x: (L + bw + 6).toFixed(1),
+                               y: (y0 + si * bh + bh / 2 + 3).toFixed(1) });
+      lab.textContent = fmt(v);
+      svg.append(lab);
+    });
+  });
+  return svg;
+}
+
 /** A legend the caller places under a chart. */
 export function legend(series) {
   const d = document.createElement('div');

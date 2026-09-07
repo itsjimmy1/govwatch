@@ -139,8 +139,23 @@ def main():
 
     if os.path.exists("data/states.json"):
         st = json.load(open("data/states.json"))
-        want(len(st.get("comparability_warnings", [])) >= 5,
+        warn = st.get("comparability_warnings", [])
+        want(len(warn) >= 5,
              "states.json must carry the caveats that stop the table reading as like-for-like")
+        # A caveat that describes an older version of the data is worse than none:
+        # it tells the reader the numbers in front of them do not exist.
+        blob = " ".join(warn).lower()
+        filled = {j["code"] for j in st["jurisdictions"]
+                  if all(j[f].get("source") for f in
+                         ("land_tax", "transfer_duty_750k", "vehicle_duty_40k",
+                          "insurance_duty"))}
+        for code, word in (("SA", "only payroll tax is sourced"),
+                           ("NT", "left empty rather than filled")):
+            want(not (code in filled and word in blob),
+                 f"a caveat still says {code} data is missing, but every {code} cell "
+                 f"now has a source")
+        want("the six" not in blob and "six jurisdictions" not in blob,
+             "a caveat still counts six jurisdictions; there are eight")
         codes = {x["code"] for x in st["jurisdictions"]}
         want(codes == {"NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"},
              f"expected all eight jurisdictions, got {sorted(codes)}")

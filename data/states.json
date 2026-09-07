@@ -1,16 +1,15 @@
 {
  "as_at": "2026-09-08",
  "comparability_warnings": [
-  "South Australia's payroll figure comes from the jurisdictions' joint harmonisation site rather than RevenueSA, which is a weaker citation than every other cell here.",
+  "South Australia's payroll figure comes from payrolltax.gov.au, the harmonisation site the jurisdictions publish jointly, because RevenueSA refuses automated requests. Every other cell on this page comes from the revenue office that levies the tax.",
   "The Northern Territory's conveyance figure was read from the Territory's own duty calculator, because the rate scale is not published as text anywhere on its site.",
-  "South Australia and the Northern Territory publish their rates on sites that refuse automated requests, so only payroll tax is sourced for those two. The other cells are left empty rather than filled from a search result.",
-  "Transfer duty is not calculated on one basis. Queensland's figure includes the owner-occupier home concession and the ACT's uses its owner-occupier scale. New South Wales, Victoria, Western Australia and Tasmania have no equivalent concession, so their figures are the duty an investor pays. Comparing the six compares concession policy as much as rates.",
+  "Transfer duty is not calculated on one basis. Queensland's figure includes the owner-occupier home concession and the ACT's uses its owner-occupier scale. The other six have no equivalent concession, so their figures are the duty an investor pays. Comparing across the eight compares concession policy as much as rates.",
   "ACT conveyance duty is twenty years into a phase-out funded by higher general rates. A duty figure on its own understates what ACT property owners pay.",
-  "The Northern Territory has no land tax at all. That is the absence of a tax, not a generous threshold, and it should never sit in a column next to Victoria's $50,000 without saying so.",
-  "The ACT has no land tax threshold and charges a fixed $1,778 before any marginal rate. A threshold of zero there means something different from a threshold of zero elsewhere.",
+  "The Northern Territory has no land tax. Its Revenue Office administers no land tax Act, so those two cells are left without a figure rather than shown as zero, which would sit misleadingly next to a real threshold.",
+  "The ACT has no land tax threshold and charges a fixed $1,778 before any marginal rate. Its zero threshold means something different from a zero elsewhere.",
   "Land tax thresholds apply to different measures of land value: a three-year average in New South Wales, a five-year average in the ACT, a single-year assessment in Queensland and Tasmania, and the lesser of current or 150 per cent of last year's value in Western Australia. The same number describes different land.",
-  "Vehicle duty is priced by different things. Queensland charges by cylinder count, the ACT by carbon dioxide emissions, Western Australia by a sliding formula, and the rest by value. At $40,000 the ACT figure alone ranges from $1,000 to $1,812 depending on which car you buy.",
-  "Payroll tax thresholds behave differently. Victoria's deduction phases out between $3m and $5m, and Western Australia's and the Northern Territory's taper to nothing at $7.5m, while New South Wales, Queensland, Tasmania and the ACT do not taper at all.",
+  "Vehicle duty is priced by different things. Queensland charges by cylinder count, the ACT by carbon dioxide emissions, South Australia by a commercial or non-commercial split, Western Australia by a sliding formula, and the rest by value. At $40,000 the ACT figure alone ranges from $1,000 to $1,812 depending on which car you buy.",
+  "Payroll tax thresholds behave differently. Victoria's deduction phases out between $3m and $5m and Western Australia's tapers to nothing at $7.5m, while New South Wales, Queensland, Tasmania and the ACT do not taper at all.",
   "Tasmania's 4.0 per cent payroll rate applies only between $1.25m and $2m of wages, then jumps to 6.1 per cent. The headline rate covers a narrow band.",
   "Western Australia's land tax rate excludes the Metropolitan Region Improvement Tax, a further 0.14 per cent on Perth metropolitan land above $300,000.",
   "One rate never describes one tax. Every jurisdiction here has thresholds, bands, surcharges and exemptions sitting behind the single number in each column."
@@ -243,7 +242,8 @@
     "source": "https://nt.gov.au/employ/money-and-taxes/taxes-royalties-and-grants/stamp-duty/examples-of-duty-and-rates"
    },
    "land_tax": {
-    "note": "The Northern Territory has no land tax. The Territory Revenue Office's list of revenue Acts it administers contains no land tax Act, which is why this cell is empty rather than zero.",
+    "absent": true,
+    "note": "The Northern Territory levies no land tax. Its Revenue Office's list of the Acts it administers contains no land tax Act.",
     "source": "https://treasury.nt.gov.au/dtf/territory-revenue-office/legislation",
     "threshold": null,
     "top_rate_pct": null

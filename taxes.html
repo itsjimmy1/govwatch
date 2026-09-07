@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Federal tax timeline since 1901 — GovWatch</title>
 <meta name="description" content="Every Commonwealth tax introduced or abolished since Federation, with the government that did it and a source for each.">
-<link rel="stylesheet" href="style.css?v=a388d0a5">
+<link rel="stylesheet" href="style.css?v=7be24ace">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -45,7 +45,7 @@
 </div></section>
 
 <script type="module">
-import { fmt } from './chart.js?v=b6765bb6';
+import { fmt } from './chart.js?v=43883da9';
 const taxes = await (await fetch('data/taxes.json', { cache: 'no-cache' })).json();
 const all = [...taxes.entries].sort((a, b) => a.year - b.year || a.name.localeCompare(b.name));
 
@@ -59,7 +59,7 @@ function render() {
   const rows = active === 'All' ? all : all.filter(e => e.party === active);
   tbody.innerHTML = rows.map(e => `
     <tr>
-      <td class="yr">${e.year}</td>
+      <td class="yr" data-label="Year">${e.year}</td>
       <td><strong>${e.name}</strong><div class="note">${e.note}</div></td>
       <td><span class="pill ${e.action}">${e.action}</span>
           ${e.pending ? `<div class="note">no longer levied; ${e.pending}</div>` : ''}${e.kind !== 'tax' ? `<div class="note">${{rate:'rate change',state:'state tax',reform:'change to an existing tax'}[e.kind]}, not counted</div>` : ''}</td>

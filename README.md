@@ -35,7 +35,7 @@ No build step, no dependencies. `fetch.py` and `check.py` are stdlib-only.
 - python.org Python builds on macOS ship **no CA bundle**, so `urllib` fails TLS
   verification locally. `fetch.py` falls back to `/etc/ssl/cert.pem`. CI is unaffected.
 
-## Two rules the build enforces
+## Four rules the build enforces
 
 - **An introduced tax must resolve.** If a `kind: "tax"` entry is introduced with no
   matching abolition, `check.py` fails unless the entry sets `still_levied`. The site
@@ -44,7 +44,15 @@ No build step, no dependencies. `fetch.py` and `check.py` are stdlib-only.
   looked like the same bug and turned out to still be levied.
 - **Assets are cache-busted.** `check.py` rewrites every `style.css` and `chart.js`
   reference to `?v=<content hash>`. A corrected page is useless if the browser keeps the
-  old stylesheet.
+  old stylesheet. **This rewrites the HTML on disk**, so an edit anchored on a bare
+  `./chart.js` will match nothing and fail silently. Anchor on something else, or assert
+  the anchor exists first.
+- **Every mount gets filled.** A page that declares `id="x-chart"` must reference it in
+  its own script. The states page once shipped its headline section as a blank white box
+  because a silent no-op edit dropped the code and nothing errored.
+- **Caveats cannot outlive the data.** The state caveats once said South Australian and
+  Northern Territory figures were missing, sitting directly above those figures. The check
+  fails if a caveat says data is absent for a jurisdiction whose cells all carry sources.
 
 ## Adding to the tax timeline
 

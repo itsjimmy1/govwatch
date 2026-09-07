@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sources and method — GovWatch</title>
 <meta name="description" content="Where every GovWatch number comes from, how often it refreshes, and what we do not have.">
-<link rel="stylesheet" href="style.css?v=a388d0a5">
+<link rel="stylesheet" href="style.css?v=7be24ace">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -33,7 +33,7 @@
     <thead><tr><th>Dataset</th><th>Source</th><th>Refresh</th><th>Last read</th></tr></thead>
     <tbody>
       <tr>
-        <td><strong>Acts in force, Acts made per year, instruments in force</strong>
+        <td data-label="Dataset"><strong>Acts in force, Acts made per year, instruments in force</strong>
             <div class="note">Counts of Commonwealth legislation.</div></td>
         <td><a href="https://www.legislation.gov.au/" rel="noopener">Federal Register of Legislation</a>
             <div class="note">OData API, no key required</div></td>
@@ -41,7 +41,7 @@
         <td class="yr">Last read <span data-fetched="legislation">—</span></td>
       </tr>
       <tr>
-        <td><strong>Federal tax timeline</strong>
+        <td data-label="Dataset"><strong>Federal tax timeline</strong>
             <div class="note">Taxes introduced and abolished since 1901.</div></td>
         <td><a href="taxes.html" rel="noopener">The timeline itself</a>, and the raw file at
             <a href="data/taxes.json" rel="noopener">data/taxes.json</a>
@@ -51,7 +51,7 @@
         <td class="yr">Last read <span data-compiled="taxes">—</span></td>
       </tr>
       <tr>
-        <td><strong>Tax receipts as a share of GDP</strong>
+        <td data-label="Dataset"><strong>Tax receipts as a share of GDP</strong>
             <div class="note">Commonwealth receipts, 1978-79 onward, including Budget estimates.</div></td>
         <td><a href="https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv" rel="noopener">Budget Paper No. 1, Statement 5, Table 2</a>
             <div class="note">CSV published by Treasury, no key required</div></td>
@@ -59,7 +59,7 @@
         <td class="yr">Last read <span data-fetched="receipts">—</span></td>
       </tr>
       <tr>
-        <td><strong>Government securities on issue</strong>
+        <td data-label="Dataset"><strong>Government securities on issue</strong>
             <div class="note">Gross debt, face value at 30 June.</div></td>
         <td><a href="https://www.aofm.gov.au/data-hub" rel="noopener">Australian Office of Financial Management</a>
             <div class="note">CSV, citing the Final Budget Outcome, Table B.5</div></td>
@@ -67,7 +67,7 @@
         <td class="yr">Last read <span data-fetched="debt">—</span></td>
       </tr>
       <tr>
-        <td><strong>State and local tax per person</strong>
+        <td data-label="Dataset"><strong>State and local tax per person</strong>
             <div class="note">Eight jurisdictions, 2019-20 onward.</div></td>
         <td><a href="https://www.abs.gov.au/statistics/economy/government/taxation-revenue-australia/latest-release" rel="noopener">ABS Taxation Revenue, Australia, table 4</a>
             <div class="note">XLSX, no key required, parsed with the Python standard library</div></td>
@@ -75,7 +75,7 @@
         <td class="yr">Last read <span data-fetched="states_percapita">—</span></td>
       </tr>
       <tr>
-        <td><strong>State and territory tax rates</strong>
+        <td data-label="Dataset"><strong>State and territory tax rates</strong>
             <div class="note">Payroll, land, transfer, vehicle and insurance duty.</div></td>
         <td>Each state revenue office, linked per figure
             <div class="note">Compiled by hand. South Australia and the Northern Territory
@@ -85,7 +85,7 @@
         <td class="yr">Last read <span data-compiled="states">—</span></td>
       </tr>
       <tr>
-        <td><strong>Division results</strong>
+        <td data-label="Dataset"><strong>Division results</strong>
             <div class="note">How members voted.</div></td>
         <td><a href="https://www.openaustralia.org.au/" rel="noopener">OpenAustralia</a> and
             <a href="https://theyvoteforyou.org.au/" rel="noopener">TheyVoteForYou</a>, both

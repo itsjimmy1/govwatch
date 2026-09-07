@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Patterns by party and decade — GovWatch</title>
 <meta name="description" content="Which Australian governments added federal taxes, which removed them, and how much law each one made.">
-<link rel="stylesheet" href="style.css?v=a388d0a5">
+<link rel="stylesheet" href="style.css?v=7be24ace">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -55,7 +55,7 @@
 </div></section>
 
 <section><div class="wrap">
-  <h2>Acts of Parliament made each year, by government</h2>
+  <h2>Acts of Parliament made, by government</h2>
   <p class="sub">Every Act the Commonwealth Parliament made, coloured by who was in office
      that year. Where a year spans a change of government, it takes the colour of whoever
      held office longer in that year. The current year is incomplete and is left out of the
@@ -83,7 +83,7 @@
 </div></section>
 
 <script type="module">
-import { grouped, legend, bars, fmt } from './chart.js?v=b6765bb6';
+import { grouped, groupedH, legend, bars, fmt, isNarrow } from './chart.js?v=43883da9';
 const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
 const INTRO = '#8a5600', ABOL = '#6b7484';
 
@@ -112,7 +112,8 @@ const series = [
   { name: 'Introduced', colour: INTRO, values: parties.map(p => byParty.get(p).introduced) },
   { name: 'Abolished', colour: ABOL, values: parties.map(p => byParty.get(p).abolished) },
 ];
-document.getElementById('party-chart').append(grouped(parties, series, { h: 320, integer: true }));
+document.getElementById('party-chart').append((isNarrow() ? groupedH(parties, series, { integer: true })
+            : grouped(parties, series, { h: 320, integer: true })));
 document.getElementById('party-legend').append(legend(series));
 
 // By lineage. The rule is published because the grouping is arguable.
@@ -124,7 +125,8 @@ const fseries = [
   { name: 'Introduced', colour: INTRO, values: fkeys.map(k => fam.get(k).introduced) },
   { name: 'Abolished', colour: ABOL, values: fkeys.map(k => fam.get(k).abolished) },
 ];
-document.getElementById('family-chart').append(grouped(fkeys, fseries, { h: 280, integer: true }));
+document.getElementById('family-chart').append((isNarrow() ? groupedH(fkeys, fseries, { integer: true })
+            : grouped(fkeys, fseries, { h: 280, integer: true })));
 document.getElementById('family-legend').append(legend(fseries));
 document.getElementById('family-rule').innerHTML =
   '<ul style="margin:0;padding-left:20px">' + FAMILY.rule.map(r => `<li>${r}</li>`).join('') + '</ul>';
@@ -138,7 +140,8 @@ const dseries = [
   { name: 'Abolished', colour: ABOL, values: decs.map(d => byDec.get(d)?.abolished ?? 0) },
 ];
 document.getElementById('decade-chart').append(
-  grouped(decs.map(d => `${d}s`), dseries, { h: 280, integer: true }));
+  (isNarrow() ? groupedH(decs.map(d => `${d}s`), dseries, { integer: true })
+            : grouped(decs.map(d => `${d}s`), dseries, { h: 280, integer: true })));
 document.getElementById('decade-legend').append(legend(dseries));
 
 // Acts by government. Each year takes the party that held office longest in it.
@@ -175,6 +178,8 @@ if (!govs) {
     };
   });
   const narrow = window.innerWidth < 700;
+  const thisYear = new Date().getFullYear();
+  const thisYearActs = rows.find(r => r.x === thisYear)?.y ?? 0;
   if (narrow) {
     // 126 bars render under 2px wide on a phone, and SVG tooltips do not fire on
     // touch, so the yearly chart is unreadable there. Show decade totals instead.
@@ -188,7 +193,7 @@ if (!govs) {
     }
     const decRows = [...byDecade.entries()].sort((a, b) => a[0] - b[0]).map(([d, e]) => {
       const top = Object.entries(e.fams).sort((a, b) => b[1] - a[1])[0][0];
-      return { x: d, label: `${String(d).slice(2)}s`, y: e.acts, fill: PARTY_COLOUR[top],
+      return { x: d, label: `${d}s`, y: e.acts, fill: PARTY_COLOUR[top],
                title: `${d}s: ${fmt(e.acts)} Acts, mostly under ${top}`, fam: top };
     });
     document.getElementById('acts-gov-chart').append(
@@ -207,7 +212,6 @@ if (!govs) {
 
   const tile = (k, v, n) =>
     `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
-  const thisYear = new Date().getFullYear();
   const complete = rows.filter(r => r.x < thisYear);
   const per = {};
   for (const r of complete) {

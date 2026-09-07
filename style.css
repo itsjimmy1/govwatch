@@ -92,6 +92,16 @@ footer a { color:var(--faint); }
   table.stack thead { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
   table.stack tr { display:block; border-top:1px solid var(--line); padding:14px 0 4px; }
   table.stack td { display:block; border:0; padding:0 0 8px; }
+  /* A stacked row hides its header, so each cell has to carry its own column name.
+     Six unlabelled dollar figures look like data while telling the reader nothing. */
+  table.stack td[data-label]::before {
+    content: attr(data-label) " ";
+    color: var(--faint); font-size: 12px; text-transform: uppercase;
+    letter-spacing: .05em; display: inline-block; min-width: 84px;
+  }
+  table.stack td[data-label] { display:flex; gap:8px; align-items:baseline;
+    justify-content:space-between; padding:3px 0; }
+  table.stack td[data-label] .bar { display:none; }
   table.stack td.yr { width:auto; color:var(--accent); font-weight:650; font-size:13px; }
   .hero h1 { font-size:27px; }
   .tile .v { font-size:28px; }

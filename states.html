@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Compare the states — GovWatch</title>
 <meta name="description" content="Australian state and territory taxes on the same basis, so you can see which is cheapest for your situation.">
-<link rel="stylesheet" href="style.css?v=a388d0a5">
+<link rel="stylesheet" href="style.css?v=7be24ace">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -61,7 +61,7 @@
 </div></section>
 
 <script type="module">
-import { fmt, legend, bars } from './chart.js?v=b6765bb6';
+import { fmt, legend, bars } from './chart.js?v=43883da9';
 const box = document.getElementById('states');
 
 // Tax per person, from the ABS. This section is live; the rate tables below cover
@@ -82,25 +82,28 @@ document.getElementById('percap-legend').append(
 
 const growth = s => ((s[lastFy] / s[fys[0]] - 1) * 100).toFixed(0) + '%';
 const row = (name, s) => `<tr><td class="j">${name}</td>` +
-  fys.map(f => `<td class="num">${money(s[f])}</td>`).join('') +
-  `<td class="num">${growth(s)}</td></tr>`;
+  fys.map(f => `<td class="num" data-label="${f}">${money(s[f])}</td>`).join('') +
+  `<td class="num" data-label="Change">${growth(s)}</td></tr>`;
 
 document.getElementById('percap-table').innerHTML =
   `<table class="cmp stack"><thead><tr><th>Jurisdiction</th>` +
   fys.map(f => `<th class="num">${f}</th>`).join('') +
   `<th class="num">Change</th></tr></thead><tbody>` +
   pc.jurisdictions.map(j => row(`${j.code} — ${j.name}`, j.by_fy)).join('') +
-  (pc.benchmarks['Average'] ? row('All states, average', pc.benchmarks['Average']) : '') +
+  (pc.benchmarks['Average']
+    ? row('All states, weighted by population', pc.benchmarks['Average']) : '') +
   (pc.benchmarks['Commonwealth']
     ? row('Commonwealth, for scale', pc.benchmarks['Commonwealth']) : '') +
   `</tbody></table>`;
 document.getElementById('percap-src').innerHTML =
   `Source: <a href="${pc.source}">${pc.source_name}</a> · read ${pc.fetched}. ` +
-  `Figures are nominal dollars and are not adjusted for inflation. The Commonwealth row ` +
-  `is not a state and is shown only to size the state figures against it.`;
+  `Figures are nominal dollars and are not adjusted for inflation. The average row is ` +
+  `weighted by population, so it sits above most jurisdictions and does not equal the ` +
+  `average of the eight numbers above it. The Commonwealth row is not a state and is ` +
+  `shown only to size the state figures against it.`;
 
-const dollars = n => n == null ? 'not published' : '$' + fmt(Math.round(n));
-const pct = n => n == null ? 'not published' : n + '%';
+const dollars = n => n == null ? 'no such tax' : '$' + fmt(Math.round(n));
+const pct = n => n == null ? 'no such tax' : n + '%';
 
 function table(title, note, rows, fmtv, sourceOf) {
   // No cell is marked best. Which direction is favourable depends on whether you are
@@ -113,10 +116,11 @@ function table(title, note, rows, fmtv, sourceOf) {
     <tbody>${rows.map(r => `
       <tr>
         <td class="j">${r.name}</td>
-        <td class="num">${fmtv(r.v)}
+        <td class="num" data-label="${title}">${fmtv(r.v)}
           ${r.v != null && max > 0 ? `<span class="bar"><i style="width:${(r.v / max * 100).toFixed(1)}%"></i></span>` : ''}
           ${r.note ? `<div class="note">${r.note}</div>` : ''}</td>
-        <td>${r.source ? `<a href="${r.source}" rel="noopener">check</a>` : '—'}</td>
+        <td data-label="Source">${r.source
+          ? `<a href="${r.source}" rel="noopener">${r.name.split(' — ')[0]} source</a>` : '—'}</td>
       </tr>`).join('')}
     </tbody></table>
     <p class="src">${sourceOf}</p>`;
