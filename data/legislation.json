@@ -1,0 +1,515 @@
+{
+ "acts_in_force": 4764,
+ "acts_total": 13732,
+ "by_year": [
+  {
+   "acts": 17,
+   "year": 1901
+  },
+  {
+   "acts": 21,
+   "year": 1902
+  },
+  {
+   "acts": 21,
+   "year": 1903
+  },
+  {
+   "acts": 15,
+   "year": 1904
+  },
+  {
+   "acts": 26,
+   "year": 1905
+  },
+  {
+   "acts": 23,
+   "year": 1906
+  },
+  {
+   "acts": 12,
+   "year": 1907
+  },
+  {
+   "acts": 27,
+   "year": 1908
+  },
+  {
+   "acts": 29,
+   "year": 1909
+  },
+  {
+   "acts": 41,
+   "year": 1910
+  },
+  {
+   "acts": 29,
+   "year": 1911
+  },
+  {
+   "acts": 43,
+   "year": 1912
+  },
+  {
+   "acts": 24,
+   "year": 1913
+  },
+  {
+   "acts": 36,
+   "year": 1914
+  },
+  {
+   "acts": 53,
+   "year": 1915
+  },
+  {
+   "acts": 41,
+   "year": 1916
+  },
+  {
+   "acts": 40,
+   "year": 1917
+  },
+  {
+   "acts": 47,
+   "year": 1918
+  },
+  {
+   "acts": 32,
+   "year": 1919
+  },
+  {
+   "acts": 56,
+   "year": 1920
+  },
+  {
+   "acts": 43,
+   "year": 1921
+  },
+  {
+   "acts": 42,
+   "year": 1922
+  },
+  {
+   "acts": 36,
+   "year": 1923
+  },
+  {
+   "acts": 61,
+   "year": 1924
+  },
+  {
+   "acts": 32,
+   "year": 1925
+  },
+  {
+   "acts": 52,
+   "year": 1926
+  },
+  {
+   "acts": 38,
+   "year": 1927
+  },
+  {
+   "acts": 48,
+   "year": 1928
+  },
+  {
+   "acts": 35,
+   "year": 1929
+  },
+  {
+   "acts": 78,
+   "year": 1930
+  },
+  {
+   "acts": 56,
+   "year": 1931
+  },
+  {
+   "acts": 76,
+   "year": 1932
+  },
+  {
+   "acts": 74,
+   "year": 1933
+  },
+  {
+   "acts": 67,
+   "year": 1934
+  },
+  {
+   "acts": 73,
+   "year": 1935
+  },
+  {
+   "acts": 94,
+   "year": 1936
+  },
+  {
+   "acts": 47,
+   "year": 1937
+  },
+  {
+   "acts": 78,
+   "year": 1938
+  },
+  {
+   "acts": 87,
+   "year": 1939
+  },
+  {
+   "acts": 99,
+   "year": 1940
+  },
+  {
+   "acts": 70,
+   "year": 1941
+  },
+  {
+   "acts": 58,
+   "year": 1942
+  },
+  {
+   "acts": 58,
+   "year": 1943
+  },
+  {
+   "acts": 46,
+   "year": 1944
+  },
+  {
+   "acts": 59,
+   "year": 1945
+  },
+  {
+   "acts": 81,
+   "year": 1946
+  },
+  {
+   "acts": 93,
+   "year": 1947
+  },
+  {
+   "acts": 93,
+   "year": 1948
+  },
+  {
+   "acts": 87,
+   "year": 1949
+  },
+  {
+   "acts": 80,
+   "year": 1950
+  },
+  {
+   "acts": 82,
+   "year": 1951
+  },
+  {
+   "acts": 109,
+   "year": 1952
+  },
+  {
+   "acts": 96,
+   "year": 1953
+  },
+  {
+   "acts": 83,
+   "year": 1954
+  },
+  {
+   "acts": 71,
+   "year": 1955
+  },
+  {
+   "acts": 113,
+   "year": 1956
+  },
+  {
+   "acts": 103,
+   "year": 1957
+  },
+  {
+   "acts": 83,
+   "year": 1958
+  },
+  {
+   "acts": 104,
+   "year": 1959
+  },
+  {
+   "acts": 111,
+   "year": 1960
+  },
+  {
+   "acts": 98,
+   "year": 1961
+  },
+  {
+   "acts": 108,
+   "year": 1962
+  },
+  {
+   "acts": 103,
+   "year": 1963
+  },
+  {
+   "acts": 130,
+   "year": 1964
+  },
+  {
+   "acts": 156,
+   "year": 1965
+  },
+  {
+   "acts": 93,
+   "year": 1966
+  },
+  {
+   "acts": 124,
+   "year": 1967
+  },
+  {
+   "acts": 157,
+   "year": 1968
+  },
+  {
+   "acts": 102,
+   "year": 1969
+  },
+  {
+   "acts": 127,
+   "year": 1970
+  },
+  {
+   "acts": 138,
+   "year": 1971
+  },
+  {
+   "acts": 139,
+   "year": 1972
+  },
+  {
+   "acts": 221,
+   "year": 1973
+  },
+  {
+   "acts": 166,
+   "year": 1974
+  },
+  {
+   "acts": 121,
+   "year": 1975
+  },
+  {
+   "acts": 208,
+   "year": 1976
+  },
+  {
+   "acts": 161,
+   "year": 1977
+  },
+  {
+   "acts": 211,
+   "year": 1978
+  },
+  {
+   "acts": 191,
+   "year": 1979
+  },
+  {
+   "acts": 177,
+   "year": 1980
+  },
+  {
+   "acts": 182,
+   "year": 1981
+  },
+  {
+   "acts": 158,
+   "year": 1982
+  },
+  {
+   "acts": 147,
+   "year": 1983
+  },
+  {
+   "acts": 175,
+   "year": 1984
+  },
+  {
+   "acts": 202,
+   "year": 1985
+  },
+  {
+   "acts": 168,
+   "year": 1986
+  },
+  {
+   "acts": 184,
+   "year": 1987
+  },
+  {
+   "acts": 156,
+   "year": 1988
+  },
+  {
+   "acts": 183,
+   "year": 1989
+  },
+  {
+   "acts": 144,
+   "year": 1990
+  },
+  {
+   "acts": 216,
+   "year": 1991
+  },
+  {
+   "acts": 264,
+   "year": 1992
+  },
+  {
+   "acts": 121,
+   "year": 1993
+  },
+  {
+   "acts": 184,
+   "year": 1994
+  },
+  {
+   "acts": 176,
+   "year": 1995
+  },
+  {
+   "acts": 84,
+   "year": 1996
+  },
+  {
+   "acts": 223,
+   "year": 1997
+  },
+  {
+   "acts": 135,
+   "year": 1998
+  },
+  {
+   "acts": 201,
+   "year": 1999
+  },
+  {
+   "acts": 174,
+   "year": 2000
+  },
+  {
+   "acts": 169,
+   "year": 2001
+  },
+  {
+   "acts": 148,
+   "year": 2002
+  },
+  {
+   "acts": 150,
+   "year": 2003
+  },
+  {
+   "acts": 158,
+   "year": 2004
+  },
+  {
+   "acts": 164,
+   "year": 2005
+  },
+  {
+   "acts": 172,
+   "year": 2006
+  },
+  {
+   "acts": 184,
+   "year": 2007
+  },
+  {
+   "acts": 159,
+   "year": 2008
+  },
+  {
+   "acts": 136,
+   "year": 2009
+  },
+  {
+   "acts": 150,
+   "year": 2010
+  },
+  {
+   "acts": 190,
+   "year": 2011
+  },
+  {
+   "acts": 206,
+   "year": 2012
+  },
+  {
+   "acts": 148,
+   "year": 2013
+  },
+  {
+   "acts": 135,
+   "year": 2014
+  },
+  {
+   "acts": 177,
+   "year": 2015
+  },
+  {
+   "acts": 102,
+   "year": 2016
+  },
+  {
+   "acts": 133,
+   "year": 2017
+  },
+  {
+   "acts": 170,
+   "year": 2018
+  },
+  {
+   "acts": 129,
+   "year": 2019
+  },
+  {
+   "acts": 154,
+   "year": 2020
+  },
+  {
+   "acts": 142,
+   "year": 2021
+  },
+  {
+   "acts": 96,
+   "year": 2022
+  },
+  {
+   "acts": 122,
+   "year": 2023
+  },
+  {
+   "acts": 140,
+   "year": 2024
+  },
+  {
+   "acts": 79,
+   "year": 2025
+  },
+  {
+   "acts": 82,
+   "year": 2026
+  }
+ ],
+ "fetched": "2026-09-07",
+ "instruments_in_force": 24271,
+ "source": "https://api.prod.legislation.gov.au/v1/titles",
+ "source_name": "Federal Register of Legislation (legislation.gov.au) OData API",
+ "titles_total": 108427
+}
