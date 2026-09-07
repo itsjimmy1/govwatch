@@ -16,8 +16,8 @@ Design principle: big visible charts. The landing page is a dashboard.
 1. **Dashboard** (landing page)
    - Commonwealth Acts in force — live from legislation.gov.au API (4,764 on 7 Sep 2026)
    - Acts made per year since 1901 — bar chart, same API
-   - Commonwealth gross debt on issue — AOFM
-   - Tax receipts and payments as % of GDP, time series — Budget papers / ABS GFS
+   - Commonwealth gross debt on issue — AOFM, 2016-17 to 2024-25
+   - Tax receipts as % of GDP, 1978-79 to 2029-30 — Budget Paper 1 Statement 5 Table 2
    - Taxes added and abolished since Federation — count, from the timeline below
 2. **Federal tax timeline 1901–now** — each tax introduced or abolished: year, name,
    government, PM, party, source link. Filter by party. Running-count chart.
@@ -38,18 +38,18 @@ comments, newsletter.
   (tax timeline) lives in `data/*.json` by hand, with sources in the records.
 - Charts: inline SVG generated in the browser from the JSON. One CDN lib only if SVG
   gets painful.
-- Hosting: GitHub Pages from `main`, public repo `itsjimmy1/govwatch`. URL is unlisted
-  until a domain is chosen. Firebase Hosting under GCP is the firm standard; move there
-  once `gcloud auth login` and `firebase login` are done. One CNAME either way.
+- Hosting: GitHub Pages from `main`, public repo `itsjimmy1/govwatch`, live at
+  https://itsjimmy1.github.io/govwatch/ . Firebase Hosting under GCP is the firm standard;
+  move there once `gcloud auth login` and `firebase login` are done. One CNAME either way.
 - Refresh: GitHub Actions cron, daily, runs `fetch.py`, commits changed JSON.
 
 ## Published gate (loop stops when all true)
 
-- [ ] Site loads at its public URL on desktop and mobile
-- [ ] Every dashboard number is real, sourced, and dated on the page
-- [ ] Tax timeline has ≥ 30 sourced entries and the party filter works
-- [ ] Sources page lists every dataset with URL and refresh cadence
-- [ ] Daily refresh workflow has run green at least once
+- [x] Site loads at its public URL on desktop and mobile — https://itsjimmy1.github.io/govwatch/
+- [x] Every dashboard number is real, sourced, and dated on the page
+- [x] Tax timeline has ≥ 30 sourced entries and the party filter works — 53 entries
+- [x] Sources page lists every dataset with URL and refresh cadence
+- [x] Daily refresh workflow has run green at least once
 - [ ] A separate review agent has passed the site against this gate
 
 ## James to do
