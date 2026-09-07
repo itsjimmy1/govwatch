@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GovWatch — Australian government by the numbers</title>
 <meta name="description" content="Factual, sourced numbers on what the Australian government taxes, spends, owes and legislates.">
-<link rel="stylesheet" href="style.css?v=af757995">
+<link rel="stylesheet" href="style.css?v=042b8c3d">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -93,7 +93,7 @@
 </div></section>
 
 <script type="module">
-import { bars, stepline, fmt } from './chart.js?v=aa898822';
+import { bars, stepline, fmt } from './chart.js?v=984ba0c0';
 
 const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
 const tile = (k, v, n) =>
@@ -169,6 +169,14 @@ document.getElementById('tax-chart').append(
 
 document.getElementById('gaps').innerHTML =
   '<ul style="margin:0;padding-left:20px">' + taxes.gaps.map(g => `<li>${g}</li>`).join('') + '</ul>';
+
+// Charts size their viewBox to the viewport, so a rotate or resize needs a redraw.
+let last = window.innerWidth < 700;
+addEventListener('resize', () => {
+  const now = window.innerWidth < 700;
+  if (now !== last) { last = now; location.reload(); }
+}, { passive: true });
+// redrawOnResize
 </script>
 <footer><div class="wrap">
   <p>Every figure here links to the public record it came from. Corrections welcome:

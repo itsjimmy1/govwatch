@@ -636,19 +636,27 @@
  ],
  "party_families": {
   "map": {
+   "Commonwealth Liberal": "Coalition and predecessors",
+   "Country/Liberal Coalition": "Coalition and predecessors",
+   "Country/United Australia Party Coalition": "Coalition and predecessors",
+   "Free Trade": "Pre-fusion parties",
    "Labor": "Labor",
+   "Labour": "Labor",
    "Liberal/Country Coalition": "Coalition and predecessors",
    "Liberal/National Coalition": "Coalition and predecessors",
    "Liberal/National Country Coalition": "Coalition and predecessors",
+   "National Labor": "Coalition and predecessors",
    "Nationalist": "Coalition and predecessors",
+   "Nationalist/Country Coalition": "Coalition and predecessors",
    "Protectionist": "Pre-fusion parties",
    "United Australia Party": "Coalition and predecessors"
   },
   "rule": [
-   "Labor stands alone. The party has kept its name since 1901.",
-   "Coalition and predecessors groups the Nationalist Party (1917), the United Australia Party (1931) and the Liberal Party (1944) with its Country and National Party coalitions, following the direct organisational lineage.",
-   "Pre-fusion parties covers the Protectionist government of 1901 to 1908. The party system before the 1909 fusion does not map onto the two sides that came after it, so folding it into either would be a claim, not a count.",
-   "This grouping is a judgement about party history. The chart above it uses the names as they were at the time and makes no grouping at all."
+   "Labor stands alone, including the early Labour spelling the party itself used.",
+   "Coalition and predecessors follows the direct organisational line: Commonwealth Liberal (1909), Nationalist (1917), United Australia Party (1931) and Liberal (1944), with their Country and National Party coalitions.",
+   "National Labor, Billy Hughes's 1916 splinter, is grouped with the Coalition side despite its name, because it merged with the Commonwealth Liberals to form the Nationalist Party three months later. Grouping it by name instead would be the other defensible choice.",
+   "Pre-fusion parties covers Protectionist and Free Trade governments up to 1909. The party system before the fusion does not map onto the two sides that came after it, so folding it into either would be a claim rather than a count.",
+   "This grouping is a judgement about party history. The chart above it uses the names as they were at the time and groups nothing."
   ]
  }
 }

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Patterns by party and decade — GovWatch</title>
 <meta name="description" content="Which Australian governments added federal taxes, which removed them, and how much law each one made.">
-<link rel="stylesheet" href="style.css?v=af757995">
+<link rel="stylesheet" href="style.css?v=042b8c3d">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -62,9 +62,9 @@
   <div class="chart" id="acts-gov-chart"></div>
   <div id="acts-gov-legend"></div>
   <div class="tiles" id="acts-tiles" style="margin-top:18px"></div>
-  <p class="src">Sources: <a href="https://api.prod.legislation.gov.au/v1/titles">Federal Register of Legislation</a>,
-     read <span data-fetched="legislation"></span>, and the list of governments at
-     <span id="gov-source"></span>.</p>
+  <div class="note-box" style="margin-top:16px" id="gov-convention"></div>
+  <p class="src">Source: <a href="https://api.prod.legislation.gov.au/v1/titles">Federal Register of Legislation</a>,
+     read <span data-fetched="legislation"></span>.<span id="gov-source"></span></p>
 </div></section>
 
 <section><div class="wrap">
@@ -82,7 +82,7 @@
 </div></section>
 
 <script type="module">
-import { grouped, legend, bars, fmt } from './chart.js?v=aa898822';
+import { grouped, legend, bars, fmt } from './chart.js?v=984ba0c0';
 const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
 const INTRO = '#8a5600', ABOL = '#6b7484';
 
@@ -111,7 +111,7 @@ const series = [
   { name: 'Introduced', colour: INTRO, values: parties.map(p => byParty.get(p).introduced) },
   { name: 'Abolished', colour: ABOL, values: parties.map(p => byParty.get(p).abolished) },
 ];
-document.getElementById('party-chart').append(grouped(parties, series, { h: 320 }));
+document.getElementById('party-chart').append(grouped(parties, series, { h: 320, integer: true }));
 document.getElementById('party-legend').append(legend(series));
 
 // By lineage. The rule is published because the grouping is arguable.
@@ -123,7 +123,7 @@ const fseries = [
   { name: 'Introduced', colour: INTRO, values: fkeys.map(k => fam.get(k).introduced) },
   { name: 'Abolished', colour: ABOL, values: fkeys.map(k => fam.get(k).abolished) },
 ];
-document.getElementById('family-chart').append(grouped(fkeys, fseries, { h: 280 }));
+document.getElementById('family-chart').append(grouped(fkeys, fseries, { h: 280, integer: true }));
 document.getElementById('family-legend').append(legend(fseries));
 document.getElementById('family-rule').innerHTML =
   '<ul style="margin:0;padding-left:20px">' + FAMILY.rule.map(r => `<li>${r}</li>`).join('') + '</ul>';
@@ -137,7 +137,7 @@ const dseries = [
   { name: 'Abolished', colour: ABOL, values: decs.map(d => byDec.get(d)?.abolished ?? 0) },
 ];
 document.getElementById('decade-chart').append(
-  grouped(decs.map(d => `${d}s`), dseries, { h: 280 }));
+  grouped(decs.map(d => `${d}s`), dseries, { h: 280, integer: true }));
 document.getElementById('decade-legend').append(legend(dseries));
 
 // Acts by government. Each year takes the party that held office longest in it.
@@ -173,7 +173,7 @@ if (!govs) {
       fam, pm: g?.pm, party: g?.party,
     };
   });
-  document.getElementById('acts-gov-chart').append(bars(rows, { h: 320, xEvery: 10 }));
+  document.getElementById('acts-gov-chart').append(bars(rows, { h: 320, xEvery: 10, integer: true }));
   const lseries = [...new Set(rows.map(r => r.fam))]
     .map(f => ({ name: f, colour: PARTY_COLOUR[f] }));
   document.getElementById('acts-gov-legend').append(legend(lseries));
@@ -193,9 +193,19 @@ if (!govs) {
         `Acts a year on average, over ${v.years} years`)),
     tile('Busiest year', busiest.x, `${fmt(busiest.y)} Acts under ${busiest.pm ?? 'unknown'}`),
   ].join('');
+  document.getElementById('gov-convention').textContent = govs.convention;
   document.getElementById('gov-source').innerHTML =
-    `<a href="${govs.source}">${govs.source_name}</a>`;
+    ` Governments from <a href="${govs.source}">${govs.source_name}</a>, compiled ` +
+    `${govs.compiled}. ${govs.source_note}`;
 }
+
+// Charts size their viewBox to the viewport, so a rotate or resize needs a redraw.
+let last = window.innerWidth < 700;
+addEventListener('resize', () => {
+  const now = window.innerWidth < 700;
+  if (now !== last) { last = now; location.reload(); }
+}, { passive: true });
+// redrawOnResize
 </script>
 <footer><div class="wrap">
   <p>Every figure here links to the public record it came from. Corrections welcome:

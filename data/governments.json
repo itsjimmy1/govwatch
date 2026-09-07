@@ -1,0 +1,243 @@
+{
+ "compiled": "2026-09-08",
+ "convention": "Each ministry's end date equals the next one's start date. Where a Prime Minister died or disappeared in office, the successor's swearing-in date is used for both, so the series has no gaps: Curtin to Forde on 6 July 1945, and Holt to McEwen on 19 December 1967.",
+ "governments": [
+  {
+   "end": "1903-09-24",
+   "party": "Protectionist",
+   "pm": "Edmund Barton",
+   "start": "1901-01-01"
+  },
+  {
+   "end": "1904-04-27",
+   "party": "Protectionist",
+   "pm": "Alfred Deakin",
+   "start": "1903-09-24"
+  },
+  {
+   "end": "1904-08-18",
+   "party": "Labour",
+   "pm": "Chris Watson",
+   "start": "1904-04-27"
+  },
+  {
+   "end": "1905-07-05",
+   "party": "Free Trade",
+   "pm": "George Reid",
+   "start": "1904-08-18"
+  },
+  {
+   "end": "1908-11-13",
+   "party": "Protectionist",
+   "pm": "Alfred Deakin",
+   "start": "1905-07-05"
+  },
+  {
+   "end": "1909-06-02",
+   "party": "Labour",
+   "pm": "Andrew Fisher",
+   "start": "1908-11-13"
+  },
+  {
+   "end": "1910-04-29",
+   "party": "Commonwealth Liberal",
+   "pm": "Alfred Deakin",
+   "start": "1909-06-02"
+  },
+  {
+   "end": "1913-06-24",
+   "party": "Labour",
+   "pm": "Andrew Fisher",
+   "start": "1910-04-29"
+  },
+  {
+   "end": "1914-09-17",
+   "party": "Commonwealth Liberal",
+   "pm": "Joseph Cook",
+   "start": "1913-06-24"
+  },
+  {
+   "end": "1915-10-27",
+   "party": "Labour",
+   "pm": "Andrew Fisher",
+   "start": "1914-09-17"
+  },
+  {
+   "end": "1916-11-14",
+   "party": "Labor",
+   "pm": "Billy Hughes",
+   "start": "1915-10-27"
+  },
+  {
+   "end": "1917-02-17",
+   "party": "National Labor",
+   "pm": "Billy Hughes",
+   "start": "1916-11-14"
+  },
+  {
+   "end": "1923-02-09",
+   "party": "Nationalist",
+   "pm": "Billy Hughes",
+   "start": "1917-02-17"
+  },
+  {
+   "end": "1929-10-22",
+   "party": "Nationalist/Country Coalition",
+   "pm": "Stanley Bruce",
+   "start": "1923-02-09"
+  },
+  {
+   "end": "1932-01-06",
+   "party": "Labor",
+   "pm": "James Scullin",
+   "start": "1929-10-22"
+  },
+  {
+   "end": "1939-04-07",
+   "party": "United Australia Party",
+   "pm": "Joseph Lyons",
+   "start": "1932-01-06"
+  },
+  {
+   "end": "1939-04-26",
+   "party": "Country/United Australia Party Coalition",
+   "pm": "Earle Page",
+   "start": "1939-04-07"
+  },
+  {
+   "end": "1941-08-29",
+   "party": "United Australia Party",
+   "pm": "Robert Menzies",
+   "start": "1939-04-26"
+  },
+  {
+   "end": "1941-10-07",
+   "party": "Country/United Australia Party Coalition",
+   "pm": "Arthur Fadden",
+   "start": "1941-08-29"
+  },
+  {
+   "end": "1945-07-06",
+   "party": "Labor",
+   "pm": "John Curtin",
+   "start": "1941-10-07"
+  },
+  {
+   "end": "1945-07-13",
+   "party": "Labor",
+   "pm": "Frank Forde",
+   "start": "1945-07-06"
+  },
+  {
+   "end": "1949-12-19",
+   "party": "Labor",
+   "pm": "Ben Chifley",
+   "start": "1945-07-13"
+  },
+  {
+   "end": "1966-01-26",
+   "party": "Liberal/Country Coalition",
+   "pm": "Robert Menzies",
+   "start": "1949-12-19"
+  },
+  {
+   "end": "1967-12-19",
+   "party": "Liberal/Country Coalition",
+   "pm": "Harold Holt",
+   "start": "1966-01-26"
+  },
+  {
+   "end": "1968-01-10",
+   "party": "Country/Liberal Coalition",
+   "pm": "John McEwen",
+   "start": "1967-12-19"
+  },
+  {
+   "end": "1971-03-10",
+   "party": "Liberal/Country Coalition",
+   "pm": "John Gorton",
+   "start": "1968-01-10"
+  },
+  {
+   "end": "1972-12-05",
+   "party": "Liberal/Country Coalition",
+   "pm": "William McMahon",
+   "start": "1971-03-10"
+  },
+  {
+   "end": "1975-11-11",
+   "party": "Labor",
+   "pm": "Gough Whitlam",
+   "start": "1972-12-05"
+  },
+  {
+   "end": "1983-03-11",
+   "party": "Liberal/National Country Coalition",
+   "pm": "Malcolm Fraser",
+   "start": "1975-11-11"
+  },
+  {
+   "end": "1991-12-20",
+   "party": "Labor",
+   "pm": "Bob Hawke",
+   "start": "1983-03-11"
+  },
+  {
+   "end": "1996-03-11",
+   "party": "Labor",
+   "pm": "Paul Keating",
+   "start": "1991-12-20"
+  },
+  {
+   "end": "2007-12-03",
+   "party": "Liberal/National Coalition",
+   "pm": "John Howard",
+   "start": "1996-03-11"
+  },
+  {
+   "end": "2010-06-24",
+   "party": "Labor",
+   "pm": "Kevin Rudd",
+   "start": "2007-12-03"
+  },
+  {
+   "end": "2013-06-27",
+   "party": "Labor",
+   "pm": "Julia Gillard",
+   "start": "2010-06-24"
+  },
+  {
+   "end": "2013-09-18",
+   "party": "Labor",
+   "pm": "Kevin Rudd",
+   "start": "2013-06-27"
+  },
+  {
+   "end": "2015-09-15",
+   "party": "Liberal/National Coalition",
+   "pm": "Tony Abbott",
+   "start": "2013-09-18"
+  },
+  {
+   "end": "2018-08-24",
+   "party": "Liberal/National Coalition",
+   "pm": "Malcolm Turnbull",
+   "start": "2015-09-15"
+  },
+  {
+   "end": "2022-05-23",
+   "party": "Liberal/National Coalition",
+   "pm": "Scott Morrison",
+   "start": "2018-08-24"
+  },
+  {
+   "end": null,
+   "party": "Labor",
+   "pm": "Anthony Albanese",
+   "start": "2022-05-23"
+  }
+ ],
+ "source": "https://handbook.aph.gov.au/parliamentarians/prime-ministers",
+ "source_name": "Parliament of Australia, Parliamentary Handbook: Prime Ministers",
+ "source_note": "The Parliamentary Handbook renders its table with JavaScript, so these dates were assembled and cross-checked against Wikipedia's List of Australian ministries and List of prime ministers of Australia. Ministry dates are well documented and unlikely to be wrong, but this list is not sourced to the primary record the way the tax timeline is."
+}

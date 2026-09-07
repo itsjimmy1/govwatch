@@ -102,6 +102,10 @@ def main():
         want(g[0]["start"].startswith("1901"), "government list does not start at Federation")
         want(sum(1 for x in g if x["end"] is None) == 1,
              "exactly one government should be current")
+        for x in g:
+            want(x["party"] in fam.get("map", {}),
+                 f"governing party {x['party']!r} has no lineage grouping, so the "
+                 f"Acts chart would colour it as Other")
         for a, b in zip(g, g[1:]):
             want(a["end"] and a["end"] <= b["start"],
                  f"governments overlap: {a['pm']} ends {a['end']}, {b['pm']} starts {b['start']}")

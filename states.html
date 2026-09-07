@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Compare the states — GovWatch</title>
 <meta name="description" content="Australian state and territory taxes on the same basis, so you can see which is cheapest for your situation.">
-<link rel="stylesheet" href="style.css?v=af757995">
+<link rel="stylesheet" href="style.css?v=042b8c3d">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -59,7 +59,7 @@
 </div></section>
 
 <script type="module">
-import { fmt } from './chart.js?v=aa898822';
+import { fmt } from './chart.js?v=984ba0c0';
 const box = document.getElementById('states');
 
 const money = n => n == null ? '—' : '$' + fmt(Math.round(n));
@@ -127,6 +127,14 @@ try {
     <p style="margin-bottom:0">Progress is tracked in
     <a href="https://github.com/itsjimmy1/govwatch/issues">the issue tracker</a>.</p></div>`;
 }
+
+// Charts size their viewBox to the viewport, so a rotate or resize needs a redraw.
+let last = window.innerWidth < 700;
+addEventListener('resize', () => {
+  const now = window.innerWidth < 700;
+  if (now !== last) { last = now; location.reload(); }
+}, { passive: true });
+// redrawOnResize
 </script>
 <footer><div class="wrap">
   <p>Every figure here links to the public record it came from. Corrections welcome:

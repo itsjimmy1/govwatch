@@ -8,8 +8,22 @@ const el = (n, a = {}) => {
 };
 const fmt = n => n.toLocaleString('en-AU');
 
+// Charts are drawn in viewBox units and scaled to fit. A 1080-unit box squeezed into
+// a 350px phone renders 11px type at about 5px, so narrow screens get a narrower box.
+export function chartWidth() {
+  const w = typeof window === 'undefined' ? 1080 : window.innerWidth;
+  return w < 700 ? 560 : 1080;
+}
+
 // Nice round upper bound so the y-axis reads cleanly.
-function niceMax(v) {
+function niceMax(v, integer) {
+  if (integer) {
+    for (const s of [5, 10, 20, 25, 50, 100]) {
+      const n = Math.ceil(v / s) * s;
+      if (n >= v && n <= v * 2.5) return n;
+    }
+    return Math.ceil(v);
+  }
   if (v <= 0) return 1;
   const mag = Math.pow(10, Math.floor(Math.log10(v)));
   for (const s of [1, 1.5, 2, 2.5, 3, 4, 5, 7.5, 10]) {
@@ -28,10 +42,11 @@ function niceTicks(max, want) {
 }
 
 /** Vertical bars. rows: [{x, y, fill?, title?}] */
-export function bars(rows, { w = 1080, h = 300, ticks = 4, xEvery = 10 } = {}) {
+export function bars(rows, { w = chartWidth(), h = 300, ticks = 4, xEvery = 10,
+                             integer = false } = {}) {
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
   const L = 52, B = 24, top = 10;
-  const max = niceMax(Math.max(...rows.map(r => r.y)));
+  const max = niceMax(Math.max(...rows.map(r => r.y)), integer);
   ticks = niceTicks(max, ticks);
   const iw = w - L - 12, ih = h - B - top;
   const bw = iw / rows.length;
@@ -67,10 +82,11 @@ export function bars(rows, { w = 1080, h = 300, ticks = 4, xEvery = 10 } = {}) {
 }
 
 /** Step line, for running counts. rows: [{x, y}] sorted by x. */
-export function stepline(rows, { w = 1080, h = 260, ticks = 4, label = '' } = {}) {
+export function stepline(rows, { w = chartWidth(), h = 260, ticks = 4, label = '',
+                                 integer = false } = {}) {
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
   const L = 52, B = 24, top = 10;
-  const xs = rows.map(r => r.x), max = niceMax(Math.max(...rows.map(r => r.y)));
+  const xs = rows.map(r => r.x), max = niceMax(Math.max(...rows.map(r => r.y)), integer);
   ticks = niceTicks(max, ticks);
   const x0 = Math.min(...xs), x1 = Math.max(...xs);
   const iw = w - L - 12, ih = h - B - top;
@@ -106,10 +122,12 @@ export function stepline(rows, { w = 1080, h = 260, ticks = 4, label = '' } = {}
 
 /** Grouped bars: one cluster per category, one bar per series.
  *  cats: ["Labor", ...]; series: [{name, colour, values:[n per cat]}] */
-export function grouped(cats, series, { w = 1080, h = 300, ticks = 4, unit = '' } = {}) {
+export function grouped(cats, series, { w = chartWidth(), h = 300, ticks = 4, unit = '',
+                                        integer = false } = {}) {
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
-  const L = 52, B = 46, top = 12;
-  const max = niceMax(Math.max(...series.flatMap(s => s.values)));
+  // top leaves room for the value label above the tallest bar.
+  const L = 52, B = 46, top = 22;
+  const max = niceMax(Math.max(...series.flatMap(s => s.values)), integer);
   ticks = niceTicks(max, ticks);
   const iw = w - L - 12, ih = h - B - top;
   const cw = iw / cats.length, bw = (cw * 0.72) / series.length;
