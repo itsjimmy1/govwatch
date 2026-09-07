@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Federal tax timeline since 1901 — GovWatch</title>
 <meta name="description" content="Every Commonwealth tax introduced or abolished since Federation, with the government that did it and a source for each.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=267c195f">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -34,7 +34,7 @@
     <thead><tr><th>Year</th><th>Tax</th><th>Action</th><th>Government</th></tr></thead>
     <tbody></tbody>
   </table>
-  <p class="src" id="count"></p>
+  <p class="src" id="count" aria-live="polite"></p>
 </div></section>
 
 <section><div class="wrap">
@@ -43,7 +43,7 @@
 </div></section>
 
 <script type="module">
-import { fmt } from './chart.js';
+import { fmt } from './chart.js?v=d630429d';
 const taxes = await (await fetch('data/taxes.json', { cache: 'no-cache' })).json();
 const all = [...taxes.entries].sort((a, b) => a.year - b.year || a.name.localeCompare(b.name));
 
@@ -88,7 +88,7 @@ function tiles(rows) {
   const gone = counted.filter(e => e.action === 'abolished').length;
   const scope = active === 'All' ? 'since 1901' : `under ${active} governments`;
   document.getElementById('tiles').innerHTML = [
-    tile('Introduced', fmt(added), `Distinct federal taxes created ${scope}`),
+    tile('Introduced', fmt(added), `Times a federal tax was created ${scope}`),
     tile('Abolished', fmt(gone), `Repealed or handed to the states ${scope}`),
     active === 'All'
       ? tile('Levied today', fmt(added - gone), 'Still collected by the Commonwealth')

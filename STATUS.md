@@ -2,6 +2,10 @@
 
 Loop log. Newest at top. One line per increment: date, what shipped, what's next.
 
+- 2026-09-08 — Third review returned SHIP. All eight round-two defects verified fixed, no
+  new blockers, zero console errors, keyboard access works. Cleared five non-blocking nits
+  including cache-busting, which was leaving withdrawn colours in visitors' caches.
+  Published gate fully closed. Next: an OpenAustralia key to unblock the votes page.
 - 2026-09-08 — Second review passed all seven earlier defects but blocked on a new one:
   red "introduced" and green "abolished" pills encoded a good/bad judgement the site
   promises not to make. Pills neutralised, plus seven smaller fixes. Third review running.

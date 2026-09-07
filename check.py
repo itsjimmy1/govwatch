@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Refuse to ship data that is obviously wrong. Run by CI before deploy."""
+import hashlib
 import json
+import re
 import sys
 from datetime import date
 
@@ -12,7 +14,25 @@ def want(ok, msg):
         FAIL.append(msg)
 
 
+def stamp_assets():
+    """Point every page at style.css and chart.js by content hash.
+
+    Without this, a visitor who loaded an older build keeps its CSS until their
+    cache expires, which once left corrected pages showing withdrawn colours.
+    """
+    digest = {name: hashlib.sha256(open(name, "rb").read()).hexdigest()[:8]
+              for name in ("style.css", "chart.js")}
+    for page in ("index.html", "taxes.html", "votes.html", "sources.html"):
+        text = original = open(page).read()
+        for name, h in digest.items():
+            text = re.sub(rf"{re.escape(name)}(\?v=[0-9a-f]+)?", f"{name}?v={h}", text)
+        if text != original:
+            open(page, "w").write(text)
+    print(f"stamped assets: {digest}")
+
+
 def main():
+    stamp_assets()
     leg = json.load(open("data/legislation.json"))
     want(3000 < leg["acts_in_force"] < 9000,
          f"acts_in_force {leg['acts_in_force']} outside a believable range")

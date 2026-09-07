@@ -20,7 +20,7 @@ No build step, no dependencies. `fetch.py` and `check.py` are stdlib-only.
 | File | Does |
 |---|---|
 | `fetch.py` | Pulls live public data into `data/*.json`. Stdlib only. |
-| `check.py` | Range and shape checks. CI runs it before deploy and fails the build. |
+| `check.py` | Range and shape checks, plus it stamps `style.css` and `chart.js` with a content hash in every page. CI runs it before deploy and fails the build. |
 | `data/legislation.json` | Generated. Do not edit; `fetch.py` overwrites it. |
 | `data/taxes.json` | Curated by hand. Each entry carries its own source URL. |
 | `*.html`, `style.css`, `chart.js` | The site. Charts are hand-rolled SVG, no chart library. |
@@ -34,6 +34,17 @@ No build step, no dependencies. `fetch.py` and `check.py` are stdlib-only.
   `fetch.py` builds the query string by hand.
 - python.org Python builds on macOS ship **no CA bundle**, so `urllib` fails TLS
   verification locally. `fetch.py` falls back to `/etc/ssl/cert.pem`. CI is unaffected.
+
+## Two rules the build enforces
+
+- **An introduced tax must resolve.** If a `kind: "tax"` entry is introduced with no
+  matching abolition, `check.py` fails unless the entry sets `still_levied`. The site
+  once claimed nineteen taxes stood when seventeen did, purely because three old taxes
+  had no repeal row. Never satisfy the guard by guessing: the Crude Oil Production Levy
+  looked like the same bug and turned out to still be levied.
+- **Assets are cache-busted.** `check.py` rewrites every `style.css` and `chart.js`
+  reference to `?v=<content hash>`. A corrected page is useless if the browser keeps the
+  old stylesheet.
 
 ## Adding to the tax timeline
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sources and method — GovWatch</title>
 <meta name="description" content="Where every GovWatch number comes from, how often it refreshes, and what we do not have.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=267c195f">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -27,7 +27,7 @@
 
 <section><div class="wrap">
   <h2>Datasets</h2>
-  <div class="scroller"><table>
+  <table class="stack">
     <thead><tr><th>Dataset</th><th>Source</th><th>Refresh</th><th>Last read</th></tr></thead>
     <tbody>
       <tr>
@@ -36,7 +36,7 @@
         <td><a href="https://www.legislation.gov.au/" rel="noopener">Federal Register of Legislation</a>
             <div class="note">OData API, no key required</div></td>
         <td>Daily, automated</td>
-        <td class="yr" data-fetched="legislation">—</td>
+        <td class="yr">Last read <span data-fetched="legislation">—</span></td>
       </tr>
       <tr>
         <td><strong>Federal tax timeline</strong>
@@ -46,7 +46,7 @@
             <div class="note">Compiled by hand from Parliamentary Library papers, the Federal
             Register of Legislation, Treasury and the ATO. Every row carries its own source link.</div></td>
         <td>Manual, on correction</td>
-        <td class="yr" data-compiled="taxes">—</td>
+        <td class="yr">Last read <span data-compiled="taxes">—</span></td>
       </tr>
       <tr>
         <td><strong>Tax receipts as a share of GDP</strong>
@@ -54,7 +54,7 @@
         <td><a href="https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv" rel="noopener">Budget Paper No. 1, Statement 5, Table 2</a>
             <div class="note">CSV published by Treasury, no key required</div></td>
         <td>Daily, automated</td>
-        <td class="yr" data-fetched="receipts">—</td>
+        <td class="yr">Last read <span data-fetched="receipts">—</span></td>
       </tr>
       <tr>
         <td><strong>Government securities on issue</strong>
@@ -62,7 +62,7 @@
         <td><a href="https://www.aofm.gov.au/data-hub" rel="noopener">Australian Office of Financial Management</a>
             <div class="note">CSV, citing the Final Budget Outcome, Table B.5</div></td>
         <td>Daily, automated</td>
-        <td class="yr" data-fetched="debt">—</td>
+        <td class="yr">Last read <span data-fetched="debt">—</span></td>
       </tr>
       <tr>
         <td><strong>Division results</strong>
@@ -71,10 +71,10 @@
             <a href="https://theyvoteforyou.org.au/" rel="noopener">TheyVoteForYou</a>, both
             mirroring Hansard</td>
         <td>Not yet live</td>
-        <td class="yr">—</td>
+        <td class="yr">Not read</td>
       </tr>
     </tbody>
-  </table></div>
+  </table>
 </div></section>
 
 <section><div class="wrap"><div class="prose">

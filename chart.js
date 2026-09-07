@@ -18,11 +18,21 @@ function niceMax(v) {
   return 10 * mag;
 }
 
+// Prefer a tick count that divides the max into whole steps, so an axis topping
+// out at 25 reads 0/5/10/15/20/25 rather than 0/6/13/19/25.
+function niceTicks(max, want) {
+  for (const n of [want, 5, want + 1, want + 2, 3, 2]) {
+    if (n >= 2 && n <= 8 && Number.isInteger(max / n)) return n;
+  }
+  return want;
+}
+
 /** Vertical bars. rows: [{x, y, fill?, title?}] */
-export function bars(rows, { w = 1080, h = 300, pad = 40, ticks = 4, xEvery = 10 } = {}) {
+export function bars(rows, { w = 1080, h = 300, ticks = 4, xEvery = 10 } = {}) {
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
   const L = 52, B = 24, top = 10;
   const max = niceMax(Math.max(...rows.map(r => r.y)));
+  ticks = niceTicks(max, ticks);
   const iw = w - L - 12, ih = h - B - top;
   const bw = iw / rows.length;
 
@@ -30,7 +40,7 @@ export function bars(rows, { w = 1080, h = 300, pad = 40, ticks = 4, xEvery = 10
     const v = (max / ticks) * i, y = top + ih - (v / max) * ih;
     svg.append(el('line', { class: 'grid', x1: L, x2: w - 12, y1: y, y2: y }));
     const t = el('text', { class: 'axis', x: L - 8, y: y + 4, 'text-anchor': 'end' });
-    t.textContent = fmt(Math.round(v));
+    t.textContent = fmt(Number(v.toFixed(2)));
     svg.append(t);
   }
   rows.forEach((r, i) => {
@@ -61,6 +71,7 @@ export function stepline(rows, { w = 1080, h = 260, ticks = 4, label = '' } = {}
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
   const L = 52, B = 24, top = 10;
   const xs = rows.map(r => r.x), max = niceMax(Math.max(...rows.map(r => r.y)));
+  ticks = niceTicks(max, ticks);
   const x0 = Math.min(...xs), x1 = Math.max(...xs);
   const iw = w - L - 12, ih = h - B - top;
   const px = x => L + ((x - x0) / (x1 - x0 || 1)) * iw;
@@ -70,7 +81,7 @@ export function stepline(rows, { w = 1080, h = 260, ticks = 4, label = '' } = {}
     const v = (max / ticks) * i, y = py(v);
     svg.append(el('line', { class: 'grid', x1: L, x2: w - 12, y1: y, y2: y }));
     const t = el('text', { class: 'axis', x: L - 8, y: y + 4, 'text-anchor': 'end' });
-    t.textContent = fmt(Math.round(v));
+    t.textContent = fmt(Number(v.toFixed(2)));
     svg.append(t);
   }
   let d = '';

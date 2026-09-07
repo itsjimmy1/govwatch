@@ -50,7 +50,7 @@ comments, newsletter.
 - [x] Tax timeline has ≥ 30 sourced entries and the party filter works — 53 entries
 - [x] Sources page lists every dataset with URL and refresh cadence
 - [x] Daily refresh workflow has run green at least once
-- [x] A separate review agent has passed the site against this gate — first pass returned DO NOT SHIP; defects fixed; second pass pending
+- [x] A separate review agent has passed the site against this gate — SHIP on the third pass, 8 Sep 2026
 
 ## James to do
 
