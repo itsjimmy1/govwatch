@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Patterns by party and decade — GovWatch</title>
+<meta name="description" content="Which Australian governments added federal taxes, which removed them, and how much law each one made.">
+<link rel="stylesheet" href="style.css?v=af757995">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Gov<span>Watch</span></a>
+  <nav>
+    <a href="./">Dashboard</a>
+    <a href="taxes.html">Tax timeline</a>
+    <a href="patterns.html" aria-current="page">Patterns</a>
+    <a href="states.html">States</a>
+    <a href="votes.html">Votes</a>
+    <a href="sources.html">Sources &amp; method</a>
+  </nav>
+</div></header>
+<div class="hero"><div class="wrap">
+  <h1>Who adds, who removes</h1>
+  <p>The same timeline of federal taxes, cut by party and by decade, alongside how much
+     law each Parliament made. The counts are what they are. What they mean is your call.</p>
+</div></div>
+
+<section><div class="wrap">
+  <h2>Taxes introduced and abolished, by party in office</h2>
+  <p class="sub">Counted against the party in government when the change took effect, under the
+     name that party used at the time. A tax handed to the states counts as an abolition.</p>
+  <div class="chart" id="party-chart"></div>
+  <div id="party-legend"></div>
+  <p class="src">Source: GovWatch tax timeline, every entry sourced ·
+     <a href="taxes.html">see the table</a></p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>The same figures, grouped by party lineage</h2>
+  <p class="sub">Party names changed more often than the parties did. This groups them by
+     direct lineage, which is a judgement about history rather than a fact about tax. The
+     rule is stated in full below, so you can disagree with it precisely.</p>
+  <div class="chart" id="family-chart"></div>
+  <div id="family-legend"></div>
+  <div class="note-box" style="margin-top:16px" id="family-rule"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Taxes introduced and abolished, by decade</h2>
+  <p class="sub">Two world wars and the 2000 tax package are visible without anyone
+     having to point at them.</p>
+  <div class="chart" id="decade-chart"></div>
+  <div id="decade-legend"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Acts of Parliament made each year, by government</h2>
+  <p class="sub">Every Act the Commonwealth Parliament made, coloured by who was in office
+     that year. Where a year spans a change of government, it takes the colour of whoever
+     held office longer in that year.</p>
+  <div class="chart" id="acts-gov-chart"></div>
+  <div id="acts-gov-legend"></div>
+  <div class="tiles" id="acts-tiles" style="margin-top:18px"></div>
+  <p class="src">Sources: <a href="https://api.prod.legislation.gov.au/v1/titles">Federal Register of Legislation</a>,
+     read <span data-fetched="legislation"></span>, and the list of governments at
+     <span id="gov-source"></span>.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What these charts do not show</h2>
+  <div class="note-box"><ul style="margin:0;padding-left:20px">
+    <li>Counting Acts measures output, not effect. A one-page amendment and a tax rewrite
+        both count as one Act.</li>
+    <li>Counting taxes ignores how much each raises. Abolishing a small levy and creating
+        the GST both count as one change.</li>
+    <li>Rates, thresholds and brackets move the tax burden without adding or removing a
+        tax. None of that appears here.</li>
+    <li>A government inherits a Parliament it did not elect and a program it may not
+        control. Attribution by year is rough at the edges.</li>
+  </ul></div>
+</div></section>
+
+<script type="module">
+import { grouped, legend, bars, fmt } from './chart.js?v=f67deab6';
+const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
+const INTRO = '#8a5600', ABOL = '#6b7484';
+
+const [taxes, leg, govs] = await Promise.all(
+  ['taxes', 'legislation', 'governments'].map(n => j(`data/${n}.json`).catch(() => null)));
+
+for (const e of document.querySelectorAll('[data-fetched="legislation"]')) e.textContent = leg.fetched;
+
+const counted = taxes.entries.filter(e => e.kind === 'tax');
+const tally = (rows, keyOf) => {
+  const m = new Map();
+  for (const e of rows) {
+    const k = keyOf(e);
+    if (!m.has(k)) m.set(k, { introduced: 0, abolished: 0 });
+    m.get(k)[e.action]++;
+  }
+  return m;
+};
+
+// By party, ordered by total activity so the chart reads without hunting.
+const byParty = tally(counted, e => e.party);
+const parties = [...byParty.entries()]
+  .sort((a, b) => (b[1].introduced + b[1].abolished) - (a[1].introduced + a[1].abolished))
+  .map(([k]) => k);
+const series = [
+  { name: 'Introduced', colour: INTRO, values: parties.map(p => byParty.get(p).introduced) },
+  { name: 'Abolished', colour: ABOL, values: parties.map(p => byParty.get(p).abolished) },
+];
+document.getElementById('party-chart').append(grouped(parties, series, { h: 320 }));
+document.getElementById('party-legend').append(legend(series));
+
+// By lineage. The rule is published because the grouping is arguable.
+const FAMILY = taxes.party_families;
+const fam = tally(counted, e => FAMILY.map[e.party] ?? 'Other');
+const fkeys = [...fam.keys()].sort((a, b) =>
+  (fam.get(b).introduced + fam.get(b).abolished) - (fam.get(a).introduced + fam.get(a).abolished));
+const fseries = [
+  { name: 'Introduced', colour: INTRO, values: fkeys.map(k => fam.get(k).introduced) },
+  { name: 'Abolished', colour: ABOL, values: fkeys.map(k => fam.get(k).abolished) },
+];
+document.getElementById('family-chart').append(grouped(fkeys, fseries, { h: 280 }));
+document.getElementById('family-legend').append(legend(fseries));
+document.getElementById('family-rule').innerHTML =
+  '<ul style="margin:0;padding-left:20px">' + FAMILY.rule.map(r => `<li>${r}</li>`).join('') + '</ul>';
+
+// By decade.
+const byDec = tally(counted, e => Math.floor(e.year / 10) * 10);
+const decs = [];
+for (let d = 1900; d <= Math.floor(new Date().getFullYear() / 10) * 10; d += 10) decs.push(d);
+const dseries = [
+  { name: 'Introduced', colour: INTRO, values: decs.map(d => byDec.get(d)?.introduced ?? 0) },
+  { name: 'Abolished', colour: ABOL, values: decs.map(d => byDec.get(d)?.abolished ?? 0) },
+];
+document.getElementById('decade-chart').append(
+  grouped(decs.map(d => `${d}s`), dseries, { h: 280 }));
+document.getElementById('decade-legend').append(legend(dseries));
+
+// Acts by government. Each year takes the party that held office longest in it.
+const actsSection = document.getElementById('acts-gov-chart').closest('section');
+if (!govs) {
+  actsSection.querySelector('.chart').outerHTML =
+    '<div class="note-box">Not published yet. Colouring Acts by government needs a sourced ' +
+    'list of every ministry since 1901, which is not in the data yet.</div>';
+} else {
+  const PARTY_COLOUR = {
+    'Labor': 'var(--labor)', 'Coalition and predecessors': 'var(--lib)',
+    'Pre-fusion parties': 'var(--other)', 'Other': 'var(--other)',
+  };
+  const days = (a, b) => (new Date(b) - new Date(a)) / 86400000;
+  // Which government held office longest in a given calendar year.
+  function govOf(year) {
+    const ys = `${year}-01-01`, ye = `${year}-12-31`;
+    let best = null, bestDays = 0;
+    for (const g of govs.governments) {
+      const s = g.start > ys ? g.start : ys;
+      const e = (g.end && g.end < ye) ? g.end : ye;
+      const d = days(s, e);
+      if (d > bestDays) { bestDays = d; best = g; }
+    }
+    return best;
+  }
+  const rows = leg.by_year.map(r => {
+    const g = govOf(r.year);
+    const fam = g ? (FAMILY.map[g.party] ?? 'Other') : 'Other';
+    return {
+      x: r.year, y: r.acts, fill: PARTY_COLOUR[fam],
+      title: g ? `${r.year}: ${r.acts} Acts — ${g.pm}, ${g.party}` : `${r.year}: ${r.acts} Acts`,
+      fam, pm: g?.pm, party: g?.party,
+    };
+  });
+  document.getElementById('acts-gov-chart').append(bars(rows, { h: 320, xEvery: 10 }));
+  const lseries = [...new Set(rows.map(r => r.fam))]
+    .map(f => ({ name: f, colour: PARTY_COLOUR[f] }));
+  document.getElementById('acts-gov-legend').append(legend(lseries));
+
+  const tile = (k, v, n) =>
+    `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
+  const per = {};
+  for (const r of rows) {
+    per[r.fam] = per[r.fam] || { acts: 0, years: 0 };
+    per[r.fam].acts += r.y; per[r.fam].years++;
+  }
+  const busiest = rows.reduce((a, b) => (b.y > a.y ? b : a));
+  document.getElementById('acts-tiles').innerHTML = [
+    ...Object.entries(per).filter(([, v]) => v.years >= 5)
+      .sort((a, b) => (b[1].acts / b[1].years) - (a[1].acts / a[1].years))
+      .map(([f, v]) => tile(f, Math.round(v.acts / v.years),
+        `Acts a year on average, over ${v.years} years`)),
+    tile('Busiest year', busiest.x, `${fmt(busiest.y)} Acts under ${busiest.pm ?? 'unknown'}`),
+  ].join('');
+  document.getElementById('gov-source').innerHTML =
+    `<a href="${govs.source}">${govs.source_name}</a>`;
+}
+</script>
+<footer><div class="wrap">
+  <p>Every figure here links to the public record it came from. Corrections welcome:
+     <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
+  <p>Built on data from the Federal Register of Legislation, the Australian Office of
+     Financial Management, the Commonwealth Budget papers and the Parliament of Australia.</p>
+</div></footer>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GovWatch — Australian government by the numbers</title>
 <meta name="description" content="Factual, sourced numbers on what the Australian government taxes, spends, owes and legislates.">
-<link rel="stylesheet" href="style.css?v=267c195f">
+<link rel="stylesheet" href="style.css?v=af757995">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -14,6 +14,8 @@
   <nav>
     <a href="./" aria-current="page">Dashboard</a>
     <a href="taxes.html">Tax timeline</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="states.html">States</a>
     <a href="votes.html">Votes</a>
     <a href="sources.html">Sources &amp; method</a>
   </nav>
@@ -91,7 +93,7 @@
 </div></section>
 
 <script type="module">
-import { bars, stepline, fmt } from './chart.js?v=d630429d';
+import { bars, stepline, fmt } from './chart.js?v=f67deab6';
 
 const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
 const tile = (k, v, n) =>

@@ -633,5 +633,22 @@
   "The party shown is the party in office at the time, under the name then current.",
   "A tax handed to the states is recorded as abolished federally. The tax did not disappear; the level of government collecting it changed.",
   "Entries marked as changed are neither an addition nor a removal, so they do not move the count. Taking over an existing tax is not creating one."
- ]
+ ],
+ "party_families": {
+  "map": {
+   "Labor": "Labor",
+   "Liberal/Country Coalition": "Coalition and predecessors",
+   "Liberal/National Coalition": "Coalition and predecessors",
+   "Liberal/National Country Coalition": "Coalition and predecessors",
+   "Nationalist": "Coalition and predecessors",
+   "Protectionist": "Pre-fusion parties",
+   "United Australia Party": "Coalition and predecessors"
+  },
+  "rule": [
+   "Labor stands alone. The party has kept its name since 1901.",
+   "Coalition and predecessors groups the Nationalist Party (1917), the United Australia Party (1931) and the Liberal Party (1944) with its Country and National Party coalitions, following the direct organisational lineage.",
+   "Pre-fusion parties covers the Protectionist government of 1901 to 1908. The party system before the 1909 fusion does not map onto the two sides that came after it, so folding it into either would be a claim, not a count.",
+   "This grouping is a judgement about party history. The chart above it uses the names as they were at the time and makes no grouping at all."
+  ]
+ }
 }

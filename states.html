@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare the states — GovWatch</title>
+<meta name="description" content="Australian state and territory taxes on the same basis, so you can see which is cheapest for your situation.">
+<link rel="stylesheet" href="style.css?v=af757995">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Gov<span>Watch</span></a>
+  <nav>
+    <a href="./">Dashboard</a>
+    <a href="taxes.html">Tax timeline</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="states.html" aria-current="page">States</a>
+    <a href="votes.html">Votes</a>
+    <a href="sources.html">Sources &amp; method</a>
+  </nav>
+</div></header>
+<div class="hero"><div class="wrap">
+  <h1>Compare the states</h1>
+  <p>Eight jurisdictions, the same taxes, the same basis. States compete for people and
+     businesses, and the terms of that competition are public. Here they are side by side.</p>
+</div></div>
+
+<section><div class="wrap">
+  <div id="states"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Why these comparisons are rougher than they look</h2>
+  <div class="note-box"><ul style="margin:0;padding-left:20px">
+    <li>Each jurisdiction calculates the same tax differently. A duty scale, a threshold and
+        a surcharge can produce the same headline rate and a different bill.</li>
+    <li>A single rate hides the schedule around it. Land tax and transfer duty are both
+        progressive, so a comparison at one property value can reverse at another.</li>
+    <li>Concessions are not modelled. First-home buyers, pensioners, farmers, charities and
+        owner-occupiers all pay less than these figures, by different amounts in each state.</li>
+    <li>Taxes are one side of the ledger. What a state spends on schools, hospitals and roads
+        is not here, and neither are council rates.</li>
+    <li>Lower tax is not automatically better and is not treated as better here. Which
+        column matters is a question about your circumstances, not about the data.</li>
+  </ul></div>
+</div></section>
+
+<script type="module">
+import { fmt } from './chart.js?v=f67deab6';
+const box = document.getElementById('states');
+
+const money = n => n == null ? '—' : '$' + fmt(Math.round(n));
+const pct = n => n == null ? '—' : n + '%';
+
+function table(title, note, rows, fmtv, sourceOf) {
+  // "Lowest" is marked, not ranked, and only where every value is comparable.
+  const vals = rows.map(r => r.v).filter(v => v != null);
+  const low = vals.length === rows.length && vals.length > 1 ? Math.min(...vals) : null;
+  const max = Math.max(...vals, 0);
+  return `<h2>${title}</h2><p class="sub">${note}</p>
+  <div class="scroller"><table class="cmp stack">
+    <thead><tr><th>Jurisdiction</th><th class="num">${title}</th><th>Source</th></tr></thead>
+    <tbody>${rows.map(r => `
+      <tr>
+        <td class="j">${r.name}</td>
+        <td class="num ${r.v != null && r.v === low ? 'best' : ''}">${fmtv(r.v)}
+          ${r.v != null && max > 0 ? `<span class="bar"><i style="width:${(r.v / max * 100).toFixed(1)}%"></i></span>` : ''}
+          ${r.note ? `<div class="note">${r.note}</div>` : ''}</td>
+        <td>${r.source ? `<a href="${r.source}" rel="noopener">check</a>` : '—'}</td>
+      </tr>`).join('')}
+    </tbody></table></div>
+    <p class="src">${sourceOf}</p>`;
+}
+
+try {
+  const d = await (await fetch('data/states.json', { cache: 'no-cache' })).json();
+  const J = d.jurisdictions;
+  const pick = (f, k) => J.map(x => ({
+    name: `${x.code} — ${x.name}`, v: x[f]?.[k] ?? null,
+    note: x[f]?.note ?? x[f]?.surcharge ?? null, source: x[f]?.source,
+  }));
+
+  box.innerHTML = [
+    `<div class="note-box" style="margin-bottom:26px">Figures are for the
+      ${d.financial_year} financial year, read ${d.as_at}. Lowest in each table is shown in
+      bold, and only where every jurisdiction reports on the same basis.</div>`,
+    table('Payroll tax rate', 'The standard rate on wages above the threshold. Surcharges on large employers are noted against the state that applies them.',
+          pick('payroll_tax', 'rate_pct'), pct, 'Source: each state revenue office, linked per row.'),
+    table('Payroll tax threshold', 'Annual wages a business can pay before payroll tax starts. A higher threshold exempts more small employers.',
+          pick('payroll_tax', 'threshold'), money, 'Source: each state revenue office, linked per row.'),
+    table('Land tax threshold', 'Land value a general landholder can hold before land tax applies. The principal residence is exempt everywhere.',
+          pick('land_tax', 'threshold'), money, 'Source: each state revenue office, linked per row.'),
+    table('Land tax top rate', 'The highest marginal rate on land value.',
+          pick('land_tax', 'top_rate_pct'), pct, 'Source: each state revenue office, linked per row.'),
+    table('Transfer duty on a $750,000 home', 'Duty on an established home bought by an owner-occupier who is not a first-home buyer. Concessions are not applied.',
+          pick('transfer_duty_750k', 'amount'), money, 'Source: each state revenue office, linked per row.'),
+    table('Duty on a $40,000 car', 'Vehicle registration or transfer duty on a new passenger car.',
+          pick('vehicle_duty_40k', 'amount'), money, 'Source: each state revenue office, linked per row.'),
+    table('General insurance duty', 'Duty on a general insurance premium.',
+          pick('insurance_duty', 'rate_pct'), pct, 'Source: each state revenue office, linked per row.'),
+  ].join('');
+
+  if (d.comparability_warnings?.length) {
+    box.insertAdjacentHTML('beforeend',
+      '<h2>Where the same basis breaks down</h2><div class="note-box"><ul style="margin:0;padding-left:20px">' +
+      d.comparability_warnings.map(w => `<li>${w}</li>`).join('') + '</ul></div>');
+  }
+} catch (e) {
+  box.innerHTML = `<div class="note-box">
+    <p style="margin-top:0"><strong>Not published yet.</strong> State and territory tax
+    parameters are being compiled from the eight revenue offices. Each figure needs its own
+    source link before it goes up, because a comparison table with one unsourced cell is
+    worse than no table.</p>
+    <p style="margin-bottom:0">Progress is tracked in
+    <a href="https://github.com/itsjimmy1/govwatch/issues">the issue tracker</a>.</p></div>`;
+}
+</script>
+<footer><div class="wrap">
+  <p>Every figure here links to the public record it came from. Corrections welcome:
+     <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
+  <p>Built on data from the Federal Register of Legislation, the Australian Office of
+     Financial Management, the Commonwealth Budget papers and the Parliament of Australia.</p>
+</div></footer>
+</body>
+</html>

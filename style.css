@@ -96,3 +96,18 @@ footer a { color:var(--faint); }
   .hero h1 { font-size:27px; }
   .tile .v { font-size:28px; }
 }
+
+/* Chart legend */
+.legend { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px;
+  color:var(--dim); font-size:13px; }
+.legend span { display:flex; align-items:center; gap:7px; }
+.legend i { width:11px; height:11px; border-radius:2px; display:inline-block; flex:none; }
+
+/* Comparison table: one row per jurisdiction, ranked columns */
+.cmp td.num, .cmp th.num { text-align:right; font-variant-numeric:tabular-nums; }
+.cmp .best { font-weight:700; color:var(--ink); }
+.cmp td.j { font-weight:650; white-space:nowrap; }
+.bar { position:relative; display:block; height:5px; border-radius:3px;
+  background:var(--line); margin-top:5px; }
+.bar i { position:absolute; inset:0 auto 0 0; border-radius:3px; background:var(--accent);
+  display:block; }

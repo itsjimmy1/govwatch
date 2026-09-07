@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Federal tax timeline since 1901 — GovWatch</title>
 <meta name="description" content="Every Commonwealth tax introduced or abolished since Federation, with the government that did it and a source for each.">
-<link rel="stylesheet" href="style.css?v=267c195f">
+<link rel="stylesheet" href="style.css?v=af757995">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -14,6 +14,8 @@
   <nav>
     <a href="./">Dashboard</a>
     <a href="taxes.html" aria-current="page">Tax timeline</a>
+    <a href="patterns.html">Patterns</a>
+    <a href="states.html">States</a>
     <a href="votes.html">Votes</a>
     <a href="sources.html">Sources &amp; method</a>
   </nav>
@@ -43,7 +45,7 @@
 </div></section>
 
 <script type="module">
-import { fmt } from './chart.js?v=d630429d';
+import { fmt } from './chart.js?v=f67deab6';
 const taxes = await (await fetch('data/taxes.json', { cache: 'no-cache' })).json();
 const all = [...taxes.entries].sort((a, b) => a.year - b.year || a.name.localeCompare(b.name));
 

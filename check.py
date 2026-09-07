@@ -2,6 +2,7 @@
 """Refuse to ship data that is obviously wrong. Run by CI before deploy."""
 import hashlib
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -22,7 +23,8 @@ def stamp_assets():
     """
     digest = {name: hashlib.sha256(open(name, "rb").read()).hexdigest()[:8]
               for name in ("style.css", "chart.js")}
-    for page in ("index.html", "taxes.html", "votes.html", "sources.html"):
+    for page in ("index.html", "taxes.html", "patterns.html", "states.html",
+                 "votes.html", "sources.html"):
         text = original = open(page).read()
         for name, h in digest.items():
             text = re.sub(rf"{re.escape(name)}(\?v=[0-9a-f]+)?", f"{name}?v={h}", text)
@@ -88,6 +90,37 @@ def main():
 
     names = {(r["name"], r["action"], r["year"]) for r in e}
     want(len(names) == len(e), "duplicate entries in the tax timeline")
+
+    fam = tax.get("party_families", {})
+    want(fam.get("map") and fam.get("rule"), "party_families missing its map or its rule")
+    for p in {r["party"] for r in e}:
+        want(p in fam.get("map", {}), f"party {p!r} has no lineage grouping")
+
+    if os.path.exists("data/governments.json"):
+        g = json.load(open("data/governments.json"))["governments"]
+        want(len(g) > 25, f"only {len(g)} governments listed since 1901")
+        want(g[0]["start"].startswith("1901"), "government list does not start at Federation")
+        want(sum(1 for x in g if x["end"] is None) == 1,
+             "exactly one government should be current")
+        for a, b in zip(g, g[1:]):
+            want(a["end"] and a["end"] <= b["start"],
+                 f"governments overlap: {a['pm']} ends {a['end']}, {b['pm']} starts {b['start']}")
+
+    if os.path.exists("data/states.json"):
+        st = json.load(open("data/states.json"))
+        codes = {x["code"] for x in st["jurisdictions"]}
+        want(codes == {"NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"},
+             f"expected all eight jurisdictions, got {sorted(codes)}")
+        for x in st["jurisdictions"]:
+            for field in ("payroll_tax", "land_tax", "transfer_duty_750k",
+                          "vehicle_duty_40k", "insurance_duty"):
+                blk = x.get(field)
+                want(blk is not None, f"{x['code']} missing {field}")
+                if blk:
+                    has_value = any(v is not None for k, v in blk.items()
+                                    if k not in ("source", "note", "surcharge"))
+                    want(blk.get("source", "").startswith("https://") or not has_value,
+                         f"{x['code']} {field} has a value with no source URL")
 
     if FAIL:
         print("DATA CHECK FAILED:", file=sys.stderr)

@@ -104,4 +104,68 @@ export function stepline(rows, { w = 1080, h = 260, ticks = 4, label = '' } = {}
   return svg;
 }
 
+/** Grouped bars: one cluster per category, one bar per series.
+ *  cats: ["Labor", ...]; series: [{name, colour, values:[n per cat]}] */
+export function grouped(cats, series, { w = 1080, h = 300, ticks = 4, unit = '' } = {}) {
+  const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
+  const L = 52, B = 46, top = 12;
+  const max = niceMax(Math.max(...series.flatMap(s => s.values)));
+  ticks = niceTicks(max, ticks);
+  const iw = w - L - 12, ih = h - B - top;
+  const cw = iw / cats.length, bw = (cw * 0.72) / series.length;
+
+  for (let i = 0; i <= ticks; i++) {
+    const v = (max / ticks) * i, y = top + ih - (v / max) * ih;
+    svg.append(el('line', { class: 'grid', x1: L, x2: w - 12, y1: y, y2: y }));
+    const t = el('text', { class: 'axis', x: L - 8, y: y + 4, 'text-anchor': 'end' });
+    t.textContent = fmt(Number(v.toFixed(2)));
+    svg.append(t);
+  }
+  cats.forEach((c, ci) => {
+    series.forEach((s, si) => {
+      const v = s.values[ci];
+      const bh = (v / max) * ih;
+      const x = L + ci * cw + cw * 0.14 + si * bw;
+      const r = el('rect', {
+        x: x.toFixed(1), y: (top + ih - bh).toFixed(1),
+        width: Math.max(bw - 2, 1).toFixed(1), height: Math.max(bh, v > 0 ? 1 : 0).toFixed(1),
+        fill: s.colour, rx: 2,
+      });
+      const ttl = el('title');
+      ttl.textContent = `${c} — ${s.name}: ${fmt(v)}${unit}`;
+      r.append(ttl);
+      svg.append(r);
+      if (v > 0) {
+        const lab = el('text', {
+          class: 'axis', x: (x + bw / 2 - 1).toFixed(1),
+          y: (top + ih - bh - 4).toFixed(1), 'text-anchor': 'middle',
+        });
+        lab.textContent = fmt(v);
+        svg.append(lab);
+      }
+    });
+    // Category labels wrap onto a second line so long party names stay readable.
+    const words = String(c).split(' ');
+    const lines = words.length > 2 ? [words.slice(0, 2).join(' '), words.slice(2).join(' ')] : [c];
+    lines.forEach((ln, li) => {
+      const t = el('text', {
+        class: 'axis', x: (L + ci * cw + cw / 2).toFixed(1),
+        y: h - 26 + li * 12, 'text-anchor': 'middle',
+      });
+      t.textContent = ln;
+      svg.append(t);
+    });
+  });
+  return svg;
+}
+
+/** A legend the caller places under a chart. */
+export function legend(series) {
+  const d = document.createElement('div');
+  d.className = 'legend';
+  d.innerHTML = series.map(s =>
+    `<span><i style="background:${s.colour}"></i>${s.name}</span>`).join('');
+  return d;
+}
+
 export { fmt };
