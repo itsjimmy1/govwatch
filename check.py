@@ -122,6 +122,8 @@ def main():
 
     if os.path.exists("data/states.json"):
         st = json.load(open("data/states.json"))
+        want(len(st.get("comparability_warnings", [])) >= 5,
+             "states.json must carry the caveats that stop the table reading as like-for-like")
         codes = {x["code"] for x in st["jurisdictions"]}
         want(codes == {"NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"},
              f"expected all eight jurisdictions, got {sorted(codes)}")
@@ -133,8 +135,11 @@ def main():
                 if blk:
                     has_value = any(v is not None for k, v in blk.items()
                                     if k not in ("source", "note", "surcharge"))
-                    want(blk.get("source", "").startswith("https://") or not has_value,
+                    src = blk.get("source") or ""
+                    want(src.startswith("https://") or not has_value,
                          f"{x['code']} {field} has a value with no source URL")
+                    want(has_value or blk.get("note"),
+                         f"{x['code']} {field} is empty with no note saying why")
 
     if FAIL:
         print("DATA CHECK FAILED:", file=sys.stderr)

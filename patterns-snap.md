@@ -1,0 +1,368 @@
+- generic [active] [ref=f34e1]:
+  - banner [ref=f34e2]:
+    - generic [ref=f34e3]:
+      - link "GovWatch" [ref=f34e4] [cursor=pointer]:
+        - /url: ./
+      - navigation [ref=f34e5]:
+        - link "Dashboard" [ref=f34e6] [cursor=pointer]:
+          - /url: ./
+        - link "Tax timeline" [ref=f34e7] [cursor=pointer]:
+          - /url: taxes.html
+        - link "Patterns" [ref=f34e8] [cursor=pointer]:
+          - /url: patterns.html
+        - link "States" [ref=f34e9] [cursor=pointer]:
+          - /url: states.html
+        - link "Votes" [ref=f34e10] [cursor=pointer]:
+          - /url: votes.html
+        - link "Sources & method" [ref=f34e11] [cursor=pointer]:
+          - /url: sources.html
+  - generic [ref=f34e13]:
+    - heading "Who adds, who removes" [level=1] [ref=f34e14]
+    - paragraph [ref=f34e15]: The same timeline of federal taxes, cut by party and by decade, alongside how much law each Parliament made. The counts are what they are. What they mean is your call.
+  - generic [ref=f34e17]:
+    - heading "Taxes introduced and abolished, by party in office" [level=2] [ref=f34e18]
+    - paragraph [ref=f34e19]: Counted against the party in government when the change took effect, under the name that party used at the time. A tax handed to the states counts as an abolition.
+    - img [ref=f34e21]:
+      - generic [ref=f34e22]: "0"
+      - generic [ref=f34e23]: "5"
+      - generic [ref=f34e24]: "10"
+      - generic [ref=f34e25]: "15"
+      - generic [ref=f34e26]: "20"
+      - 'generic "Labor — Introduced: 20" [ref=f34e27]'
+      - generic [ref=f34e28]: "20"
+      - 'generic "Labor — Abolished: 4" [ref=f34e29]'
+      - generic [ref=f34e30]: "4"
+      - generic [ref=f34e31]: Labor
+      - 'generic "Liberal/National Coalition — Introduced: 8" [ref=f34e32]'
+      - generic [ref=f34e33]: "8"
+      - 'generic "Liberal/National Coalition — Abolished: 5" [ref=f34e34]'
+      - generic [ref=f34e35]: "5"
+      - generic [ref=f34e36]: Liberal/National Coalition
+      - 'generic "Liberal/Country Coalition — Introduced: 0"'
+      - 'generic "Liberal/Country Coalition — Abolished: 4" [ref=f34e37]'
+      - generic [ref=f34e38]: "4"
+      - generic [ref=f34e39]: Liberal/Country Coalition
+      - 'generic "United Australia Party — Introduced: 2" [ref=f34e40]'
+      - generic [ref=f34e41]: "2"
+      - 'generic "United Australia Party — Abolished: 1" [ref=f34e42]'
+      - generic [ref=f34e43]: "1"
+      - generic [ref=f34e44]: United Australia
+      - generic [ref=f34e45]: Party
+      - 'generic "Liberal/National Country Coalition — Introduced: 1" [ref=f34e46]'
+      - generic [ref=f34e47]: "1"
+      - 'generic "Liberal/National Country Coalition — Abolished: 2" [ref=f34e48]'
+      - generic [ref=f34e49]: "2"
+      - generic [ref=f34e50]: Liberal/National Country
+      - generic [ref=f34e51]: Coalition
+      - 'generic "Protectionist — Introduced: 1" [ref=f34e52]'
+      - generic [ref=f34e53]: "1"
+      - 'generic "Protectionist — Abolished: 0"'
+      - generic [ref=f34e54]: Protectionist
+      - 'generic "Nationalist — Introduced: 1" [ref=f34e55]'
+      - generic [ref=f34e56]: "1"
+      - 'generic "Nationalist — Abolished: 0"'
+      - generic [ref=f34e57]: Nationalist
+    - generic [ref=f34e59]:
+      - generic [ref=f34e60]: Introduced
+      - generic [ref=f34e62]: Abolished
+    - paragraph [ref=f34e64]:
+      - text: "Source: GovWatch tax timeline, every entry sourced ·"
+      - link "see the table" [ref=f34e65] [cursor=pointer]:
+        - /url: taxes.html
+  - generic [ref=f34e67]:
+    - heading "The same figures, grouped by party lineage" [level=2] [ref=f34e68]
+    - paragraph [ref=f34e69]: Party names changed more often than the parties did. This groups them by direct lineage, which is a judgement about history rather than a fact about tax. The rule is stated in full below, so you can disagree with it precisely.
+    - img [ref=f34e71]:
+      - generic [ref=f34e72]: "0"
+      - generic [ref=f34e73]: "5"
+      - generic [ref=f34e74]: "10"
+      - generic [ref=f34e75]: "15"
+      - generic [ref=f34e76]: "20"
+      - 'generic "Labor — Introduced: 20" [ref=f34e77]'
+      - generic [ref=f34e78]: "20"
+      - 'generic "Labor — Abolished: 4" [ref=f34e79]'
+      - generic [ref=f34e80]: "4"
+      - generic [ref=f34e81]: Labor
+      - 'generic "Coalition and predecessors — Introduced: 12" [ref=f34e82]'
+      - generic [ref=f34e83]: "12"
+      - 'generic "Coalition and predecessors — Abolished: 12" [ref=f34e84]'
+      - generic [ref=f34e85]: "12"
+      - generic [ref=f34e86]: Coalition and
+      - generic [ref=f34e87]: predecessors
+      - 'generic "Pre-fusion parties — Introduced: 1" [ref=f34e88]'
+      - generic [ref=f34e89]: "1"
+      - 'generic "Pre-fusion parties — Abolished: 0"'
+      - generic [ref=f34e90]: Pre-fusion parties
+    - generic [ref=f34e92]:
+      - generic [ref=f34e93]: Introduced
+      - generic [ref=f34e95]: Abolished
+    - list [ref=f34e98]:
+      - listitem [ref=f34e99]: Labor stands alone, including the early Labour spelling the party itself used.
+      - listitem [ref=f34e100]: "Coalition and predecessors follows the direct organisational line: Commonwealth Liberal (1909), Nationalist (1917), United Australia Party (1931) and Liberal (1944), with their Country and National Party coalitions."
+      - listitem [ref=f34e101]: National Labor, Billy Hughes's 1916 splinter, is grouped with the Coalition side despite its name, because it merged with the Commonwealth Liberals to form the Nationalist Party three months later. Grouping it by name instead would be the other defensible choice.
+      - listitem [ref=f34e102]: Pre-fusion parties covers Protectionist and Free Trade governments up to 1909. The party system before the fusion does not map onto the two sides that came after it, so folding it into either would be a claim rather than a count.
+      - listitem [ref=f34e103]: This grouping is a judgement about party history. The chart above it uses the names as they were at the time and groups nothing.
+  - generic [ref=f34e105]:
+    - heading "Taxes introduced and abolished, by decade" [level=2] [ref=f34e106]
+    - paragraph [ref=f34e107]: Two world wars and the 2000 tax package are visible without anyone having to point at them.
+    - img [ref=f34e109]:
+      - generic [ref=f34e110]: "0"
+      - generic [ref=f34e111]: "2"
+      - generic [ref=f34e112]: "4"
+      - generic [ref=f34e113]: "6"
+      - generic [ref=f34e114]: "8"
+      - generic [ref=f34e115]: "10"
+      - 'generic "1900s — Introduced: 1" [ref=f34e116]'
+      - generic [ref=f34e117]: "1"
+      - 'generic "1900s — Abolished: 0"'
+      - generic [ref=f34e118]: 1900s
+      - 'generic "1910s — Introduced: 6" [ref=f34e119]'
+      - generic [ref=f34e120]: "6"
+      - 'generic "1910s — Abolished: 0"'
+      - generic [ref=f34e121]: 1910s
+      - 'generic "1920s — Introduced: 0"'
+      - 'generic "1920s — Abolished: 0"'
+      - generic [ref=f34e122]: 1920s
+      - 'generic "1930s — Introduced: 1" [ref=f34e123]'
+      - generic [ref=f34e124]: "1"
+      - 'generic "1930s — Abolished: 1" [ref=f34e125]'
+      - generic [ref=f34e126]: "1"
+      - generic [ref=f34e127]: 1930s
+      - 'generic "1940s — Introduced: 4" [ref=f34e128]'
+      - generic [ref=f34e129]: "4"
+      - 'generic "1940s — Abolished: 2" [ref=f34e130]'
+      - generic [ref=f34e131]: "2"
+      - generic [ref=f34e132]: 1940s
+      - 'generic "1950s — Introduced: 0"'
+      - 'generic "1950s — Abolished: 3" [ref=f34e133]'
+      - generic [ref=f34e134]: "3"
+      - generic [ref=f34e135]: 1950s
+      - 'generic "1960s — Introduced: 0"'
+      - 'generic "1960s — Abolished: 0"'
+      - generic [ref=f34e136]: 1960s
+      - 'generic "1970s — Introduced: 2" [ref=f34e137]'
+      - generic [ref=f34e138]: "2"
+      - 'generic "1970s — Abolished: 3" [ref=f34e139]'
+      - generic [ref=f34e140]: "3"
+      - generic [ref=f34e141]: 1970s
+      - 'generic "1980s — Introduced: 4" [ref=f34e142]'
+      - generic [ref=f34e143]: "4"
+      - 'generic "1980s — Abolished: 0"'
+      - generic [ref=f34e144]: 1980s
+      - 'generic "1990s — Introduced: 4" [ref=f34e145]'
+      - generic [ref=f34e146]: "4"
+      - 'generic "1990s — Abolished: 1" [ref=f34e147]'
+      - generic [ref=f34e148]: "1"
+      - generic [ref=f34e149]: 1990s
+      - 'generic "2000s — Introduced: 3" [ref=f34e150]'
+      - generic [ref=f34e151]: "3"
+      - 'generic "2000s — Abolished: 2" [ref=f34e152]'
+      - generic [ref=f34e153]: "2"
+      - generic [ref=f34e154]: 2000s
+      - 'generic "2010s — Introduced: 6" [ref=f34e155]'
+      - generic [ref=f34e156]: "6"
+      - 'generic "2010s — Abolished: 4" [ref=f34e157]'
+      - generic [ref=f34e158]: "4"
+      - generic [ref=f34e159]: 2010s
+      - 'generic "2020s — Introduced: 2" [ref=f34e160]'
+      - generic [ref=f34e161]: "2"
+      - 'generic "2020s — Abolished: 0"'
+      - generic [ref=f34e162]: 2020s
+    - generic [ref=f34e164]:
+      - generic [ref=f34e165]: Introduced
+      - generic [ref=f34e167]: Abolished
+  - generic [ref=f34e170]:
+    - heading "Acts of Parliament made each year, by government" [level=2] [ref=f34e171]
+    - paragraph [ref=f34e172]: Every Act the Commonwealth Parliament made, coloured by who was in office that year. Where a year spans a change of government, it takes the colour of whoever held office longer in that year.
+    - img [ref=f34e174]:
+      - generic [ref=f34e175]: "0"
+      - generic [ref=f34e176]: "53"
+      - generic [ref=f34e177]: "106"
+      - generic [ref=f34e178]: "159"
+      - generic [ref=f34e179]: "212"
+      - generic [ref=f34e180]: "265"
+      - 'generic "1901: 17 Acts — Edmund Barton, Protectionist" [ref=f34e181]'
+      - 'generic "1902: 21 Acts — Edmund Barton, Protectionist" [ref=f34e182]'
+      - 'generic "1903: 21 Acts — Edmund Barton, Protectionist" [ref=f34e183]'
+      - 'generic "1904: 15 Acts — George Reid, Free Trade" [ref=f34e184]'
+      - 'generic "1905: 26 Acts — George Reid, Free Trade" [ref=f34e185]'
+      - 'generic "1906: 23 Acts — Alfred Deakin, Protectionist" [ref=f34e186]'
+      - 'generic "1907: 12 Acts — Alfred Deakin, Protectionist" [ref=f34e187]'
+      - 'generic "1908: 27 Acts — Alfred Deakin, Protectionist" [ref=f34e188]'
+      - 'generic "1909: 29 Acts — Alfred Deakin, Commonwealth Liberal" [ref=f34e189]'
+      - 'generic "1910: 41 Acts — Andrew Fisher, Labour" [ref=f34e190]'
+      - generic [ref=f34e191]: "1910"
+      - 'generic "1911: 29 Acts — Andrew Fisher, Labour" [ref=f34e192]'
+      - 'generic "1912: 43 Acts — Andrew Fisher, Labour" [ref=f34e193]'
+      - 'generic "1913: 24 Acts — Joseph Cook, Commonwealth Liberal" [ref=f34e194]'
+      - 'generic "1914: 36 Acts — Joseph Cook, Commonwealth Liberal" [ref=f34e195]'
+      - 'generic "1915: 53 Acts — Andrew Fisher, Labour" [ref=f34e196]'
+      - 'generic "1916: 41 Acts — Billy Hughes, Labor" [ref=f34e197]'
+      - 'generic "1917: 40 Acts — Billy Hughes, Nationalist" [ref=f34e198]'
+      - 'generic "1918: 47 Acts — Billy Hughes, Nationalist" [ref=f34e199]'
+      - 'generic "1919: 32 Acts — Billy Hughes, Nationalist" [ref=f34e200]'
+      - 'generic "1920: 56 Acts — Billy Hughes, Nationalist" [ref=f34e201]'
+      - generic [ref=f34e202]: "1920"
+      - 'generic "1921: 43 Acts — Billy Hughes, Nationalist" [ref=f34e203]'
+      - 'generic "1922: 42 Acts — Billy Hughes, Nationalist" [ref=f34e204]'
+      - 'generic "1923: 36 Acts — Stanley Bruce, Nationalist/Country Coalition" [ref=f34e205]'
+      - 'generic "1924: 61 Acts — Stanley Bruce, Nationalist/Country Coalition" [ref=f34e206]'
+      - 'generic "1925: 32 Acts — Stanley Bruce, Nationalist/Country Coalition" [ref=f34e207]'
+      - 'generic "1926: 52 Acts — Stanley Bruce, Nationalist/Country Coalition" [ref=f34e208]'
+      - 'generic "1927: 38 Acts — Stanley Bruce, Nationalist/Country Coalition" [ref=f34e209]'
+      - 'generic "1928: 48 Acts — Stanley Bruce, Nationalist/Country Coalition" [ref=f34e210]'
+      - 'generic "1929: 35 Acts — Stanley Bruce, Nationalist/Country Coalition" [ref=f34e211]'
+      - 'generic "1930: 78 Acts — James Scullin, Labor" [ref=f34e212]'
+      - generic [ref=f34e213]: "1930"
+      - 'generic "1931: 56 Acts — James Scullin, Labor" [ref=f34e214]'
+      - 'generic "1932: 76 Acts — Joseph Lyons, United Australia Party" [ref=f34e215]'
+      - 'generic "1933: 74 Acts — Joseph Lyons, United Australia Party" [ref=f34e216]'
+      - 'generic "1934: 67 Acts — Joseph Lyons, United Australia Party" [ref=f34e217]'
+      - 'generic "1935: 73 Acts — Joseph Lyons, United Australia Party" [ref=f34e218]'
+      - 'generic "1936: 94 Acts — Joseph Lyons, United Australia Party" [ref=f34e219]'
+      - 'generic "1937: 47 Acts — Joseph Lyons, United Australia Party" [ref=f34e220]'
+      - 'generic "1938: 78 Acts — Joseph Lyons, United Australia Party" [ref=f34e221]'
+      - 'generic "1939: 87 Acts — Robert Menzies, United Australia Party" [ref=f34e222]'
+      - 'generic "1940: 99 Acts — Robert Menzies, United Australia Party" [ref=f34e223]'
+      - generic [ref=f34e224]: "1940"
+      - 'generic "1941: 70 Acts — Robert Menzies, United Australia Party" [ref=f34e225]'
+      - 'generic "1942: 58 Acts — John Curtin, Labor" [ref=f34e226]'
+      - 'generic "1943: 58 Acts — John Curtin, Labor" [ref=f34e227]'
+      - 'generic "1944: 46 Acts — John Curtin, Labor" [ref=f34e228]'
+      - 'generic "1945: 59 Acts — John Curtin, Labor" [ref=f34e229]'
+      - 'generic "1946: 81 Acts — Ben Chifley, Labor" [ref=f34e230]'
+      - 'generic "1947: 93 Acts — Ben Chifley, Labor" [ref=f34e231]'
+      - 'generic "1948: 93 Acts — Ben Chifley, Labor" [ref=f34e232]'
+      - 'generic "1949: 87 Acts — Ben Chifley, Labor" [ref=f34e233]'
+      - 'generic "1950: 80 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e234]'
+      - generic [ref=f34e235]: "1950"
+      - 'generic "1951: 82 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e236]'
+      - 'generic "1952: 109 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e237]'
+      - 'generic "1953: 96 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e238]'
+      - 'generic "1954: 83 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e239]'
+      - 'generic "1955: 71 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e240]'
+      - 'generic "1956: 113 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e241]'
+      - 'generic "1957: 103 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e242]'
+      - 'generic "1958: 83 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e243]'
+      - 'generic "1959: 104 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e244]'
+      - 'generic "1960: 111 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e245]'
+      - generic [ref=f34e246]: "1960"
+      - 'generic "1961: 98 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e247]'
+      - 'generic "1962: 108 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e248]'
+      - 'generic "1963: 103 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e249]'
+      - 'generic "1964: 130 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e250]'
+      - 'generic "1965: 156 Acts — Robert Menzies, Liberal/Country Coalition" [ref=f34e251]'
+      - 'generic "1966: 93 Acts — Harold Holt, Liberal/Country Coalition" [ref=f34e252]'
+      - 'generic "1967: 124 Acts — Harold Holt, Liberal/Country Coalition" [ref=f34e253]'
+      - 'generic "1968: 157 Acts — John Gorton, Liberal/Country Coalition" [ref=f34e254]'
+      - 'generic "1969: 102 Acts — John Gorton, Liberal/Country Coalition" [ref=f34e255]'
+      - 'generic "1970: 127 Acts — John Gorton, Liberal/Country Coalition" [ref=f34e256]'
+      - generic [ref=f34e257]: "1970"
+      - 'generic "1971: 138 Acts — William McMahon, Liberal/Country Coalition" [ref=f34e258]'
+      - 'generic "1972: 139 Acts — William McMahon, Liberal/Country Coalition" [ref=f34e259]'
+      - 'generic "1973: 221 Acts — Gough Whitlam, Labor" [ref=f34e260]'
+      - 'generic "1974: 166 Acts — Gough Whitlam, Labor" [ref=f34e261]'
+      - 'generic "1975: 121 Acts — Gough Whitlam, Labor" [ref=f34e262]'
+      - 'generic "1976: 208 Acts — Malcolm Fraser, Liberal/National Country Coalition" [ref=f34e263]'
+      - 'generic "1977: 161 Acts — Malcolm Fraser, Liberal/National Country Coalition" [ref=f34e264]'
+      - 'generic "1978: 211 Acts — Malcolm Fraser, Liberal/National Country Coalition" [ref=f34e265]'
+      - 'generic "1979: 191 Acts — Malcolm Fraser, Liberal/National Country Coalition" [ref=f34e266]'
+      - 'generic "1980: 177 Acts — Malcolm Fraser, Liberal/National Country Coalition" [ref=f34e267]'
+      - generic [ref=f34e268]: "1980"
+      - 'generic "1981: 182 Acts — Malcolm Fraser, Liberal/National Country Coalition" [ref=f34e269]'
+      - 'generic "1982: 158 Acts — Malcolm Fraser, Liberal/National Country Coalition" [ref=f34e270]'
+      - 'generic "1983: 147 Acts — Bob Hawke, Labor" [ref=f34e271]'
+      - 'generic "1984: 175 Acts — Bob Hawke, Labor" [ref=f34e272]'
+      - 'generic "1985: 202 Acts — Bob Hawke, Labor" [ref=f34e273]'
+      - 'generic "1986: 168 Acts — Bob Hawke, Labor" [ref=f34e274]'
+      - 'generic "1987: 184 Acts — Bob Hawke, Labor" [ref=f34e275]'
+      - 'generic "1988: 156 Acts — Bob Hawke, Labor" [ref=f34e276]'
+      - 'generic "1989: 183 Acts — Bob Hawke, Labor" [ref=f34e277]'
+      - 'generic "1990: 144 Acts — Bob Hawke, Labor" [ref=f34e278]'
+      - generic [ref=f34e279]: "1990"
+      - 'generic "1991: 216 Acts — Bob Hawke, Labor" [ref=f34e280]'
+      - 'generic "1992: 264 Acts — Paul Keating, Labor" [ref=f34e281]'
+      - 'generic "1993: 121 Acts — Paul Keating, Labor" [ref=f34e282]'
+      - 'generic "1994: 184 Acts — Paul Keating, Labor" [ref=f34e283]'
+      - 'generic "1995: 176 Acts — Paul Keating, Labor" [ref=f34e284]'
+      - 'generic "1996: 84 Acts — John Howard, Liberal/National Coalition" [ref=f34e285]'
+      - 'generic "1997: 223 Acts — John Howard, Liberal/National Coalition" [ref=f34e286]'
+      - 'generic "1998: 135 Acts — John Howard, Liberal/National Coalition" [ref=f34e287]'
+      - 'generic "1999: 201 Acts — John Howard, Liberal/National Coalition" [ref=f34e288]'
+      - 'generic "2000: 174 Acts — John Howard, Liberal/National Coalition" [ref=f34e289]'
+      - generic [ref=f34e290]: "2000"
+      - 'generic "2001: 169 Acts — John Howard, Liberal/National Coalition" [ref=f34e291]'
+      - 'generic "2002: 148 Acts — John Howard, Liberal/National Coalition" [ref=f34e292]'
+      - 'generic "2003: 150 Acts — John Howard, Liberal/National Coalition" [ref=f34e293]'
+      - 'generic "2004: 158 Acts — John Howard, Liberal/National Coalition" [ref=f34e294]'
+      - 'generic "2005: 164 Acts — John Howard, Liberal/National Coalition" [ref=f34e295]'
+      - 'generic "2006: 172 Acts — John Howard, Liberal/National Coalition" [ref=f34e296]'
+      - 'generic "2007: 184 Acts — John Howard, Liberal/National Coalition" [ref=f34e297]'
+      - 'generic "2008: 159 Acts — Kevin Rudd, Labor" [ref=f34e298]'
+      - 'generic "2009: 136 Acts — Kevin Rudd, Labor" [ref=f34e299]'
+      - 'generic "2010: 150 Acts — Julia Gillard, Labor" [ref=f34e300]'
+      - generic [ref=f34e301]: "2010"
+      - 'generic "2011: 190 Acts — Julia Gillard, Labor" [ref=f34e302]'
+      - 'generic "2012: 206 Acts — Julia Gillard, Labor" [ref=f34e303]'
+      - 'generic "2013: 148 Acts — Julia Gillard, Labor" [ref=f34e304]'
+      - 'generic "2014: 135 Acts — Tony Abbott, Liberal/National Coalition" [ref=f34e305]'
+      - 'generic "2015: 177 Acts — Tony Abbott, Liberal/National Coalition" [ref=f34e306]'
+      - 'generic "2016: 102 Acts — Malcolm Turnbull, Liberal/National Coalition" [ref=f34e307]'
+      - 'generic "2017: 133 Acts — Malcolm Turnbull, Liberal/National Coalition" [ref=f34e308]'
+      - 'generic "2018: 170 Acts — Malcolm Turnbull, Liberal/National Coalition" [ref=f34e309]'
+      - 'generic "2019: 129 Acts — Scott Morrison, Liberal/National Coalition" [ref=f34e310]'
+      - 'generic "2020: 154 Acts — Scott Morrison, Liberal/National Coalition" [ref=f34e311]'
+      - generic [ref=f34e312]: "2020"
+      - 'generic "2021: 142 Acts — Scott Morrison, Liberal/National Coalition" [ref=f34e313]'
+      - 'generic "2022: 96 Acts — Anthony Albanese, Labor" [ref=f34e314]'
+      - 'generic "2023: 122 Acts — Anthony Albanese, Labor" [ref=f34e315]'
+      - 'generic "2024: 140 Acts — Anthony Albanese, Labor" [ref=f34e316]'
+      - 'generic "2025: 79 Acts — Anthony Albanese, Labor" [ref=f34e317]'
+      - 'generic "2026: 82 Acts — Anthony Albanese, Labor" [ref=f34e318]'
+    - generic [ref=f34e320]:
+      - generic [ref=f34e321]: Pre-fusion parties
+      - generic [ref=f34e323]: Coalition and predecessors
+      - generic [ref=f34e325]: Labor
+    - generic [ref=f34e327]:
+      - generic [ref=f34e328]:
+        - generic [ref=f34e329]: Labor
+        - generic [ref=f34e330]: "125"
+        - generic [ref=f34e331]: Acts a year on average, over 42 years
+      - generic [ref=f34e332]:
+        - generic [ref=f34e333]: Coalition and predecessors
+        - generic [ref=f34e334]: "109"
+        - generic [ref=f34e335]: Acts a year on average, over 76 years
+      - generic [ref=f34e336]:
+        - generic [ref=f34e337]: Pre-fusion parties
+        - generic [ref=f34e338]: "20"
+        - generic [ref=f34e339]: Acts a year on average, over 8 years
+      - generic [ref=f34e340]:
+        - generic [ref=f34e341]: Busiest year
+        - generic [ref=f34e342]: "1992"
+        - generic [ref=f34e343]: 264 Acts under Paul Keating
+    - generic [ref=f34e344]: "Each ministry's end date equals the next one's start date. Where a Prime Minister died or disappeared in office, the successor's swearing-in date is used for both, so the series has no gaps: Curtin to Forde on 6 July 1945, and Holt to McEwen on 19 December 1967."
+    - paragraph [ref=f34e345]:
+      - text: "Source:"
+      - link "Federal Register of Legislation" [ref=f34e346] [cursor=pointer]:
+        - /url: https://api.prod.legislation.gov.au/v1/titles
+      - text: ", read 2026-09-07."
+      - generic [ref=f34e347]:
+        - text: Governments from
+        - 'link "Parliament of Australia, Parliamentary Handbook: Prime Ministers" [ref=f34e348] [cursor=pointer]':
+          - /url: https://handbook.aph.gov.au/parliamentarians/prime-ministers
+        - text: ", compiled 2026-09-08. The Parliamentary Handbook renders its table with JavaScript, so these dates were assembled and cross-checked against Wikipedia's List of Australian ministries and List of prime ministers of Australia. Ministry dates are well documented and unlikely to be wrong, but this list is not sourced to the primary record the way the tax timeline is."
+  - generic [ref=f34e350]:
+    - heading "What these charts do not show" [level=2] [ref=f34e351]
+    - list [ref=f34e353]:
+      - listitem [ref=f34e354]: Counting Acts measures output, not effect. A one-page amendment and a tax rewrite both count as one Act.
+      - listitem [ref=f34e355]: Counting taxes ignores how much each raises. Abolishing a small levy and creating the GST both count as one change.
+      - listitem [ref=f34e356]: Rates, thresholds and brackets move the tax burden without adding or removing a tax. None of that appears here.
+      - listitem [ref=f34e357]: A government inherits a Parliament it did not elect and a program it may not control. Attribution by year is rough at the edges.
+  - contentinfo [ref=f34e358]:
+    - generic [ref=f34e359]:
+      - paragraph [ref=f34e360]:
+        - text: "Every figure here links to the public record it came from. Corrections welcome:"
+        - link "open an issue" [ref=f34e361] [cursor=pointer]:
+          - /url: https://github.com/itsjimmy1/govwatch/issues
+        - text: .
+      - paragraph [ref=f34e362]: Built on data from the Federal Register of Legislation, the Australian Office of Financial Management, the Commonwealth Budget papers and the Parliament of Australia.

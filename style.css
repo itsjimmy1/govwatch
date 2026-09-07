@@ -105,7 +105,6 @@ footer a { color:var(--faint); }
 
 /* Comparison table: one row per jurisdiction, ranked columns */
 .cmp td.num, .cmp th.num { text-align:right; font-variant-numeric:tabular-nums; }
-.cmp .best { font-weight:700; color:var(--ink); }
 .cmp td.j { font-weight:650; white-space:nowrap; }
 .bar { position:relative; display:block; height:5px; border-radius:3px;
   background:var(--line); margin-top:5px; }

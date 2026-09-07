@@ -1,0 +1,267 @@
+{
+ "as_at": "2026-09-08",
+ "comparability_warnings": [
+  "South Australia and the Northern Territory publish their rates on sites that refuse automated requests, so only payroll tax is sourced for those two. The other cells are left empty rather than filled from a search result.",
+  "Transfer duty is not calculated on one basis. Queensland's figure includes the owner-occupier home concession and the ACT's uses its owner-occupier scale. New South Wales, Victoria, Western Australia and Tasmania have no equivalent concession, so their figures are the duty an investor pays. Comparing the six compares concession policy as much as rates.",
+  "ACT conveyance duty is twenty years into a phase-out funded by higher general rates. A duty figure on its own understates what ACT property owners pay.",
+  "The Northern Territory has no land tax at all. That is the absence of a tax, not a generous threshold, and it should never sit in a column next to Victoria's $50,000 without saying so.",
+  "The ACT has no land tax threshold and charges a fixed $1,778 before any marginal rate. A threshold of zero there means something different from a threshold of zero elsewhere.",
+  "Land tax thresholds apply to different measures of land value: a three-year average in New South Wales, a five-year average in the ACT, a single-year assessment in Queensland and Tasmania, and the lesser of current or 150 per cent of last year's value in Western Australia. The same number describes different land.",
+  "Vehicle duty is priced by different things. Queensland charges by cylinder count, the ACT by carbon dioxide emissions, Western Australia by a sliding formula, and the rest by value. At $40,000 the ACT figure alone ranges from $1,000 to $1,812 depending on which car you buy.",
+  "Payroll tax thresholds behave differently. Victoria's deduction phases out between $3m and $5m, and Western Australia's and the Northern Territory's taper to nothing at $7.5m, while New South Wales, Queensland, Tasmania and the ACT do not taper at all.",
+  "Tasmania's 4.0 per cent payroll rate applies only between $1.25m and $2m of wages, then jumps to 6.1 per cent. The headline rate covers a narrow band.",
+  "Western Australia's land tax rate excludes the Metropolitan Region Improvement Tax, a further 0.14 per cent on Perth metropolitan land above $300,000.",
+  "One rate never describes one tax. Every jurisdiction here has thresholds, bands, surcharges and exemptions sitting behind the single number in each column."
+ ],
+ "financial_year": "2026-27",
+ "jurisdictions": [
+  {
+   "code": "NSW",
+   "insurance_duty": {
+    "note": "Type A general insurance. Motor vehicle and disability income are 5%.",
+    "rate_pct": 9.0,
+    "source": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/insurance-duty/types-of-insurance"
+   },
+   "land_tax": {
+    "note": "Premium rate applies above $6,571,000. Thresholds frozen from 2025.",
+    "source": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/land-tax/understanding-land-tax/thresholds-and-rates",
+    "threshold": 1075000,
+    "top_rate_pct": 2.0
+   },
+   "name": "New South Wales",
+   "payroll_tax": {
+    "rate_pct": 5.45,
+    "source": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/payroll-tax/rates-and-thresholds",
+    "surcharge": null,
+    "threshold": 1200000
+   },
+   "transfer_duty_750k": {
+    "amount": 27937,
+    "note": "No owner-occupier concession, so the same duty an investor pays.",
+    "source": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/transfer-duty/rates"
+   },
+   "vehicle_duty_40k": {
+    "amount": 1200,
+    "note": "$3 per $100 up to $44,999.",
+    "source": "https://www.revenue.nsw.gov.au/taxes-duties-levies-royalties/motor-vehicle-duty"
+   }
+  },
+  {
+   "code": "VIC",
+   "insurance_duty": {
+    "note": "Non-business general insurance. Business insurance is 7% in 2026-27, falling to abolition in 2033.",
+    "rate_pct": 10.0,
+    "source": "https://www.sro.vic.gov.au/about-us/rates-and-statistics/current-rates/insurance-policies-current-rates"
+   },
+   "land_tax": {
+    "note": "Top rate applies above $3,000,000.",
+    "source": "https://www.sro.vic.gov.au/land-tax-current-rates",
+    "threshold": 50000,
+    "top_rate_pct": 2.65
+   },
+   "name": "Victoria",
+   "payroll_tax": {
+    "rate_pct": 4.85,
+    "source": "https://www.sro.vic.gov.au/payroll-tax-current-rates",
+    "surcharge": "Mental health and COVID-19 debt levies add 1% above $10m national payroll and 2% above $100m. Regional employers 1.2125%.",
+    "threshold": 1000000
+   },
+   "transfer_duty_750k": {
+    "amount": 40070,
+    "note": "The concessional owner-occupier scale stops at $550,000, so general rates apply.",
+    "source": "https://www.sro.vic.gov.au/about-us/rates-and-statistics/current-rates/land-transfer-duty-non-principal-place-residence-current-rates"
+   },
+   "vehicle_duty_40k": {
+    "amount": 1680,
+    "note": "$8.40 per $200 for passenger cars up to $80,809.",
+    "source": "https://www.sro.vic.gov.au/motor-vehicle-duty-current-rates"
+   }
+  },
+  {
+   "code": "QLD",
+   "insurance_duty": {
+    "note": "Class 1 and Class 2 general insurance, including GST.",
+    "rate_pct": 9.0,
+    "source": "https://qro.qld.gov.au/duties/insurance-duty/rates/"
+   },
+   "land_tax": {
+    "note": "Resident individual threshold. Companies and trustees use $350,000.",
+    "source": "https://qro.qld.gov.au/land-tax/calculate/individual/",
+    "threshold": 600000,
+    "top_rate_pct": 2.25
+   },
+   "name": "Queensland",
+   "payroll_tax": {
+    "rate_pct": 4.75,
+    "source": "https://qro.qld.gov.au/payroll-tax/calculating/rates-thresholds/",
+    "surcharge": "Mental health levy adds 0.25% above $10m national payroll and 0.5% more above $100m. Rate rises to 4.95% above $6.5m Australian wages.",
+    "threshold": 1300000
+   },
+   "transfer_duty_750k": {
+    "amount": 17800,
+    "note": "Includes the owner-occupier home concession. Without it the scale gives $26,775.",
+    "source": "https://qro.qld.gov.au/duties/transfer-duty/calculating/home-concession/"
+   },
+   "vehicle_duty_40k": {
+    "amount": 1200,
+    "note": "1-4 cylinder. Hybrid and electric $800, 5-6 cylinder $1,400, 7+ cylinder $1,600.",
+    "source": "https://www.qld.gov.au/transport/registration/fees/duty/rates"
+   }
+  },
+  {
+   "code": "WA",
+   "insurance_duty": {
+    "note": "Of the premium including GST.",
+    "rate_pct": 10.0,
+    "source": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/insurance-duty"
+   },
+   "land_tax": {
+    "note": "Perth metropolitan land pays a further 0.14% Metropolitan Region Improvement Tax above $300,000, which is not in this rate.",
+    "source": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/land-tax-assessment",
+    "threshold": 300000,
+    "top_rate_pct": 2.67
+   },
+   "name": "Western Australia",
+   "payroll_tax": {
+    "rate_pct": 5.5,
+    "source": "https://www.wa.gov.au/government/multi-step-guides/payroll-tax-employer-guide/calculation-payroll-tax-employer-guide",
+    "surcharge": "No levy. The deduction tapers away between $1m and $7.5m of wages.",
+    "threshold": 1000000
+   },
+   "transfer_duty_750k": {
+    "amount": 29741,
+    "note": "General rate, which has equalled the residential rate since July 2022.",
+    "source": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/transfer-duty-assessment"
+   },
+   "vehicle_duty_40k": {
+    "amount": 2000,
+    "note": "A sliding rate between $25,000 and $50,000 reaches 5% at $40,000.",
+    "source": "https://www.wa.gov.au/organisation/department-of-treasury-and-finance/vehicle-licence-duty"
+   }
+  },
+  {
+   "code": "SA",
+   "insurance_duty": {
+    "note": "Not published here. RevenueSA blocks automated requests.",
+    "rate_pct": null,
+    "source": null
+   },
+   "land_tax": {
+    "note": "Not published here. RevenueSA blocks automated requests, so no figure has been read from the primary source.",
+    "source": null,
+    "threshold": null,
+    "top_rate_pct": null
+   },
+   "name": "South Australia",
+   "payroll_tax": {
+    "rate_pct": 4.95,
+    "source": "https://www.payrolltax.gov.au/harmonisation/payroll-tax-rates-and-thresholds",
+    "surcharge": "Phases in between $1.5m and $1.7m of wages.",
+    "threshold": 1500000
+   },
+   "transfer_duty_750k": {
+    "amount": null,
+    "note": "Not published here. RevenueSA blocks automated requests.",
+    "source": null
+   },
+   "vehicle_duty_40k": {
+    "amount": null,
+    "note": "Not published here. RevenueSA blocks automated requests.",
+    "source": null
+   }
+  },
+  {
+   "code": "TAS",
+   "insurance_duty": {
+    "note": "Of the premium including commission, GST and levies.",
+    "rate_pct": 10.0,
+    "source": "https://www.sro.tas.gov.au/insurance-duty/rates-of-duty"
+   },
+   "land_tax": {
+    "note": "Top rate applies above $500,000.",
+    "source": "https://www.sro.tas.gov.au/land-tax/rates-of-land-tax",
+    "threshold": 125000,
+    "top_rate_pct": 1.5
+   },
+   "name": "Tasmania",
+   "payroll_tax": {
+    "rate_pct": 4.0,
+    "source": "https://www.sro.tas.gov.au/payroll-tax/rates-thresholds",
+    "surcharge": "A second band of 6.1% applies above $2,000,000, so the headline rate covers a narrow range.",
+    "threshold": 1250000
+   },
+   "transfer_duty_750k": {
+    "amount": 28935,
+    "note": "No general owner-occupier concession.",
+    "source": "https://www.sro.tas.gov.au/property-transfer-duties/rates-of-duty"
+   },
+   "vehicle_duty_40k": {
+    "amount": 1600,
+    "note": "The $35,000 to $40,000 band charges $11 per $100 over $35,000.",
+    "source": "https://www.sro.tas.gov.au/motor-vehicle-duty/rates-of-duty"
+   }
+  },
+  {
+   "code": "ACT",
+   "insurance_duty": {
+    "note": "Abolished on 1 July 2016. The only jurisdiction with no insurance duty.",
+    "rate_pct": 0,
+    "source": "https://www.revenue.act.gov.au/tax-reform"
+   },
+   "land_tax": {
+    "note": "No tax-free threshold. A fixed charge of $1,778 applies before any marginal rate, so a zero here is not comparable to a threshold elsewhere.",
+    "source": "https://www.revenue.act.gov.au/land-tax/calculating-land-tax",
+    "threshold": 0,
+    "top_rate_pct": 1.26
+   },
+   "name": "Australian Capital Territory",
+   "payroll_tax": {
+    "rate_pct": 6.75,
+    "source": "https://www.revenue.act.gov.au/business-taxes-and-levies/payroll-tax/about-payroll-tax",
+    "surcharge": "Tiered above the base rate: 6.85% above $20m national wages, 7.35% above $50m, 7.85% above $100m, 8.75% above $150m.",
+    "threshold": 1750000
+   },
+   "transfer_duty_750k": {
+    "amount": 19208,
+    "note": "Eligible owner-occupier scale. A non-owner-occupier pays $22,200. Conveyance duty is in a 20-year phase-out funded by higher general rates.",
+    "source": "https://www.revenue.act.gov.au/rates-and-property-charges/conveyance-duty-stamp-duty/conveyance-duty-for-non-commercial-property"
+   },
+   "vehicle_duty_40k": {
+    "amount": 1200,
+    "note": "Priced by emissions, not value alone. At $40,000 the range runs $1,000 to $1,812; this is the mid category.",
+    "source": "https://www.revenue.act.gov.au/motor-vehicle-duty"
+   }
+  },
+  {
+   "code": "NT",
+   "insurance_duty": {
+    "note": "Not published here. The Territory Revenue Office blocks automated requests.",
+    "rate_pct": null,
+    "source": null
+   },
+   "land_tax": {
+    "note": "The Northern Territory levies no land tax at all. This is an absence of the tax, not a high threshold, and it is not yet confirmed against a primary source because the Territory Revenue Office blocks automated requests.",
+    "source": null,
+    "threshold": null,
+    "top_rate_pct": null
+   },
+   "name": "Northern Territory",
+   "payroll_tax": {
+    "rate_pct": 5.5,
+    "source": "https://www.payrolltax.gov.au/harmonisation/payroll-tax-rates-and-thresholds",
+    "surcharge": "The threshold tapers away between $2.5m and $7.5m of wages.",
+    "threshold": 2500000
+   },
+   "transfer_duty_750k": {
+    "amount": null,
+    "note": "Not published here. The Territory Revenue Office blocks automated requests.",
+    "source": null
+   },
+   "vehicle_duty_40k": {
+    "amount": null,
+    "note": "Not published here. The Territory Revenue Office blocks automated requests.",
+    "source": null
+   }
+  }
+ ]
+}

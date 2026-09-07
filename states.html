@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Compare the states — GovWatch</title>
 <meta name="description" content="Australian state and territory taxes on the same basis, so you can see which is cheapest for your situation.">
-<link rel="stylesheet" href="style.css?v=042b8c3d">
+<link rel="stylesheet" href="style.css?v=fc77e4de">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -31,7 +31,9 @@
   <p class="sub">What state and local government collected per resident, divided by the
      Australian Bureau of Statistics using average population over the year. This is
      collections, not what any individual pays, and it moves with what a state has to tax:
-     mining royalties, property turnover and payrolls all sit inside it.</p>
+     mining royalties, property turnover and payrolls all sit inside it. Bars are ordered
+     by size to make the comparison readable. That is an ordering, not a ranking, and no
+     jurisdiction is marked as doing better than another.</p>
   <div class="chart" id="percap-chart"></div>
   <div id="percap-legend"></div>
   <div class="scroller" id="percap-table"></div>
@@ -66,22 +68,22 @@ const money = n => n == null ? '—' : '$' + fmt(Math.round(n));
 const pct = n => n == null ? '—' : n + '%';
 
 function table(title, note, rows, fmtv, sourceOf) {
-  // "Lowest" is marked, not ranked, and only where every value is comparable.
+  // No cell is marked best. Which direction is favourable depends on whether you are
+  // an employer, a landholder or a buyer, so the reader decides and the table does not.
   const vals = rows.map(r => r.v).filter(v => v != null);
-  const low = vals.length === rows.length && vals.length > 1 ? Math.min(...vals) : null;
   const max = Math.max(...vals, 0);
   return `<h2>${title}</h2><p class="sub">${note}</p>
-  <div class="scroller"><table class="cmp stack">
+  <table class="cmp stack">
     <thead><tr><th>Jurisdiction</th><th class="num">${title}</th><th>Source</th></tr></thead>
     <tbody>${rows.map(r => `
       <tr>
         <td class="j">${r.name}</td>
-        <td class="num ${r.v != null && r.v === low ? 'best' : ''}">${fmtv(r.v)}
+        <td class="num">${fmtv(r.v)}
           ${r.v != null && max > 0 ? `<span class="bar"><i style="width:${(r.v / max * 100).toFixed(1)}%"></i></span>` : ''}
           ${r.note ? `<div class="note">${r.note}</div>` : ''}</td>
-        <td>${r.source ? `<a href="${r.source}" rel="noopener">check</a>` : '—'}</td>
+        <td>${r.source ? `<a href="${r.source}" rel="noopener">check</a>` : 'none yet'}</td>
       </tr>`).join('')}
-    </tbody></table></div>
+    </tbody></table>
     <p class="src">${sourceOf}</p>`;
 }
 
@@ -95,8 +97,11 @@ try {
 
   box.innerHTML = [
     `<div class="note-box" style="margin-bottom:26px">Figures are for the
-      ${d.financial_year} financial year, read ${d.as_at}. Lowest in each table is shown in
-      bold, and only where every jurisdiction reports on the same basis.</div>`,
+      ${d.financial_year} financial year, compiled ${d.as_at}. Rows are in a fixed order and
+      nothing is marked best: whether a high threshold or a low rate suits you depends on
+      whether you are an employer, a landholder or a buyer. The bar next to each number
+      shows its size against the largest in that column, and nothing more. Read the caveats
+      underneath before comparing any two cells.</div>`,
     table('Payroll tax rate', 'The standard rate on wages above the threshold. Surcharges on large employers are noted against the state that applies them.',
           pick('payroll_tax', 'rate_pct'), pct, 'Source: each state revenue office, linked per row.'),
     table('Payroll tax threshold', 'Annual wages a business can pay before payroll tax starts. A higher threshold exempts more small employers.',

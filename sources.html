@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sources and method — GovWatch</title>
 <meta name="description" content="Where every GovWatch number comes from, how often it refreshes, and what we do not have.">
-<link rel="stylesheet" href="style.css?v=042b8c3d">
+<link rel="stylesheet" href="style.css?v=fc77e4de">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -78,9 +78,11 @@
         <td><strong>State and territory tax rates</strong>
             <div class="note">Payroll, land, transfer, vehicle and insurance duty.</div></td>
         <td>Each state revenue office, linked per figure
-            <div class="note">Compiled by hand; not published until every cell has a source</div></td>
+            <div class="note">Compiled by hand. South Australia and the Northern Territory
+            block automated requests, so only their payroll tax is sourced and their other
+            cells are left empty.</div></td>
         <td>Manual, on Budget changes</td>
-        <td class="yr">Not read</td>
+        <td class="yr">Last read <span data-compiled="states">—</span></td>
       </tr>
       <tr>
         <td><strong>Division results</strong>
@@ -146,6 +148,10 @@ const pc = await fetch('data/states_percapita.json', { cache: 'no-cache' })
   .then(r => r.json()).catch(() => null);
 if (pc) for (const e of document.querySelectorAll('[data-fetched="states_percapita"]'))
   e.textContent = pc.fetched;
+const stx = await fetch('data/states.json', { cache: 'no-cache' })
+  .then(r => r.json()).catch(() => null);
+if (stx) for (const e of document.querySelectorAll('[data-compiled="states"]'))
+  e.textContent = stx.as_at;
 for (const [n, d] of [['legislation', leg], ['receipts', rec], ['debt', debt]])
   for (const e of document.querySelectorAll(`[data-fetched="${n}"]`)) e.textContent = d.fetched;
 for (const e of document.querySelectorAll('[data-compiled="taxes"]')) e.textContent = taxes.compiled;
