@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How each member votes — GovWatch</title>
+<meta name="description" content="Division results from the Australian Parliament, by party and by member.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Gov<span>Watch</span></a>
+  <nav>
+    <a href="./">Dashboard</a>
+    <a href="taxes.html">Tax timeline</a>
+    <a href="votes.html" aria-current="page">Votes</a>
+    <a href="sources.html">Sources &amp; method</a>
+  </nav>
+</div></header>
+<div class="hero"><div class="wrap">
+  <h1>How they vote</h1>
+  <p>Division results from both houses of the Australian Parliament, broken down by party
+     and by member.</p>
+</div></div>
+
+<section><div class="wrap">
+  <div id="votes"></div>
+</div></section>
+<script type="module">
+const box = document.getElementById('votes');
+try {
+  const d = await (await fetch('data/divisions.json', { cache: 'no-cache' })).json();
+  if (!d.divisions?.length) throw new Error(d.status || 'no divisions');
+  box.innerHTML = '<table><thead><tr><th>Date</th><th>House</th><th>Question</th>' +
+    '<th>Aye</th><th>No</th></tr></thead><tbody>' + d.divisions.map(v => `
+      <tr><td class="yr">${v.date}</td><td>${v.house}</td>
+          <td><a href="${v.url}" rel="noopener">${v.name}</a></td>
+          <td class="yr">${v.aye}</td><td class="yr">${v.no}</td></tr>`).join('') +
+    `</tbody></table><p class="src">Source: <a href="${d.source}">${d.source_name}</a> · read ${d.fetched}</p>`;
+} catch (e) {
+  box.innerHTML = `<div class="note-box">
+    <p style="margin-top:0"><strong>Not published yet.</strong> Division data comes from
+    the OpenAustralia and TheyVoteForYou projects, which mirror Hansard. Both require a
+    free API key, and GovWatch does not have one registered yet.</p>
+    <p style="margin-bottom:0">Until it does, this page stays empty rather than showing
+    a number we cannot source. Progress is tracked in
+    <a href="https://github.com/itsjimmy1/govwatch/issues">the issue tracker</a>.</p></div>`;
+}
+</script>
+<footer><div class="wrap">
+  <p>GovWatch publishes numbers from public records and links every one to its source.
+     No commentary, no agenda. Corrections welcome:
+     <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
+</div></footer>
+</body>
+</html>

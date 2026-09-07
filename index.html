@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GovWatch — Australian government by the numbers</title>
+<meta name="description" content="Factual, sourced numbers on what the Australian government taxes, spends, owes and legislates.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Gov<span>Watch</span></a>
+  <nav>
+    <a href="./" aria-current="page">Dashboard</a>
+    <a href="taxes.html">Tax timeline</a>
+    <a href="votes.html">Votes</a>
+    <a href="sources.html">Sources &amp; method</a>
+  </nav>
+</div></header>
+<div class="hero"><div class="wrap">
+  <h1>Australian government, by the numbers</h1>
+  <p>What Parliament passes, what it taxes, and how each member votes. Every figure on
+     this site links to the public record it came from and shows the date it was read.
+     We publish the numbers and leave the arguing to you.</p>
+</div></div>
+
+<section><div class="wrap">
+  <h2>Commonwealth law</h2>
+  <p class="sub">Live from the Federal Register of Legislation, the government's own register of Acts and instruments.</p>
+  <div class="tiles" id="law-tiles"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Acts of Parliament made each year</h2>
+  <p class="sub">Every Act the Commonwealth Parliament has made since Federation, counted by the
+     year it was made. Includes Acts since repealed, so this measures output, not the size of the statute book.</p>
+  <div class="chart" id="acts-chart"></div>
+  <p class="src">Source: <a href="https://api.prod.legislation.gov.au/v1/titles">Federal Register of Legislation OData API</a>
+     · read <span data-fetched="legislation"></span></p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Federal taxes added and abolished</h2>
+  <p class="sub">Running count of distinct Commonwealth taxes in existence, from the timeline of
+     introductions and abolitions. Each entry is sourced on the <a href="taxes.html">tax timeline</a>.</p>
+  <div class="tiles" id="tax-tiles" style="margin-bottom:18px"></div>
+  <div class="chart" id="tax-chart"></div>
+  <p class="src">Source: GovWatch tax timeline, each entry individually sourced ·
+     <a href="taxes.html">see the table</a></p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What we do not have yet</h2>
+  <p class="sub">Stated plainly, because a dashboard that hides its gaps is spin.</p>
+  <div class="note-box" id="gaps"></div>
+</div></section>
+
+<script type="module">
+import { bars, stepline, fmt } from './chart.js';
+
+const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
+const tile = (k, v, n) =>
+  `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
+
+const [leg, taxes] = await Promise.all([j('data/legislation.json'), j('data/taxes.json')]);
+
+for (const s of document.querySelectorAll('[data-fetched="legislation"]')) s.textContent = leg.fetched;
+
+document.getElementById('law-tiles').innerHTML = [
+  tile('Acts in force', fmt(leg.acts_in_force), 'Commonwealth Acts currently in force'),
+  tile('Acts ever made', fmt(leg.acts_total), 'Since 1901, including repealed'),
+  tile('Instruments in force', fmt(leg.instruments_in_force), 'Regulations and other delegated law'),
+  tile('Read on', leg.fetched, 'Refreshed daily from the register'),
+].join('');
+
+document.getElementById('acts-chart').append(
+  bars(leg.by_year.map(r => ({ x: r.year, y: r.acts, title: `${r.year}: ${r.acts} Acts` })),
+       { h: 300, xEvery: 10 }));
+
+// Running count of taxes in existence.
+const evs = [...taxes.entries].sort((a, b) => a.year - b.year);
+let n = 0;
+const run = evs.map(e => ({ x: e.year, y: (n += e.action === 'introduced' ? 1 : -1) }));
+const added = evs.filter(e => e.action === 'introduced').length;
+const gone = evs.filter(e => e.action === 'abolished').length;
+
+document.getElementById('tax-tiles').innerHTML = [
+  tile('Taxes introduced', fmt(added), 'Distinct federal taxes since 1901'),
+  tile('Taxes abolished', fmt(gone), 'Repealed or handed to the states'),
+  tile('Net standing', fmt(added - gone), 'Introduced minus abolished'),
+  tile('Entries sourced', fmt(evs.length), 'Every one links to a public record'),
+].join('');
+
+document.getElementById('tax-chart').append(
+  stepline(run, { h: 260, label: 'Federal taxes in existence' }));
+
+document.getElementById('gaps').innerHTML =
+  '<ul style="margin:0;padding-left:20px">' + taxes.gaps.map(g => `<li>${g}</li>`).join('') + '</ul>';
+</script>
+<footer><div class="wrap">
+  <p>GovWatch publishes numbers from public records and links every one to its source.
+     No commentary, no agenda. Corrections welcome:
+     <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
+  <p>Built on data from the Federal Register of Legislation, the Parliament of Australia,
+     the Australian Office of Financial Management and the Australian Bureau of Statistics.</p>
+</div></footer>
+</body>
+</html>

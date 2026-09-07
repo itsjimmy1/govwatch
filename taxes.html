@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Federal tax timeline since 1901 — GovWatch</title>
+<meta name="description" content="Every Commonwealth tax introduced or abolished since Federation, with the government that did it and a source for each.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Gov<span>Watch</span></a>
+  <nav>
+    <a href="./">Dashboard</a>
+    <a href="taxes.html" aria-current="page">Tax timeline</a>
+    <a href="votes.html">Votes</a>
+    <a href="sources.html">Sources &amp; method</a>
+  </nav>
+</div></header>
+<div class="hero"><div class="wrap">
+  <h1>Federal taxes, 1901 to now</h1>
+  <p>Every Commonwealth tax introduced or abolished since Federation, the government that
+     did it, and a link to the public record. Filter by the party in office at the time.</p>
+</div></div>
+
+<section><div class="wrap">
+  <div class="tiles" id="tiles" style="margin-bottom:26px"></div>
+  <div class="controls" id="filters"></div>
+  <table id="tbl">
+    <thead><tr><th>Year</th><th>Tax</th><th>Action</th><th>Government</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <p class="src" id="count"></p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How this list is drawn</h2>
+  <div class="note-box" id="method"></div>
+</div></section>
+
+<script type="module">
+import { fmt } from './chart.js';
+const taxes = await (await fetch('data/taxes.json', { cache: 'no-cache' })).json();
+const all = [...taxes.entries].sort((a, b) => a.year - b.year || a.name.localeCompare(b.name));
+
+const partyClass = p => /labor/i.test(p) ? 'labor'
+  : /liberal|coalition|nationalist|united australia|country/i.test(p) ? 'lib' : 'other';
+const parties = ['All', ...new Set(all.map(e => e.party))];
+let active = 'All';
+
+const tbody = document.querySelector('#tbl tbody');
+function render() {
+  const rows = active === 'All' ? all : all.filter(e => e.party === active);
+  tbody.innerHTML = rows.map(e => `
+    <tr>
+      <td class="yr">${e.year}</td>
+      <td><strong>${e.name}</strong><div class="note">${e.note}</div></td>
+      <td><span class="pill ${e.action}">${e.action}</span></td>
+      <td>${e.pm}<div class="note" style="color:var(--${partyClass(e.party)})">${e.party}</div>
+          <div class="note"><a href="${e.source}" rel="noopener">source</a></div></td>
+    </tr>`).join('');
+  document.getElementById('count').textContent =
+    `Showing ${fmt(rows.length)} of ${fmt(all.length)} entries. Compiled ${taxes.compiled}.`;
+  for (const b of document.querySelectorAll('#filters button'))
+    b.setAttribute('aria-pressed', String(b.textContent === active));
+}
+
+document.getElementById('filters').innerHTML =
+  parties.map(p => `<button type="button">${p}</button>`).join('');
+document.getElementById('filters').addEventListener('click', ev => {
+  if (ev.target.tagName !== 'BUTTON') return;
+  active = ev.target.textContent;
+  render();
+});
+
+const tile = (k, v, n) =>
+  `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
+const added = all.filter(e => e.action === 'introduced').length;
+const gone = all.filter(e => e.action === 'abolished').length;
+document.getElementById('tiles').innerHTML = [
+  tile('Introduced', fmt(added), 'Federal taxes created since 1901'),
+  tile('Abolished', fmt(gone), 'Repealed or transferred to the states'),
+  tile('Net', (added - gone > 0 ? '+' : '') + fmt(added - gone), 'Introduced minus abolished'),
+  tile('Span', `${all[0].year}–${all[all.length - 1].year}`, 'Earliest to latest entry'),
+].join('');
+
+document.getElementById('method').innerHTML =
+  '<ul style="margin:0;padding-left:20px">' + taxes.method.map(m => `<li>${m}</li>`).join('') + '</ul>';
+render();
+</script>
+<footer><div class="wrap">
+  <p>GovWatch publishes numbers from public records and links every one to its source.
+     No commentary, no agenda. Corrections welcome:
+     <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
+</div></footer>
+</body>
+</html>
