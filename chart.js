@@ -54,7 +54,7 @@ export function bars(rows, { w = 1080, h = 300, ticks = 4, xEvery = 10 } = {}) {
     ttl.textContent = r.title || `${r.x}: ${fmt(r.y)}`;
     b.append(ttl);
     svg.append(b);
-    if (Number(r.x) % xEvery === 0) {
+    if (typeof r.x !== 'number' || Number(r.x) % xEvery === 0) {
       const t = el('text', {
         class: 'axis', x: (L + i * bw + bw / 2).toFixed(1), y: h - 6,
         'text-anchor': 'middle',

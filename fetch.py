@@ -4,10 +4,12 @@
 Each output file carries `fetched` (UTC date) and `source` (the URL a reader
 can check). Nothing here interprets the numbers; it only moves them.
 """
-import csv, io, json, os, ssl, sys, urllib.parse, urllib.request
+import csv, io, json, os, re, ssl, sys, urllib.parse, urllib.request, zipfile
 from datetime import datetime, timezone
 
 LEG = "https://api.prod.legislation.gov.au/v1/titles"
+ABS_PERCAP = ("https://www.abs.gov.au/statistics/economy/government/"
+              "taxation-revenue-australia/2024-25/55060DO002_202425.xlsx")
 AOFM = "https://www.aofm.gov.au/sites/default/files/2025-05-29/stock_ags.csv"
 BUDGET_T2 = "https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv"
 # aofm.gov.au's edge silently hangs, never responding, on any User-Agent string
@@ -117,6 +119,88 @@ def receipts():
     return out
 
 
+def xlsx_sheet(data, table):
+    """Read one sheet of an ABS workbook with the stdlib.
+
+    ABS data downloads are XLSX only, and these sheets are flat enough that
+    zipfile plus a regex beats taking on a dependency. Sheet order does not
+    reliably match table numbers, so resolve the name through the rels file.
+    """
+    z = zipfile.ZipFile(io.BytesIO(data))
+    wb = z.read("xl/workbook.xml").decode()
+    rels = dict(re.findall(r'Id="(rId\d+)"[^>]*Target="([^"]+)"',
+                           z.read("xl/_rels/workbook.xml.rels").decode()))
+    sheets = dict((n, rels[r]) for n, r in
+                  re.findall(r'<sheet name="([^"]+)"[^>]*r:id="(rId\d+)"', wb))
+    assert table in sheets, f"{table} not in {sorted(sheets)}"
+    strings = [
+        "".join(re.findall(r"<t[^>]*>(.*?)</t>", si, re.S))
+        for si in re.findall(r"<si>(.*?)</si>",
+                             z.read("xl/sharedStrings.xml").decode(), re.S)
+    ]
+    rows = []
+    xml = z.read("xl/" + sheets[table].lstrip("/")).decode()
+    for _, body in re.findall(r'<row[^>]*r="(\d+)"[^>]*>(.*?)</row>', xml, re.S):
+        cells = {}
+        # Empty cells are omitted entirely, so index by column letter, never position.
+        for ref, attrs, inner in re.findall(r'<c r="([A-Z]+)\d+"([^>]*)>(.*?)</c>',
+                                            body, re.S):
+            v = re.search(r"<v>(.*?)</v>", inner)
+            if not v:
+                continue
+            val = v.group(1)
+            cells[ref] = strings[int(val)] if 't="s"' in attrs else val
+        rows.append(cells)
+    return rows
+
+
+def state_tax_per_capita():
+    """State and local taxation revenue per person, by jurisdiction.
+
+    ABS 5506.0 table 4 publishes this already divided, using mean population over
+    the year. Recomputing it from a point-in-time population would disagree with
+    the published figure by about one per cent.
+    """
+    rows = xlsx_sheet(urllib.request.urlopen(
+        urllib.request.Request(ABS_PERCAP, headers=UA), timeout=90, context=CTX).read(),
+        "Table_4")
+    header = next(r for r in rows
+                  if sum(1 for v in r.values() if re.fullmatch(r"20\d\d-\d\d", str(v))) >= 3)
+    years = {c: v for c, v in header.items() if re.fullmatch(r"20\d\d-\d\d", str(v))}
+    cols = sorted(years)
+    # The header labels one fewer column than the data carries. The unlabelled first
+    # data column is the year before the earliest label.
+    prev = chr(ord(cols[0]) - 1)
+    y0 = int(years[cols[0]][:4]) - 1
+    labels = {prev: f"{y0}-{str(y0 + 1)[2:]}", **years}
+
+    NAMES = {"New South Wales": "NSW", "Victoria": "VIC", "Queensland": "QLD",
+             "South Australia": "SA", "Western Australia": "WA", "Tasmania": "TAS",
+             "Northern Territory": "NT", "Australian Capital Territory": "ACT"}
+    BENCH = ("Average", "Commonwealth", "All Australia")
+    out, extra = [], {}
+    for r in rows:
+        name = r.get("A")
+        if name not in NAMES and name not in BENCH:
+            continue
+        series = {}
+        for c, fy in labels.items():
+            if c in r:
+                try:
+                    series[fy] = round(float(r[c]), 1)
+                except ValueError:
+                    pass
+        if not series:
+            continue
+        if name in NAMES:
+            out.append({"code": NAMES[name], "name": name, "by_fy": series,
+                        "latest": series[labels[cols[-1]]]})
+        else:
+            extra[name] = series
+    assert len(out) == 8, f"expected eight jurisdictions, got {len(out)}"
+    return out, extra, labels[cols[-1]]
+
+
 def write(name, payload):
     payload["fetched"] = TODAY
     path = f"data/{name}.json"
@@ -150,6 +234,19 @@ def main():
         "latest_fy": d[-1]["fy"],
         "latest_bn": d[-1]["face_value_bn"],
         "by_fy": d,
+    })
+
+    per_capita, extra, latest_fy = state_tax_per_capita()
+    write("states_percapita", {
+        "source": ABS_PERCAP,
+        "source_name": ("Australian Bureau of Statistics, Taxation Revenue, Australia "
+                        "2024-25, table 4: taxation revenue per capita"),
+        "note": ("State and local government taxation per person. ABS divides by mean "
+                 "population over the year. Commonwealth taxation is shown separately "
+                 "and is levied on everyone regardless of where they live."),
+        "latest_fy": latest_fy,
+        "jurisdictions": sorted(per_capita, key=lambda x: x["latest"]),
+        "benchmarks": extra,
     })
 
     rc = receipts()

@@ -106,6 +106,16 @@ def main():
             want(a["end"] and a["end"] <= b["start"],
                  f"governments overlap: {a['pm']} ends {a['end']}, {b['pm']} starts {b['start']}")
 
+    pc = json.load(open("data/states_percapita.json"))
+    want({x["code"] for x in pc["jurisdictions"]} ==
+         {"NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"},
+         "per-capita data is missing a jurisdiction")
+    for x in pc["jurisdictions"]:
+        want(1000 < x["latest"] < 20000,
+             f"{x['code']} tax per person {x['latest']} is not believable")
+        want(len(x["by_fy"]) >= 4, f"{x['code']} has only {len(x['by_fy'])} years")
+    want(pc["benchmarks"].get("Commonwealth"), "per-capita data lost its Commonwealth row")
+
     if os.path.exists("data/states.json"):
         st = json.load(open("data/states.json"))
         codes = {x["code"] for x in st["jurisdictions"]}

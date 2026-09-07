@@ -27,6 +27,18 @@
 </div></div>
 
 <section><div class="wrap">
+  <h2>State and local tax per person</h2>
+  <p class="sub">What state and local government collected per resident, divided by the
+     Australian Bureau of Statistics using average population over the year. This is
+     collections, not what any individual pays, and it moves with what a state has to tax:
+     mining royalties, property turnover and payrolls all sit inside it.</p>
+  <div class="chart" id="percap-chart"></div>
+  <div id="percap-legend"></div>
+  <div class="scroller" id="percap-table"></div>
+  <p class="src" id="percap-src"></p>
+</div></section>
+
+<section><div class="wrap">
   <div id="states"></div>
 </div></section>
 
@@ -47,7 +59,7 @@
 </div></section>
 
 <script type="module">
-import { fmt } from './chart.js?v=f67deab6';
+import { fmt } from './chart.js?v=aa898822';
 const box = document.getElementById('states');
 
 const money = n => n == null ? '—' : '$' + fmt(Math.round(n));

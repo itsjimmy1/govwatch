@@ -67,6 +67,22 @@
         <td class="yr">Last read <span data-fetched="debt">—</span></td>
       </tr>
       <tr>
+        <td><strong>State and local tax per person</strong>
+            <div class="note">Eight jurisdictions, 2019-20 onward.</div></td>
+        <td><a href="https://www.abs.gov.au/statistics/economy/government/taxation-revenue-australia/latest-release" rel="noopener">ABS Taxation Revenue, Australia, table 4</a>
+            <div class="note">XLSX, no key required, parsed with the Python standard library</div></td>
+        <td>Daily, automated</td>
+        <td class="yr">Last read <span data-fetched="states_percapita">—</span></td>
+      </tr>
+      <tr>
+        <td><strong>State and territory tax rates</strong>
+            <div class="note">Payroll, land, transfer, vehicle and insurance duty.</div></td>
+        <td>Each state revenue office, linked per figure
+            <div class="note">Compiled by hand; not published until every cell has a source</div></td>
+        <td>Manual, on Budget changes</td>
+        <td class="yr">Not read</td>
+      </tr>
+      <tr>
         <td><strong>Division results</strong>
             <div class="note">How members voted.</div></td>
         <td><a href="https://www.openaustralia.org.au/" rel="noopener">OpenAustralia</a> and
@@ -98,7 +114,10 @@
 
   <h2>Known limits</h2>
   <ul>
-    <li>Federal only. State parliaments and local councils are not covered yet.</li>
+    <li>State coverage is taxes only. State parliaments, their legislation and their
+        spending are not covered yet, and local councils are not covered at all.</li>
+    <li>Tax per person is what a government collected divided by who lives there. It is not
+        what any individual pays, and it moves with what a state has available to tax.</li>
     <li>"Acts made per year" counts Acts made, including those since repealed. It measures
         parliamentary output, not the current size of the statute book. "Acts in force" is
         the second measure.</li>
@@ -123,6 +142,10 @@
 const names = ['legislation', 'taxes', 'receipts', 'debt'];
 const [leg, taxes, rec, debt] = await Promise.all(
   names.map(n => fetch(`data/${n}.json`, { cache: 'no-cache' }).then(r => r.json())));
+const pc = await fetch('data/states_percapita.json', { cache: 'no-cache' })
+  .then(r => r.json()).catch(() => null);
+if (pc) for (const e of document.querySelectorAll('[data-fetched="states_percapita"]'))
+  e.textContent = pc.fetched;
 for (const [n, d] of [['legislation', leg], ['receipts', rec], ['debt', debt]])
   for (const e of document.querySelectorAll(`[data-fetched="${n}"]`)) e.textContent = d.fetched;
 for (const e of document.querySelectorAll('[data-compiled="taxes"]')) e.textContent = taxes.compiled;
