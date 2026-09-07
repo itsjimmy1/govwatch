@@ -2,6 +2,7 @@
  "as_at": "2026-09-08",
  "comparability_warnings": [
   "South Australia and the Northern Territory publish their rates on sites that refuse automated requests, so only payroll tax is sourced for those two. The other cells are left empty rather than filled from a search result.",
+  "South Australia's and the Northern Territory's payroll figures come from the jurisdictions' joint harmonisation site rather than their own revenue offices, which is a weaker citation than every other cell here.",
   "Transfer duty is not calculated on one basis. Queensland's figure includes the owner-occupier home concession and the ACT's uses its owner-occupier scale. New South Wales, Victoria, Western Australia and Tasmania have no equivalent concession, so their figures are the duty an investor pays. Comparing the six compares concession policy as much as rates.",
   "ACT conveyance duty is twenty years into a phase-out funded by higher general rates. A duty figure on its own understates what ACT property owners pay.",
   "The Northern Territory has no land tax at all. That is the absence of a tax, not a generous threshold, and it should never sit in a column next to Victoria's $50,000 without saying so.",
@@ -154,6 +155,7 @@
    },
    "name": "South Australia",
    "payroll_tax": {
+    "note": "Sourced from payrolltax.gov.au, the harmonised site the jurisdictions publish jointly, because this revenue office refuses automated requests. Every other row on this page comes from the revenue office itself.",
     "rate_pct": 4.95,
     "source": "https://www.payrolltax.gov.au/harmonisation/payroll-tax-rates-and-thresholds",
     "surcharge": "Phases in between $1.5m and $1.7m of wages.",
@@ -247,6 +249,7 @@
    },
    "name": "Northern Territory",
    "payroll_tax": {
+    "note": "Sourced from payrolltax.gov.au, the harmonised site the jurisdictions publish jointly, because this revenue office refuses automated requests. Every other row on this page comes from the revenue office itself.",
     "rate_pct": 5.5,
     "source": "https://www.payrolltax.gov.au/harmonisation/payroll-tax-rates-and-thresholds",
     "surcharge": "The threshold tapers away between $2.5m and $7.5m of wages.",

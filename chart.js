@@ -10,44 +10,47 @@ const fmt = n => n.toLocaleString('en-AU');
 
 // Charts are drawn in viewBox units and scaled to fit. A 1080-unit box squeezed into
 // a 350px phone renders 11px type at about 5px, so narrow screens get a narrower box.
+export function isNarrow() {
+  return typeof window !== 'undefined' && window.innerWidth < 700;
+}
+
 export function chartWidth() {
   const w = typeof window === 'undefined' ? 1080 : window.innerWidth;
   return w < 700 ? 560 : 1080;
 }
 
-// Nice round upper bound so the y-axis reads cleanly.
-function niceMax(v, integer) {
-  if (integer) {
-    for (const s of [5, 10, 20, 25, 50, 100]) {
-      const n = Math.ceil(v / s) * s;
-      if (n >= v && n <= v * 2.5) return n;
+// Pick the y-axis top and its tick count together, so every gridline lands on a
+// number a reader recognises. Choosing them separately gave axes like 0/53/106/159.
+function niceAxis(v, want, integer) {
+  if (!(v > 0)) return { max: 1, ticks: want };
+  const mag = Math.pow(10, Math.floor(Math.log10(v)) - 1);
+  const steps = [];
+  for (const s of [1, 2, 2.5, 5, 10, 20, 25, 50, 100]) {
+    const step = s * mag;
+    if (!integer || Number.isInteger(step)) steps.push(step);
+  }
+  if (integer && !steps.includes(1)) steps.unshift(1);
+  let best = null;
+  for (const n of [4, 5, 6, 3, 2, 7, 8]) {
+    for (const step of steps) {
+      const max = n * step;
+      if (max < v || max > v * 1.7) continue;
+      if (integer && !Number.isInteger(max)) continue;
+      if (!best || max < best.max) best = { max, ticks: n };
     }
-    return Math.ceil(v);
   }
-  if (v <= 0) return 1;
-  const mag = Math.pow(10, Math.floor(Math.log10(v)));
-  for (const s of [1, 1.5, 2, 2.5, 3, 4, 5, 7.5, 10]) {
-    if (v <= s * mag) return s * mag;
-  }
-  return 10 * mag;
-}
-
-// Prefer a tick count that divides the max into whole steps, so an axis topping
-// out at 25 reads 0/5/10/15/20/25 rather than 0/6/13/19/25.
-function niceTicks(max, want) {
-  for (const n of [want, 5, want + 1, want + 2, 3, 2]) {
-    if (n >= 2 && n <= 8 && Number.isInteger(max / n)) return n;
-  }
-  return want;
+  return best || { max: integer ? Math.ceil(v) : v, ticks: want };
 }
 
 /** Vertical bars. rows: [{x, y, fill?, title?}] */
 export function bars(rows, { w = chartWidth(), h = 300, ticks = 4, xEvery = 10,
                              integer = false } = {}) {
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
+  // Axis type is drawn in viewBox units and scaled down, so narrow charts need it bigger.
+  if (isNarrow()) svg.setAttribute('data-narrow', '');
   const L = 52, B = 24, top = 10;
-  const max = niceMax(Math.max(...rows.map(r => r.y)), integer);
-  ticks = niceTicks(max, ticks);
+  let max;
+  ({ max, ticks } = niceAxis(Math.max(...rows.map(r => r.y)), ticks, integer));
   const iw = w - L - 12, ih = h - B - top;
   const bw = iw / rows.length;
 
@@ -85,9 +88,12 @@ export function bars(rows, { w = chartWidth(), h = 300, ticks = 4, xEvery = 10,
 export function stepline(rows, { w = chartWidth(), h = 260, ticks = 4, label = '',
                                  integer = false } = {}) {
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
+  // Axis type is drawn in viewBox units and scaled down, so narrow charts need it bigger.
+  if (isNarrow()) svg.setAttribute('data-narrow', '');
   const L = 52, B = 24, top = 10;
-  const xs = rows.map(r => r.x), max = niceMax(Math.max(...rows.map(r => r.y)), integer);
-  ticks = niceTicks(max, ticks);
+  const xs = rows.map(r => r.x);
+  let max;
+  ({ max, ticks } = niceAxis(Math.max(...rows.map(r => r.y)), ticks, integer));
   const x0 = Math.min(...xs), x1 = Math.max(...xs);
   const iw = w - L - 12, ih = h - B - top;
   const px = x => L + ((x - x0) / (x1 - x0 || 1)) * iw;
@@ -125,10 +131,13 @@ export function stepline(rows, { w = chartWidth(), h = 260, ticks = 4, label = '
 export function grouped(cats, series, { w = chartWidth(), h = 300, ticks = 4, unit = '',
                                         integer = false } = {}) {
   const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img' });
+  // Axis type is drawn in viewBox units and scaled down, so narrow charts need it bigger.
+  if (isNarrow()) svg.setAttribute('data-narrow', '');
   // top leaves room for the value label above the tallest bar.
-  const L = 52, B = 46, top = 22;
-  const max = niceMax(Math.max(...series.flatMap(s => s.values)), integer);
-  ticks = niceTicks(max, ticks);
+  const longest = Math.max(...cats.map(c => String(c).split(' ').length));
+  const L = 52, B = isNarrow() ? 30 + longest * 14 : 46, top = 22;
+  let max;
+  ({ max, ticks } = niceAxis(Math.max(...series.flatMap(s => s.values)), ticks, integer));
   const iw = w - L - 12, ih = h - B - top;
   const cw = iw / cats.length, bw = (cw * 0.72) / series.length;
 
@@ -162,13 +171,17 @@ export function grouped(cats, series, { w = chartWidth(), h = 300, ticks = 4, un
         svg.append(lab);
       }
     });
-    // Category labels wrap onto a second line so long party names stay readable.
+    // Category labels wrap so long party names stay readable. On a narrow chart the
+    // words stack one per line, because two per line still collided at 390px.
     const words = String(c).split(' ');
-    const lines = words.length > 2 ? [words.slice(0, 2).join(' '), words.slice(2).join(' ')] : [c];
+    const lines = isNarrow()
+      ? words
+      : (words.length > 2 ? [words.slice(0, 2).join(' '), words.slice(2).join(' ')] : [c]);
+    const lh = isNarrow() ? 15 : 12;
     lines.forEach((ln, li) => {
       const t = el('text', {
         class: 'axis', x: (L + ci * cw + cw / 2).toFixed(1),
-        y: h - 26 + li * 12, 'text-anchor': 'middle',
+        y: h - B + 20 + li * lh, 'text-anchor': 'middle',
       });
       t.textContent = ln;
       svg.append(t);

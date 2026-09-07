@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Patterns by party and decade — GovWatch</title>
 <meta name="description" content="Which Australian governments added federal taxes, which removed them, and how much law each one made.">
-<link rel="stylesheet" href="style.css?v=fc77e4de">
+<link rel="stylesheet" href="style.css?v=a388d0a5">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#128200;</text></svg>">
 </head>
 <body>
@@ -48,8 +48,8 @@
 
 <section><div class="wrap">
   <h2>Taxes introduced and abolished, by decade</h2>
-  <p class="sub">Two world wars and the 2000 tax package are visible without anyone
-     having to point at them.</p>
+  <p class="sub">Counts of changes, not their size. The 1910s added six taxes and removed
+     none; the 1950s removed three and added none.</p>
   <div class="chart" id="decade-chart"></div>
   <div id="decade-legend"></div>
 </div></section>
@@ -58,7 +58,8 @@
   <h2>Acts of Parliament made each year, by government</h2>
   <p class="sub">Every Act the Commonwealth Parliament made, coloured by who was in office
      that year. Where a year spans a change of government, it takes the colour of whoever
-     held office longer in that year.</p>
+     held office longer in that year. The current year is incomplete and is left out of the
+     averages below.</p>
   <div class="chart" id="acts-gov-chart"></div>
   <div id="acts-gov-legend"></div>
   <div class="tiles" id="acts-tiles" style="margin-top:18px"></div>
@@ -82,7 +83,7 @@
 </div></section>
 
 <script type="module">
-import { grouped, legend, bars, fmt } from './chart.js?v=984ba0c0';
+import { grouped, legend, bars, fmt } from './chart.js?v=b6765bb6';
 const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
 const INTRO = '#8a5600', ABOL = '#6b7484';
 
@@ -173,25 +174,56 @@ if (!govs) {
       fam, pm: g?.pm, party: g?.party,
     };
   });
-  document.getElementById('acts-gov-chart').append(bars(rows, { h: 320, xEvery: 10, integer: true }));
+  const narrow = window.innerWidth < 700;
+  if (narrow) {
+    // 126 bars render under 2px wide on a phone, and SVG tooltips do not fire on
+    // touch, so the yearly chart is unreadable there. Show decade totals instead.
+    const byDecade = new Map();
+    for (const r of rows) {
+      const d = Math.floor(r.x / 10) * 10;
+      if (!byDecade.has(d)) byDecade.set(d, { acts: 0, fams: {} });
+      const e = byDecade.get(d);
+      e.acts += r.y;
+      e.fams[r.fam] = (e.fams[r.fam] || 0) + 1;
+    }
+    const decRows = [...byDecade.entries()].sort((a, b) => a[0] - b[0]).map(([d, e]) => {
+      const top = Object.entries(e.fams).sort((a, b) => b[1] - a[1])[0][0];
+      return { x: d, label: `${String(d).slice(2)}s`, y: e.acts, fill: PARTY_COLOUR[top],
+               title: `${d}s: ${fmt(e.acts)} Acts, mostly under ${top}`, fam: top };
+    });
+    document.getElementById('acts-gov-chart').append(
+      bars(decRows, { h: 300, xEvery: 1, integer: true }));
+    document.getElementById('acts-gov-chart').insertAdjacentHTML('afterend',
+      '<p class="src">Grouped by decade because a bar per year is under two pixels wide ' +
+      'on a phone. Open this page on a wider screen for the year-by-year chart. Each ' +
+      'decade takes the colour of whichever side held office for more of it.</p>');
+  } else {
+    document.getElementById('acts-gov-chart').append(
+      bars(rows, { h: 320, xEvery: 10, integer: true }));
+  }
   const lseries = [...new Set(rows.map(r => r.fam))]
     .map(f => ({ name: f, colour: PARTY_COLOUR[f] }));
   document.getElementById('acts-gov-legend').append(legend(lseries));
 
   const tile = (k, v, n) =>
     `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
+  const thisYear = new Date().getFullYear();
+  const complete = rows.filter(r => r.x < thisYear);
   const per = {};
-  for (const r of rows) {
+  for (const r of complete) {
     per[r.fam] = per[r.fam] || { acts: 0, years: 0 };
     per[r.fam].acts += r.y; per[r.fam].years++;
   }
-  const busiest = rows.reduce((a, b) => (b.y > a.y ? b : a));
+  const busiest = complete.reduce((a, b) => (b.y > a.y ? b : a));
+  const partial = rows.find(r => r.x === thisYear);
   document.getElementById('acts-tiles').innerHTML = [
     ...Object.entries(per).filter(([, v]) => v.years >= 5)
       .sort((a, b) => (b[1].acts / b[1].years) - (a[1].acts / a[1].years))
       .map(([f, v]) => tile(f, Math.round(v.acts / v.years),
         `Acts a year on average, over ${v.years} years`)),
     tile('Busiest year', busiest.x, `${fmt(busiest.y)} Acts under ${busiest.pm ?? 'unknown'}`),
+    ...(partial ? [tile(`${partial.x} so far`, fmt(partial.y),
+      'A part year, excluded from the averages')] : []),
   ].join('');
   document.getElementById('gov-convention').textContent = govs.convention;
   document.getElementById('gov-source').innerHTML =

@@ -33,8 +33,25 @@ def stamp_assets():
     print(f"stamped assets: {digest}")
 
 
+def mount_points():
+    """Every chart or table mount a page declares must be filled by that page's script.
+
+    The per-capita section once shipped as an empty white box: an edit targeting an
+    unstamped asset path matched nothing, the code was never written, and no error
+    was raised anywhere. An empty mount is invisible until a reader sees a blank panel.
+    """
+    for page in ("index.html", "taxes.html", "patterns.html", "states.html",
+                 "votes.html", "sources.html"):
+        text = open(page).read()
+        script = "".join(re.findall(r"<script[^>]*>(.*?)</script>", text, re.S))
+        for mount in re.findall(r'id="([a-z0-9-]*(?:chart|table|tiles|legend|src))"', text):
+            want(mount in script,
+                 f"{page} declares #{mount} but its script never fills it")
+
+
 def main():
     stamp_assets()
+    mount_points()
     leg = json.load(open("data/legislation.json"))
     want(3000 < leg["acts_in_force"] < 9000,
          f"acts_in_force {leg['acts_in_force']} outside a believable range")
