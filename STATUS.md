@@ -2,6 +2,11 @@
 
 Loop log. Newest at top. One line per increment: date, what shipped, what's next.
 
+- 2026-09-08 — Added Patterns and States. Patterns cuts the tax timeline by party, lineage
+  and decade and colours Acts per year by government, using a new sourced list of all 39
+  ministries. States carries ABS tax per person for all eight jurisdictions plus rate tables
+  for six; SA and NT revenue sites return 403 to automated requests. Review of both pages
+  running. Next: SA and NT rates via a real browser.
 - 2026-09-08 — Third review returned SHIP. All eight round-two defects verified fixed, no
   new blockers, zero console errors, keyboard access works. Cleared five non-blocking nits
   including cache-busting, which was leaving withdrawn colours in visitors' caches.

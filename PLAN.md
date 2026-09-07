@@ -28,8 +28,15 @@ Design principle: big visible charts. The landing page is a dashboard.
 4. **Sources and method page** — where every number comes from, how often it refreshes,
    known gaps.
 
-Out of scope for MVP: states, local government, AI-generated analysis, accounts,
-comments, newsletter.
+5. **Patterns** — the tax timeline cut by party, party lineage and decade, plus Acts per
+   year coloured by the government in office. Charts, not prose.
+6. **States** — the eight states and territories on one basis: tax per person from the ABS,
+   plus payroll, land, transfer, vehicle and insurance duty from each revenue office. The
+   point is competitive federalism, so the comparison must be honest about where the
+   jurisdictions are not comparable.
+
+Out of scope: local government, AI-generated analysis, accounts, comments, newsletter,
+state parliaments and their legislation.
 
 ## Tech (ponytail)
 
@@ -51,6 +58,14 @@ comments, newsletter.
 - [x] Sources page lists every dataset with URL and refresh cadence
 - [x] Daily refresh workflow has run green at least once
 - [x] A separate review agent has passed the site against this gate — SHIP on the third pass, 8 Sep 2026
+
+## Second gate: states and patterns
+
+- [x] Patterns page live with party, lineage, decade and Acts-by-government charts
+- [x] States page live with ABS tax per person for all eight jurisdictions
+- [x] State rate tables for six of eight, every published cell sourced
+- [ ] South Australia and Northern Territory rates, blocked on their 403s
+- [ ] A separate review agent has passed both pages
 
 ## James to do
 
