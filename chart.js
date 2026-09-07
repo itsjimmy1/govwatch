@@ -49,7 +49,7 @@ export function bars(rows, { w = 1080, h = 300, pad = 40, ticks = 4, xEvery = 10
         class: 'axis', x: (L + i * bw + bw / 2).toFixed(1), y: h - 6,
         'text-anchor': 'middle',
       });
-      t.textContent = r.x;
+      t.textContent = r.label ?? r.x;
       svg.append(t);
     }
   });

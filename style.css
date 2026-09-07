@@ -1,7 +1,7 @@
 :root {
   --bg: #0f1115; --panel: #171a21; --line: #262b35;
   --ink: #e8eaed; --dim: #9aa3b2; --faint: #6b7484;
-  --accent: #f0b429; --up: #e05252; --down: #45b26b;
+  --accent: #f0b429;
   --labor: #ff6b66; --lib: #6ba6e8; --other: #aab3c2;
   --w: 1160px;
 }
@@ -58,15 +58,19 @@ section > .wrap > h2 { font-size:22px; }
   border-radius:99px; padding:7px 15px; font-size:13.5px; cursor:pointer; font-family:inherit; }
 .controls button[aria-pressed="true"] { color:var(--bg); background:var(--ink); border-color:var(--ink); }
 
+.scroller { overflow-x:auto; }
 table { width:100%; border-collapse:collapse; font-size:14.5px; }
 th { text-align:left; color:var(--dim); font-weight:600; font-size:12.5px;
   text-transform:uppercase; letter-spacing:.06em; padding:0 12px 9px 0; }
 td { padding:11px 12px 11px 0; border-top:1px solid var(--line); vertical-align:top; }
 td.yr { font-variant-numeric:tabular-nums; color:var(--dim); width:1%; white-space:nowrap; }
 .pill { display:inline-block; padding:2px 9px; border-radius:99px; font-size:12px; white-space:nowrap; }
-.pill.introduced { background:color-mix(in srgb,var(--up) 18%,transparent); color:var(--up); }
-.pill.abolished { background:color-mix(in srgb,var(--down) 18%,transparent); color:var(--down); }
-.pill.changed { background:color-mix(in srgb,var(--other) 22%,transparent); color:var(--dim); }
+/* Deliberately not colour-coded good/bad: an introduction and a repeal get the same
+   neutral treatment, told apart by fill weight, not by red and green. */
+.pill.introduced { background:color-mix(in srgb,var(--ink) 13%,transparent); color:var(--ink); }
+.pill.abolished { background:transparent; color:var(--dim); box-shadow:inset 0 0 0 1px var(--line); }
+.pill.changed { background:transparent; color:var(--faint); box-shadow:inset 0 0 0 1px var(--line);
+  font-style:italic; }
 td .note { color:var(--dim); font-size:13.5px; margin-top:3px; }
 
 .prose { max-width:74ch; }

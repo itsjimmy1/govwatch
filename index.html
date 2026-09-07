@@ -74,7 +74,7 @@
 
 <section><div class="wrap">
   <h2>Federal taxes added and abolished</h2>
-  <p class="sub">Running count from the timeline of introductions and abolitions. Some early
+  <p class="sub">Running count from the timeline of introductions and abolitions.
      Rate changes, state taxes and changes to how an existing tax works are listed but do
      not move the count, because none of them adds or removes a tax. Every entry is sourced
      on the <a href="taxes.html">tax timeline</a>.</p>
@@ -118,14 +118,14 @@ document.getElementById('fiscal-tiles').innerHTML = [
 
 document.getElementById('tax-gdp-chart').append(
   bars(rec.by_fy.map(r => ({
-    x: parseInt(r.fy, 10), y: r.tax_pct_gdp,
+    x: parseInt(r.fy, 10), y: r.tax_pct_gdp, label: r.fy,
     fill: r.estimate ? 'color-mix(in srgb, var(--accent) 40%, transparent)' : 'var(--accent)',
     title: `${r.fy}: ${r.tax_pct_gdp}% of GDP${r.estimate ? ' (Budget estimate)' : ''}`,
   })), { h: 280, xEvery: 5 }));
 
 document.getElementById('debt-chart').append(
   bars(debt.by_fy.map(r => ({
-    x: parseInt(r.fy, 10), y: r.face_value_bn,
+    x: parseInt(r.fy, 10), y: r.face_value_bn, label: r.fy,
     title: `${r.fy}: $${r.face_value_bn}b`,
   })), { h: 260, xEvery: 1 }));
 

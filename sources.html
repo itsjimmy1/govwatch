@@ -27,7 +27,7 @@
 
 <section><div class="wrap">
   <h2>Datasets</h2>
-  <table>
+  <div class="scroller"><table>
     <thead><tr><th>Dataset</th><th>Source</th><th>Refresh</th><th>Last read</th></tr></thead>
     <tbody>
       <tr>
@@ -41,9 +41,10 @@
       <tr>
         <td><strong>Federal tax timeline</strong>
             <div class="note">Taxes introduced and abolished since 1901.</div></td>
-        <td>Compiled by hand from Parliamentary Library research papers, the Federal
-            Register of Legislation and Treasury publications.
-            <div class="note">Each row carries its own source link.</div></td>
+        <td><a href="taxes.html" rel="noopener">The timeline itself</a>, and the raw file at
+            <a href="data/taxes.json" rel="noopener">data/taxes.json</a>
+            <div class="note">Compiled by hand from Parliamentary Library papers, the Federal
+            Register of Legislation, Treasury and the ATO. Every row carries its own source link.</div></td>
         <td>Manual, on correction</td>
         <td class="yr" data-compiled="taxes">—</td>
       </tr>
@@ -73,7 +74,7 @@
         <td class="yr">—</td>
       </tr>
     </tbody>
-  </table>
+  </table></div>
 </div></section>
 
 <section><div class="wrap"><div class="prose">
@@ -85,9 +86,9 @@
         dashboard and here.</li>
     <li><strong>Counting is not judging.</strong> We report that a tax was introduced or that
         a member voted no. We do not report whether that was wise.</li>
-    <li><strong>Where the numbers are contested, both readings get linked.</strong>
-        Economists disagree about what a tax burden does to growth. That disagreement is
-        itself a fact and gets shown as one.</li>
+    <li><strong>Interpretation is left to the reader.</strong> Economists disagree about
+        what a tax burden does to growth. This site does not settle that, and does not yet
+        link the competing analyses either. When it does, they will be linked in pairs.</li>
     <li><strong>Corrections are public.</strong> Raise an
         <a href="https://github.com/itsjimmy1/govwatch/issues" rel="noopener">issue</a> and the
         change and its reason stay in the record.</li>

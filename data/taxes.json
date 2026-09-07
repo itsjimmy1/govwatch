@@ -147,10 +147,10 @@
    "action": "abolished",
    "kind": "tax",
    "name": "Bank Notes Tax",
-   "note": "Repealed by the First Schedule to the Commonwealth Bank Act 1945, with private note issue prohibited by penalty instead.",
+   "note": "The First Schedule to the Commonwealth Bank Act 1945 repealed the Bank Notes Tax Act 1910, with private note issue prohibited by penalty instead.",
    "party": "Labor",
    "pm": "Ben Chifley",
-   "source": "https://www.legislation.gov.au/C1910A00014/latest/details",
+   "source": "https://www.legislation.gov.au/C1945A00013/asmade",
    "year": 1945
   },
   {
@@ -375,7 +375,7 @@
    "action": "introduced",
    "kind": "tax",
    "name": "Superannuation Contributions Surcharge",
-   "note": "A surcharge on employer superannuation contributions for higher-income earners applied to contributions made after 20 August 1996.",
+   "note": "Legislated in 1997, the surcharge on employer superannuation contributions for higher-income earners applied retrospectively to contributions made after 20 August 1996.",
    "party": "Liberal/National Coalition",
    "pm": "John Howard",
    "source": "https://www.ato.gov.au/tax-and-super-professionals/for-superannuation-professionals/apra-regulated-funds/managing-member-benefits/taxation-of-member-super-benefits/superannuation-contributions-surcharge-information/super-contributions-surcharge",
