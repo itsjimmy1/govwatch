@@ -1,0 +1,322 @@
+{
+ "by_fy": [
+  {
+   "estimate": false,
+   "fy": "1978-79",
+   "receipts_pct_gdp": 22.0,
+   "tax_pct_gdp": 19.7
+  },
+  {
+   "estimate": false,
+   "fy": "1979-80",
+   "receipts_pct_gdp": 22.5,
+   "tax_pct_gdp": 20.4
+  },
+  {
+   "estimate": false,
+   "fy": "1980-81",
+   "receipts_pct_gdp": 23.6,
+   "tax_pct_gdp": 21.4
+  },
+  {
+   "estimate": false,
+   "fy": "1981-82",
+   "receipts_pct_gdp": 23.6,
+   "tax_pct_gdp": 21.5
+  },
+  {
+   "estimate": false,
+   "fy": "1982-83",
+   "receipts_pct_gdp": 24.0,
+   "tax_pct_gdp": 21.6
+  },
+  {
+   "estimate": false,
+   "fy": "1983-84",
+   "receipts_pct_gdp": 23.4,
+   "tax_pct_gdp": 21.0
+  },
+  {
+   "estimate": false,
+   "fy": "1984-85",
+   "receipts_pct_gdp": 24.9,
+   "tax_pct_gdp": 22.5
+  },
+  {
+   "estimate": false,
+   "fy": "1985-86",
+   "receipts_pct_gdp": 25.3,
+   "tax_pct_gdp": 22.5
+  },
+  {
+   "estimate": false,
+   "fy": "1986-87",
+   "receipts_pct_gdp": 26.1,
+   "tax_pct_gdp": 23.2
+  },
+  {
+   "estimate": false,
+   "fy": "1987-88",
+   "receipts_pct_gdp": 25.7,
+   "tax_pct_gdp": 23.1
+  },
+  {
+   "estimate": false,
+   "fy": "1988-89",
+   "receipts_pct_gdp": 24.6,
+   "tax_pct_gdp": 22.6
+  },
+  {
+   "estimate": false,
+   "fy": "1989-90",
+   "receipts_pct_gdp": 24.3,
+   "tax_pct_gdp": 22.4
+  },
+  {
+   "estimate": false,
+   "fy": "1990-91",
+   "receipts_pct_gdp": 24.1,
+   "tax_pct_gdp": 22.3
+  },
+  {
+   "estimate": false,
+   "fy": "1991-92",
+   "receipts_pct_gdp": 22.6,
+   "tax_pct_gdp": 20.6
+  },
+  {
+   "estimate": false,
+   "fy": "1992-93",
+   "receipts_pct_gdp": 21.9,
+   "tax_pct_gdp": 20.0
+  },
+  {
+   "estimate": false,
+   "fy": "1993-94",
+   "receipts_pct_gdp": 22.2,
+   "tax_pct_gdp": 20.0
+  },
+  {
+   "estimate": false,
+   "fy": "1994-95",
+   "receipts_pct_gdp": 22.8,
+   "tax_pct_gdp": 21.1
+  },
+  {
+   "estimate": false,
+   "fy": "1995-96",
+   "receipts_pct_gdp": 23.5,
+   "tax_pct_gdp": 21.8
+  },
+  {
+   "estimate": false,
+   "fy": "1996-97",
+   "receipts_pct_gdp": 24.0,
+   "tax_pct_gdp": 22.3
+  },
+  {
+   "estimate": false,
+   "fy": "1997-98",
+   "receipts_pct_gdp": 23.8,
+   "tax_pct_gdp": 22.2
+  },
+  {
+   "estimate": false,
+   "fy": "1998-99",
+   "receipts_pct_gdp": 24.4,
+   "tax_pct_gdp": 22.2
+  },
+  {
+   "estimate": false,
+   "fy": "1999-00",
+   "receipts_pct_gdp": 25.0,
+   "tax_pct_gdp": 22.8
+  },
+  {
+   "estimate": false,
+   "fy": "2000-01",
+   "receipts_pct_gdp": 25.8,
+   "tax_pct_gdp": 24.0
+  },
+  {
+   "estimate": false,
+   "fy": "2001-02",
+   "receipts_pct_gdp": 24.8,
+   "tax_pct_gdp": 23.1
+  },
+  {
+   "estimate": false,
+   "fy": "2002-03",
+   "receipts_pct_gdp": 25.4,
+   "tax_pct_gdp": 23.9
+  },
+  {
+   "estimate": false,
+   "fy": "2003-04",
+   "receipts_pct_gdp": 25.2,
+   "tax_pct_gdp": 23.9
+  },
+  {
+   "estimate": false,
+   "fy": "2004-05",
+   "receipts_pct_gdp": 25.5,
+   "tax_pct_gdp": 24.2
+  },
+  {
+   "estimate": false,
+   "fy": "2005-06",
+   "receipts_pct_gdp": 25.6,
+   "tax_pct_gdp": 24.2
+  },
+  {
+   "estimate": false,
+   "fy": "2006-07",
+   "receipts_pct_gdp": 25.0,
+   "tax_pct_gdp": 23.7
+  },
+  {
+   "estimate": false,
+   "fy": "2007-08",
+   "receipts_pct_gdp": 24.9,
+   "tax_pct_gdp": 23.6
+  },
+  {
+   "estimate": false,
+   "fy": "2008-09",
+   "receipts_pct_gdp": 23.1,
+   "tax_pct_gdp": 21.6
+  },
+  {
+   "estimate": false,
+   "fy": "2009-10",
+   "receipts_pct_gdp": 21.8,
+   "tax_pct_gdp": 20.0
+  },
+  {
+   "estimate": false,
+   "fy": "2010-11",
+   "receipts_pct_gdp": 21.2,
+   "tax_pct_gdp": 19.8
+  },
+  {
+   "estimate": false,
+   "fy": "2011-12",
+   "receipts_pct_gdp": 21.9,
+   "tax_pct_gdp": 20.7
+  },
+  {
+   "estimate": false,
+   "fy": "2012-13",
+   "receipts_pct_gdp": 22.7,
+   "tax_pct_gdp": 21.2
+  },
+  {
+   "estimate": false,
+   "fy": "2013-14",
+   "receipts_pct_gdp": 22.4,
+   "tax_pct_gdp": 21.2
+  },
+  {
+   "estimate": false,
+   "fy": "2014-15",
+   "receipts_pct_gdp": 23.2,
+   "tax_pct_gdp": 21.7
+  },
+  {
+   "estimate": false,
+   "fy": "2015-16",
+   "receipts_pct_gdp": 23.2,
+   "tax_pct_gdp": 21.8
+  },
+  {
+   "estimate": false,
+   "fy": "2016-17",
+   "receipts_pct_gdp": 23.2,
+   "tax_pct_gdp": 21.5
+  },
+  {
+   "estimate": false,
+   "fy": "2017-18",
+   "receipts_pct_gdp": 24.2,
+   "tax_pct_gdp": 22.6
+  },
+  {
+   "estimate": false,
+   "fy": "2018-19",
+   "receipts_pct_gdp": 24.8,
+   "tax_pct_gdp": 22.9
+  },
+  {
+   "estimate": false,
+   "fy": "2019-20",
+   "receipts_pct_gdp": 23.6,
+   "tax_pct_gdp": 21.7
+  },
+  {
+   "estimate": false,
+   "fy": "2020-21",
+   "receipts_pct_gdp": 24.9,
+   "tax_pct_gdp": 22.7
+  },
+  {
+   "estimate": false,
+   "fy": "2021-22",
+   "receipts_pct_gdp": 25.0,
+   "tax_pct_gdp": 23.0
+  },
+  {
+   "estimate": false,
+   "fy": "2022-23",
+   "receipts_pct_gdp": 25.2,
+   "tax_pct_gdp": 23.3
+  },
+  {
+   "estimate": false,
+   "fy": "2023-24",
+   "receipts_pct_gdp": 25.7,
+   "tax_pct_gdp": 23.6
+  },
+  {
+   "estimate": false,
+   "fy": "2024-25",
+   "receipts_pct_gdp": 25.8,
+   "tax_pct_gdp": 23.7
+  },
+  {
+   "estimate": true,
+   "fy": "2025-26",
+   "receipts_pct_gdp": 25.6,
+   "tax_pct_gdp": 23.6
+  },
+  {
+   "estimate": true,
+   "fy": "2026-27",
+   "receipts_pct_gdp": 25.8,
+   "tax_pct_gdp": 23.8
+  },
+  {
+   "estimate": true,
+   "fy": "2027-28",
+   "receipts_pct_gdp": 25.9,
+   "tax_pct_gdp": 23.8
+  },
+  {
+   "estimate": true,
+   "fy": "2028-29",
+   "receipts_pct_gdp": 25.4,
+   "tax_pct_gdp": 23.5
+  },
+  {
+   "estimate": true,
+   "fy": "2029-30",
+   "receipts_pct_gdp": 25.5,
+   "tax_pct_gdp": 23.6
+  }
+ ],
+ "fetched": "2026-09-07",
+ "latest_actual_fy": "2024-25",
+ "latest_actual_tax_pct_gdp": 23.7,
+ "note": "Commonwealth receipts only. State and local taxation is not included, so this understates the total tax take across all governments. Years marked as estimates are Budget forecasts, not outcomes.",
+ "source": "https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv",
+ "source_name": "Australian Government Budget Paper No. 1, Statement 5, Table 2: receipts as a share of GDP"
+}

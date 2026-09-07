@@ -25,6 +25,32 @@
      We publish the numbers and leave the arguing to you.</p>
 </div></div>
 
+
+<section><div class="wrap">
+  <h2>What it takes and what it owes</h2>
+  <p class="sub">Commonwealth only. State and local taxation is not in these figures, so the
+     total tax take across all levels of government is higher than the share shown here.</p>
+  <div class="tiles" id="fiscal-tiles"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Commonwealth tax receipts as a share of GDP</h2>
+  <p class="sub">Every financial year since 1978-79. Bars in a lighter shade are Budget
+     estimates rather than outcomes, and are not history.</p>
+  <div class="chart" id="tax-gdp-chart"></div>
+  <p class="src">Source: <a href="https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv">Budget Paper No. 1, Statement 5, Table 2</a>
+     · read <span data-fetched="receipts"></span></p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Government securities on issue</h2>
+  <p class="sub">Face value of Australian Government Securities at 30 June, in billions of
+     dollars. This is gross debt. It is not net debt, and it excludes state borrowing.</p>
+  <div class="chart" id="debt-chart"></div>
+  <p class="src">Source: <a href="https://www.aofm.gov.au/data-hub">Australian Office of Financial Management</a>,
+     citing the Final Budget Outcome, Table B.5 · read <span data-fetched="debt"></span></p>
+</div></section>
+
 <section><div class="wrap">
   <h2>Commonwealth law</h2>
   <p class="sub">Live from the Federal Register of Legislation, the government's own register of Acts and instruments.</p>
@@ -63,7 +89,37 @@ const j = async p => (await fetch(p, { cache: 'no-cache' })).json();
 const tile = (k, v, n) =>
   `<div class="tile"><div class="k">${k}</div><div class="v">${v}</div><div class="n">${n}</div></div>`;
 
-const [leg, taxes] = await Promise.all([j('data/legislation.json'), j('data/taxes.json')]);
+const [leg, taxes, debt, rec] = await Promise.all(
+  ['legislation', 'taxes', 'debt', 'receipts'].map(n => j(`data/${n}.json`)));
+
+for (const [name, d] of [['receipts', rec], ['debt', debt]])
+  for (const e of document.querySelectorAll(`[data-fetched="${name}"]`)) e.textContent = d.fetched;
+
+const actual = rec.by_fy.filter(r => !r.estimate);
+const first = actual[0], last = actual[actual.length - 1];
+document.getElementById('fiscal-tiles').innerHTML = [
+  tile('Tax receipts', last.tax_pct_gdp + '%', `Share of GDP, ${last.fy}`),
+  tile('All receipts', last.receipts_pct_gdp + '%', `Share of GDP, ${last.fy}`),
+  tile('Since ' + first.fy, (last.tax_pct_gdp - first.tax_pct_gdp > 0 ? '+' : '') +
+       (last.tax_pct_gdp - first.tax_pct_gdp).toFixed(1) + ' pts',
+       `Change in tax share of GDP from ${first.tax_pct_gdp}%`),
+  tile('Debt on issue', '$' + fmt(debt.latest_bn) + 'b',
+       `Face value of securities, ${debt.latest_fy}`),
+].join('');
+
+document.getElementById('tax-gdp-chart').append(
+  bars(rec.by_fy.map(r => ({
+    x: parseInt(r.fy, 10), y: r.tax_pct_gdp,
+    fill: r.estimate ? 'color-mix(in srgb, var(--accent) 40%, transparent)' : 'var(--accent)',
+    title: `${r.fy}: ${r.tax_pct_gdp}% of GDP${r.estimate ? ' (Budget estimate)' : ''}`,
+  })), { h: 280, xEvery: 5 }));
+
+document.getElementById('debt-chart').append(
+  bars(debt.by_fy.map(r => ({
+    x: parseInt(r.fy, 10), y: r.face_value_bn,
+    title: `${r.fy}: $${r.face_value_bn}b`,
+  })), { h: 260, xEvery: 1 }));
+
 
 for (const s of document.querySelectorAll('[data-fetched="legislation"]')) s.textContent = leg.fetched;
 
@@ -103,8 +159,8 @@ document.getElementById('gaps').innerHTML =
   <p>GovWatch publishes numbers from public records and links every one to its source.
      No commentary, no agenda. Corrections welcome:
      <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
-  <p>Built on data from the Federal Register of Legislation, the Parliament of Australia,
-     the Australian Office of Financial Management and the Australian Bureau of Statistics.</p>
+  <p>Built on data from the Federal Register of Legislation, the Australian Office of
+     Financial Management, the Commonwealth Budget papers and the Parliament of Australia.</p>
 </div></footer>
 </body>
 </html>

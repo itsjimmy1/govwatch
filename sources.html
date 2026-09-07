@@ -60,7 +60,7 @@
   </table>
 </div></section>
 
-<section><div class="wrap prose">
+<section><div class="wrap"><div class="prose">
   <h2>Rules we hold ourselves to</h2>
   <ol>
     <li><strong>Every number carries a source and a date.</strong> If we cannot link it to a
@@ -94,7 +94,7 @@
   <p>The whole site, including the fetch script and the raw data files, is public at
      <a href="https://github.com/itsjimmy1/govwatch" rel="noopener">github.com/itsjimmy1/govwatch</a>.
      Run <code>python3 fetch.py</code> and compare the output to what this site shows.</p>
-</div></section>
+</div></div></section>
 <script type="module">
 const [leg, taxes] = await Promise.all([
   fetch('data/legislation.json', { cache: 'no-cache' }).then(r => r.json()),
@@ -105,7 +105,10 @@ for (const e of document.querySelectorAll('[data-compiled="taxes"]')) e.textCont
 </script>
 <footer><div class="wrap">
   <p>GovWatch publishes numbers from public records and links every one to its source.
-     No commentary, no agenda.</p>
+     No commentary, no agenda. Corrections welcome:
+     <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
+  <p>Built on data from the Federal Register of Legislation, the Australian Office of
+     Financial Management, the Commonwealth Budget papers and the Parliament of Australia.</p>
 </div></footer>
 </body>
 </html>

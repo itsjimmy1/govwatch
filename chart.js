@@ -86,7 +86,7 @@ export function stepline(rows, { w = 1080, h = 260, ticks = 4, label = '' } = {}
     svg.append(t);
   }
   if (label) {
-    const t = el('text', { class: 'axis', x: L, y: top + 2 });
+    const t = el('text', { class: 'axis-label', x: L + 6, y: top + 14 });
     t.textContent = label;
     svg.append(t);
   }

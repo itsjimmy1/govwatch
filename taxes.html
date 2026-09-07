@@ -19,15 +19,18 @@
   </nav>
 </div></header>
 <div class="hero"><div class="wrap">
-  <h1>Federal taxes, 1901 to now</h1>
+  <h1>Federal taxes since Federation</h1>
   <p>Every Commonwealth tax introduced or abolished since Federation, the government that
      did it, and a link to the public record. Filter by the party in office at the time.</p>
+  <p style="color:var(--faint);font-size:14px;margin-top:12px">The latest entry is 2017. No
+     Commonwealth tax has been created or abolished since, as far as this list records. If
+     one has been missed, <a href="https://github.com/itsjimmy1/govwatch/issues">say so</a>.</p>
 </div></div>
 
 <section><div class="wrap">
   <div class="tiles" id="tiles" style="margin-bottom:26px"></div>
   <div class="controls" id="filters"></div>
-  <table id="tbl">
+  <table id="tbl" class="stack">
     <thead><tr><th>Year</th><th>Tax</th><th>Action</th><th>Government</th></tr></thead>
     <tbody></tbody>
   </table>
@@ -83,7 +86,7 @@ document.getElementById('tiles').innerHTML = [
   tile('Introduced', fmt(added), 'Distinct federal taxes created since 1901'),
   tile('Abolished', fmt(gone), 'Repealed or transferred to the states'),
   tile('Standing', fmt(added - gone), 'Introduced minus abolished'),
-  tile('Span', `${all[0].year}–${all[all.length - 1].year}`, 'Earliest to latest entry'),
+  tile('Span', `${all[0].year}–${all[all.length - 1].year}`, 'Earliest to latest entry recorded'),
 ].join('');
 
 document.getElementById('method').innerHTML =
@@ -94,6 +97,8 @@ render();
   <p>GovWatch publishes numbers from public records and links every one to its source.
      No commentary, no agenda. Corrections welcome:
      <a href="https://github.com/itsjimmy1/govwatch/issues">open an issue</a>.</p>
+  <p>Built on data from the Federal Register of Legislation, the Australian Office of
+     Financial Management, the Commonwealth Budget papers and the Parliament of Australia.</p>
 </div></footer>
 </body>
 </html>

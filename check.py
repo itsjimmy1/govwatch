@@ -26,6 +26,20 @@ def main():
     want(min(years) == 1901, f"Acts data starts at {min(years)}, not Federation")
     want(all(r["acts"] > 0 for r in leg["by_year"]), "a year reports zero Acts")
 
+    debt = json.load(open("data/debt.json"))
+    want(len(debt["by_fy"]) >= 5, "debt series too short")
+    want(300 < debt["latest_bn"] < 3000,
+         f"debt {debt['latest_bn']}b outside a believable range")
+    want(all(r["face_value_bn"] > 0 for r in debt["by_fy"]), "a debt year is zero or negative")
+
+    rec = json.load(open("data/receipts.json"))
+    want(len(rec["by_fy"]) >= 40, "receipts series too short")
+    want(15 < rec["latest_actual_tax_pct_gdp"] < 35,
+         f"tax share {rec['latest_actual_tax_pct_gdp']}% of GDP is not believable")
+    want(any(r["estimate"] for r in rec["by_fy"]), "no year flagged as a Budget estimate")
+    want(all(0 < r["tax_pct_gdp"] < r["receipts_pct_gdp"] + 0.01 for r in rec["by_fy"]),
+         "a year reports more tax receipts than total receipts")
+
     tax = json.load(open("data/taxes.json"))
     e = tax["entries"]
     want(len(e) >= 30, f"tax timeline has only {len(e)} entries, gate needs 30")
@@ -48,7 +62,9 @@ def main():
         for f in FAIL:
             print(f"  - {f}", file=sys.stderr)
         return 1
-    print(f"data check passed: {leg['acts_in_force']} Acts in force, {len(e)} tax entries")
+    print(f"data check passed: {leg['acts_in_force']} Acts in force, "
+          f"{len(e)} tax entries, debt {debt['latest_bn']}b, "
+          f"tax {rec['latest_actual_tax_pct_gdp']}% of GDP")
     return 0
 
 

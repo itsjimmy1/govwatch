@@ -4,11 +4,16 @@
 Each output file carries `fetched` (UTC date) and `source` (the URL a reader
 can check). Nothing here interprets the numbers; it only moves them.
 """
-import json, os, ssl, sys, urllib.parse, urllib.request
+import csv, io, json, os, ssl, sys, urllib.parse, urllib.request
 from datetime import datetime, timezone
 
 LEG = "https://api.prod.legislation.gov.au/v1/titles"
-UA = {"User-Agent": "GovWatch/0.1 (+https://github.com/itsjimmy1/govwatch)"}
+AOFM = "https://www.aofm.gov.au/sites/default/files/2025-05-29/stock_ags.csv"
+BUDGET_T2 = "https://budget.gov.au/content/bp1/download/bp1_s5-online_t2.csv"
+# aofm.gov.au's edge silently hangs, never responding, on any User-Agent string
+# containing a URL. "GovWatch/0.1" works; "GovWatch/0.1 (+https://...)" times out.
+# Keep the contact address out of this header.
+UA = {"User-Agent": "GovWatch/0.1", "Accept": "*/*", "Accept-Encoding": "identity"}
 TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
@@ -62,6 +67,56 @@ def acts_per_year():
     return [{"year": y, "acts": rows[y]} for y in sorted(rows)]
 
 
+def raw(url):
+    """Fetch a URL as text. budget.gov.au serves an HTML catch-all page with a 200
+    for any path that does not exist, so callers must check what came back."""
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=60, context=CTX) as r:
+        return r.read().decode("utf-8-sig")
+
+
+def rows(url, expect_header):
+    text = raw(url)
+    assert not text.lstrip().startswith("<"), f"{url} returned HTML, not CSV"
+    r = list(csv.reader(io.StringIO(text)))
+    assert expect_header in r[0][0] or any(expect_header in c for c in r[0]), \
+        f"{url} header changed: {r[0][:3]}"
+    return r
+
+
+def debt():
+    """Commonwealth Government Securities on issue, face value, by financial year."""
+    r = rows(AOFM, "Face Value")
+    out = [{"fy": a, "face_value_bn": float(b)} for a, b in (x[:2] for x in r[1:]) if b]
+    return out
+
+
+def receipts():
+    """Commonwealth receipts as a share of GDP. Budget Paper 1, table 2 of statement 5.
+
+    Rows after the last actual year are Budget estimates and are marked as such,
+    because publishing a forecast as though it were history is exactly the spin
+    this site exists to cut through.
+    """
+    r = rows(BUDGET_T2, "Total tax receipts")
+    head = r[0]
+    i_tax = head.index("Total tax receipts (%)")
+    i_all = head.index("Total receipts (%)")
+    out = []
+    for row in r[1:]:
+        if not row or not row[0]:
+            continue
+        fy = row[0].strip()
+        est = "(est)" in fy
+        out.append({
+            "fy": fy.replace(" (est)", ""),
+            "estimate": est,
+            "tax_pct_gdp": float(row[i_tax]),
+            "receipts_pct_gdp": float(row[i_all]),
+        })
+    return out
+
+
 def write(name, payload):
     payload["fetched"] = TODAY
     path = f"data/{name}.json"
@@ -82,6 +137,33 @@ def main():
         "instruments_in_force": count(
             "collection eq 'LegislativeInstrument' and isInForce eq true"),
         "by_year": acts_per_year(),
+    })
+
+    d = debt()
+    write("debt", {
+        "source": AOFM,
+        "source_name": ("Australian Office of Financial Management, AGS on issue "
+                        "(face value, general government sector)"),
+        "note": ("Face value of Australian Government Securities on issue at 30 June. "
+                 "AOFM cites the Final Budget Outcome, Table B.5. This is gross debt; "
+                 "it is not net debt and it excludes state borrowing."),
+        "latest_fy": d[-1]["fy"],
+        "latest_bn": d[-1]["face_value_bn"],
+        "by_fy": d,
+    })
+
+    rc = receipts()
+    actual = [r for r in rc if not r["estimate"]]
+    write("receipts", {
+        "source": BUDGET_T2,
+        "source_name": ("Australian Government Budget Paper No. 1, Statement 5, "
+                        "Table 2: receipts as a share of GDP"),
+        "note": ("Commonwealth receipts only. State and local taxation is not included, "
+                 "so this understates the total tax take across all governments. "
+                 "Years marked as estimates are Budget forecasts, not outcomes."),
+        "latest_actual_fy": actual[-1]["fy"],
+        "latest_actual_tax_pct_gdp": actual[-1]["tax_pct_gdp"],
+        "by_fy": rc,
     })
 
 
