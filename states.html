@@ -116,7 +116,7 @@ function table(title, note, rows, fmtv, sourceOf) {
         <td class="num">${fmtv(r.v)}
           ${r.v != null && max > 0 ? `<span class="bar"><i style="width:${(r.v / max * 100).toFixed(1)}%"></i></span>` : ''}
           ${r.note ? `<div class="note">${r.note}</div>` : ''}</td>
-        <td>${r.source ? `<a href="${r.source}" rel="noopener">check</a>` : 'none yet'}</td>
+        <td>${r.source ? `<a href="${r.source}" rel="noopener">check</a>` : '—'}</td>
       </tr>`).join('')}
     </tbody></table>
     <p class="src">${sourceOf}</p>`;

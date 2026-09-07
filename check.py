@@ -157,6 +157,11 @@ def main():
                          f"{x['code']} {field} has a value with no source URL")
                     want(has_value or blk.get("note"),
                          f"{x['code']} {field} is empty with no note saying why")
+                    # Every cell now has a source. An empty one is a regression, not
+                    # a gap, unless its note explains an absent tax rather than a
+                    # failure to read one.
+                    want(src.startswith("https://"),
+                         f"{x['code']} {field} lost its source URL")
 
     if FAIL:
         print("DATA CHECK FAILED:", file=sys.stderr)

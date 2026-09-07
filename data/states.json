@@ -1,8 +1,9 @@
 {
  "as_at": "2026-09-08",
  "comparability_warnings": [
+  "South Australia's payroll figure comes from the jurisdictions' joint harmonisation site rather than RevenueSA, which is a weaker citation than every other cell here.",
+  "The Northern Territory's conveyance figure was read from the Territory's own duty calculator, because the rate scale is not published as text anywhere on its site.",
   "South Australia and the Northern Territory publish their rates on sites that refuse automated requests, so only payroll tax is sourced for those two. The other cells are left empty rather than filled from a search result.",
-  "South Australia's and the Northern Territory's payroll figures come from the jurisdictions' joint harmonisation site rather than their own revenue offices, which is a weaker citation than every other cell here.",
   "Transfer duty is not calculated on one basis. Queensland's figure includes the owner-occupier home concession and the ACT's uses its owner-occupier scale. New South Wales, Victoria, Western Australia and Tasmania have no equivalent concession, so their figures are the duty an investor pays. Comparing the six compares concession policy as much as rates.",
   "ACT conveyance duty is twenty years into a phase-out funded by higher general rates. A duty figure on its own understates what ACT property owners pay.",
   "The Northern Territory has no land tax at all. That is the absence of a tax, not a generous threshold, and it should never sit in a column next to Victoria's $50,000 without saying so.",
@@ -143,33 +144,33 @@
   {
    "code": "SA",
    "insurance_duty": {
-    "note": "Not published here. RevenueSA blocks automated requests.",
-    "rate_pct": null,
-    "source": null
+    "note": "General insurance. Life insurance is 1.5%.",
+    "rate_pct": 11.0,
+    "source": "https://www.revenuesa.sa.gov.au/stamp-duty-insurance/rates"
    },
    "land_tax": {
-    "note": "Not published here. RevenueSA blocks automated requests, so no figure has been read from the primary source.",
-    "source": null,
-    "threshold": null,
-    "top_rate_pct": null
+    "note": "Top rate applies above $3,504,000. Trusts use a $25,000 threshold.",
+    "source": "https://www.revenuesa.sa.gov.au/landtax/rates-and-thresholds",
+    "threshold": 936000,
+    "top_rate_pct": 2.4
    },
    "name": "South Australia",
    "payroll_tax": {
-    "note": "Sourced from payrolltax.gov.au, the harmonised site the jurisdictions publish jointly, because this revenue office refuses automated requests. Every other row on this page comes from the revenue office itself.",
+    "note": "Sourced from payrolltax.gov.au, the harmonised site the jurisdictions publish jointly, because RevenueSA refuses automated requests. Every other South Australian row here comes from RevenueSA itself.",
     "rate_pct": 4.95,
     "source": "https://www.payrolltax.gov.au/harmonisation/payroll-tax-rates-and-thresholds",
     "surcharge": "Phases in between $1.5m and $1.7m of wages.",
     "threshold": 1500000
    },
    "transfer_duty_750k": {
-    "amount": null,
-    "note": "Not published here. RevenueSA blocks automated requests.",
-    "source": null
+    "amount": 35080,
+    "note": "No owner-occupier concession in the scale. Confirmed against RevenueSA's own calculator.",
+    "source": "https://www.revenuesa.sa.gov.au/stampduty/rate-of-stamp-duty"
    },
    "vehicle_duty_40k": {
-    "amount": null,
-    "note": "Not published here. RevenueSA blocks automated requests.",
-    "source": null
+    "amount": 1540,
+    "note": "Non-commercial vehicle: $60 plus $4 per $100 above $3,000.",
+    "source": "https://www.revenuesa.sa.gov.au/stamp-duty-vehicles/rates"
    }
   },
   {
@@ -237,33 +238,33 @@
   {
    "code": "NT",
    "insurance_duty": {
-    "note": "Not published here. The Territory Revenue Office blocks automated requests.",
-    "rate_pct": null,
-    "source": null
+    "note": "Of the premium. Life policies issued after 1 July 2015 are exempt.",
+    "rate_pct": 10.0,
+    "source": "https://nt.gov.au/employ/money-and-taxes/taxes-royalties-and-grants/stamp-duty/examples-of-duty-and-rates"
    },
    "land_tax": {
-    "note": "The Northern Territory levies no land tax at all. This is an absence of the tax, not a high threshold, and it is not yet confirmed against a primary source because the Territory Revenue Office blocks automated requests.",
-    "source": null,
+    "note": "The Northern Territory has no land tax. The Territory Revenue Office's list of revenue Acts it administers contains no land tax Act, which is why this cell is empty rather than zero.",
+    "source": "https://treasury.nt.gov.au/dtf/territory-revenue-office/legislation",
     "threshold": null,
     "top_rate_pct": null
    },
    "name": "Northern Territory",
    "payroll_tax": {
-    "note": "Sourced from payrolltax.gov.au, the harmonised site the jurisdictions publish jointly, because this revenue office refuses automated requests. Every other row on this page comes from the revenue office itself.",
+    "note": "The threshold rose from $1.5m to $2.5m in 2025-26.",
     "rate_pct": 5.5,
-    "source": "https://www.payrolltax.gov.au/harmonisation/payroll-tax-rates-and-thresholds",
-    "surcharge": "The threshold tapers away between $2.5m and $7.5m of wages.",
+    "source": "https://treasury.nt.gov.au/dtf/territory-revenue-office/payroll-tax/payroll-tax-rates-and-thresholds",
+    "surcharge": "A 6.5% rate applies to employers with Australia-wide wages of $100 million or more from 1 July 2026.",
     "threshold": 2500000
    },
    "transfer_duty_750k": {
-    "amount": null,
-    "note": "Not published here. The Territory Revenue Office blocks automated requests.",
-    "source": null
+    "amount": 37125,
+    "note": "A flat 4.95% applies between $525,000 and $3,000,000. Read from the Territory's own conveyance calculator, because the scale is not published as text.",
+    "source": "https://nt.gov.au/property/buying-and-selling-a-home/settle-the-sale/stamp-duty-buying-or-selling-a-home/conveyance-calculator"
    },
    "vehicle_duty_40k": {
-    "amount": null,
-    "note": "Not published here. The Territory Revenue Office blocks automated requests.",
-    "source": null
+    "amount": 1200,
+    "note": "$3 per $100 of dutiable value, with no commercial split.",
+    "source": "https://treasury.nt.gov.au/dtf/territory-revenue-office/stamp-duty"
    }
   }
  ]
