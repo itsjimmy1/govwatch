@@ -2,6 +2,9 @@
 
 Loop log. Newest at top. One line per increment: date, what shipped, what's next.
 
+- 2026-09-08 — Patterns and States both pass review and are live. Five review rounds on the
+  two pages; every blocker was a mobile chart or table defect invisible at desktop width.
+  Second gate closed. Next: an OpenAustralia key for votes, then state legislation.
 - 2026-09-08 — All eight jurisdictions now sourced. SA and NT block automated requests at
   the edge regardless of user agent, so a real browser read them. Found an error of mine on
   the way: NT has a 6.5% payroll rate above $100m Australia-wide wages from 1 July 2026 that
