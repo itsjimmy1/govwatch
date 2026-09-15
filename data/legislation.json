@@ -507,9 +507,9 @@
    "year": 2026
   }
  ],
- "fetched": "2026-09-14",
- "instruments_in_force": 24270,
+ "fetched": "2026-09-15",
+ "instruments_in_force": 24265,
  "source": "https://api.prod.legislation.gov.au/v1/titles",
  "source_name": "Federal Register of Legislation (legislation.gov.au) OData API",
- "titles_total": 108469
+ "titles_total": 108477
 }
