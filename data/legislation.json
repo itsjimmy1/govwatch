@@ -1,6 +1,6 @@
 {
- "acts_in_force": 4773,
- "acts_total": 13744,
+ "acts_in_force": 4774,
+ "acts_total": 13745,
  "by_year": [
   {
    "acts": 17,
@@ -503,13 +503,13 @@
    "year": 2025
   },
   {
-   "acts": 94,
+   "acts": 95,
    "year": 2026
   }
  ],
- "fetched": "2026-10-18",
- "instruments_in_force": 24078,
+ "fetched": "2026-10-19",
+ "instruments_in_force": 24079,
  "source": "https://api.prod.legislation.gov.au/v1/titles",
  "source_name": "Federal Register of Legislation (legislation.gov.au) OData API",
- "titles_total": 108653
+ "titles_total": 108656
 }
