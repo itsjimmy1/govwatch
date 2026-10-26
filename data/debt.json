@@ -1,10 +1,6 @@
 {
  "by_fy": [
   {
-   "face_value_bn": 497.5,
-   "fy": "2016-17"
-  },
-  {
    "face_value_bn": 529.4,
    "fy": "2017-18"
   },
@@ -35,11 +31,15 @@
   {
    "face_value_bn": 895.6,
    "fy": "2024-25"
+  },
+  {
+   "face_value_bn": 935.4,
+   "fy": "2025-26"
   }
  ],
- "fetched": "2026-10-25",
- "latest_bn": 895.6,
- "latest_fy": "2024-25",
+ "fetched": "2026-10-26",
+ "latest_bn": 935.4,
+ "latest_fy": "2025-26",
  "note": "Face value of Australian Government Securities on issue at 30 June. AOFM cites the Final Budget Outcome, Table B.5. This is gross debt; it is not net debt and it excludes state borrowing.",
  "source": "https://www.aofm.gov.au/sites/default/files/2025-05-29/stock_ags.csv",
  "source_name": "Australian Office of Financial Management, AGS on issue (face value, general government sector)"
